@@ -60,6 +60,7 @@
 
 コンボの繋ぎについては以下のとおりに表記します。
 冗長さを回避するため、技名は表記せず、コマンドのみを表記します。
+コマンドは、各チームの最初に記載。
 \begin{screen}
 \begin{tabular}{ll}
  キャンセル無し&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $\longrightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
@@ -71,13 +72,12 @@
  $n$段目キャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $(n)$$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ 
 \end{tabular}
 \end{screen}
-
-コマンドは、各チームの最初に記載。
 \begin{itembox}[l]{注意}
 \begin{itemize}
 \item コマンドについては通常投げは記載しません。コマンドは右向き時のものです。
 \item 前後の技との兼ね合いから、正規のコマンドで表記されていない技も有りますが、表記の通り入力すればコンボが成立します。
-\item コマンドに$(\downarrow$ $\swarrow)$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$ のように()がある場合、その部分を省略します。
+\item コマンドに$(\downarrow$ $\swarrow)$ $\leftarrow$ $\swarrow$ $\downarrow$
+$\searrow$ $\rightarrow$ のように()がある場合、その部分は省略可能です。
 \end{itemize}
 \end{itembox}
 
@@ -332,7 +332,7 @@
 				\hspace{-12pt}
 				\begin{tabular}[t]{lllll}
 					\multicolumn{5}{l}{
-						$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ $\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$(微タメ)\ \ \rbrack\ \ 
+					$\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$(微タメ)\ \ \rbrack\ \ 
 						%%弱75式→大蛇薙
 					}\\
 					☆☆☆☆☆&2PG&0\%&Damage&Stan\\	%%データ
@@ -496,6 +496,149 @@
 %%一つのクラスここまで
 \end{classify}
 \newpage
+\begin{classify}{(\rnum{3})}
+	%%一つのクラス
+	\class{
+		\begin{classify}{
+			\hspace{-12pt}
+			\begin{tabular}[t]{lllll}
+				\multicolumn{5}{l}{
+					\Cancel\ \ \lbrack\ \ \hado\ +\ $B$ \ \rbrack\ \ %%コマンド一式
+					%%弱75式
+				}
+			\end{tabular}
+			}
+			%%一つのクラス
+			\class{
+				\begin{classify}{
+					\hspace{-12pt}
+					\begin{tabular}[t]{lllll}
+						\multicolumn{5}{l}{
+							$\rightarrow$\ \ \lbrack\ \ \syoryu\ +\ $C$\ \ \rbrack\ \ %%コマンド一式
+							%%弱75式→強鬼
+						}\\
+						☆☆☆☆☆&0PG&0\%&Damage&Stan\\	%%データ
+						\multicolumn{5}{l}{
+							立Bからノーゲージはコレが限界。ドライブがあればここから伸ばす%%説明
+						}
+					\end{tabular}
+					}
+					%%一つのクラス
+					\class{
+						\hspace{-12pt}
+						\begin{tabular}[t]{lllll}
+							\multicolumn{5}{l}{
+								\DC \ \lbrack\ \ \hado\ +\ $B$\ \ \rbrack\ \ 
+								$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu\ +\ $B$\ \ \rbrack\ \ 
+								$\rightarrow$\ \ \lbrack\ \ \syoryu\ +\ $C$\ \ \rbrack\ \ %%コマンド一式
+								%%コンボルート
+							}\\
+							☆☆☆☆☆&0PG&50\%&Damage&Stan\\	%%データ
+							\multicolumn{5}{l}{
+								小技始動の割りには減る。余ったドライブをPGへ %%説明
+							}
+						\end{tabular}
+					}
+					%%一つのクラスここまで
+				\end{classify}
+			}
+			%%一つのクラスここまで
+		\end{classify}
+	}
+	%%一つのクラスここまで
+\end{classify}
+\newpage
 \subsection{紅丸}
 \subsection{大門}
+\newpage
+\part{餓狼チーム}
+\section{コマンド}
+\subsection{テリー}
+\begin{itembox}[l]{特殊技}
+\begin{tabular}{lll}
+ライジングアッパー&$\searrow$\ +\ $C$&\\
+バックナックル&$\rightarrow$\ +\ $A$&\\
+ターゲットコンボ？&$\downarrow$ $A$ \Cancel $\downarrow$ $C$
+\end{tabular}
+\end{itembox}
+\begin{itembox}[l]{必殺技}
+\begin{tabular}{lll}
+パワーウェイブ&\hado\ +\ $A$\ or\ $C$&弾判定・EX版弾貫通\\
+バーンナックル&\tatsu\ +\ $A$\ or\ $C$&\\
+クラックシュート&\tatsu $B$\ or\ $D$&EX版中段\\
+ライジングタックル&$\downarrow$\ タメ\ $\uparrow$\ +\ $A$\ or\ $C$&弱上半身無敵・強完全無敵
+\end{tabular}
+\end{itembox}
+\begin{itembox}[l]{超必殺技}
+\begin{tabular}{lll}
+パワーゲイザー&\tatsu $\swarrow$ $\rightarrow$\ +\ $A$\ or\ $C$&EX版カスヒット時追撃可能\\
+バスターウルフ&\hado\hado\ +\ $B$\ or\ $D$&カスヒット時追撃可能
+\end{tabular}
+\end{itembox}
+\begin{itembox}[l]{NEOMAX超必殺技}
+\begin{tabular}{lll}
+トリニティゲイザー&\hado\hado\ +$B\ D$&ヒット数不安定(2～4Hit)\\
+&&3Hit以上した場合追撃可
+\end{tabular}
+\end{itembox}
+\newpage
+\subsection{アンディ}
+\begin{itembox}[l]{特殊技}
+\begin{tabular}{lll}
+平手打ち&$\rightarrow$\ +\ $A$&\\
+ターゲットコンボ？&立$B$\ \Cancel\ 立$D$&必殺技キャンセル可
+\end{tabular}
+\end{itembox}
+\begin{itembox}[l]{必殺技}
+\begin{tabular}{lll}
+斬影拳&$\swarrow$ $\leftarrow$\ +\ $A$\ or\ $C$&相手の位置に応じて発生が変化\\
+空破弾&\yoga\ +\ $B$\ or\ $D$&EX版ガクラ値高い\\
+空破弾ブレーキング&(通常空破弾中)$B D$&\\
+飛翔拳&\tatsu\ +\ $A$\ or\ $C$&EX版弾貫通\\
+昇龍弾&\syoryu\ +\ $A$\ or\ $C$&弱上半身無敵・強完全無敵
+\end{tabular}
+\end{itembox}
+\begin{itembox}[l]{超必殺技}
+\begin{tabular}{lll}
+超裂破弾&\orochi\ +\ $B$\ or\ $D$&高めヒット時追撃可\\
+絶・飛翔拳&\ryuko\ +\ $A$\ or\ $C$&EX版無し・最終段スライドダウン
+\end{tabular}
+\end{itembox}
+
+\begin{itembox}[l]{NEOMAX必殺技}
+\begin{tabular}{lll}
+超☆神☆速☆斬影拳&\orochi\ +\ $A\ C$&発生と同時に無敵が切れる？\\
+&&空中可
+\end{tabular}
+\end{itembox}
+\newpage
+\subsection{ジョー}
+\begin{itembox}[l]{特殊技}
+\begin{tabular}{lll}
+ステップインミドルキック&$\rightarrow$\ +\ $B$&\\
+スライディング&$\searrow$\ +\ $B$&下段・爆裂拳でのみキャンセル可
+\end{tabular}
+\end{itembox}
+\begin{itembox}[l]{必殺技}
+\begin{tabular}{lll}
+ハリケーンアッパー&\yoga\ +\ $A$\ or\ $C$&EX版弾貫通 \times 3\\
+タイガーキック&\syoryu\ +\ $B$\ or\ $D$&EX版デカキャラ以外の\\
+&&しゃがみに二段目が当たらない\\
+スラッシュキック&\yoga\ +\ $B$\ or\ $D$&弱先端ガード時有利\\
+爆裂拳&$A$\ or\ $C$\ 連打&最速止めガード時有利\\
+爆裂フィニッシュ&(爆裂拳中)\tatsu\ +\ $A$\ or\ $C$&最終段スタン値10\\
+黄金のカカト&\tatsu\ +\ $B$\ or\ $D$&EX版ガードさせて有利
+\end{tabular}
+\end{itembox}
+\begin{itembox}[l]{超必殺技}
+\begin{tabular}{lll}
+スクリューアッパー&\hado\hado\ +\ $A$\ or\ $C$&弾貫通\\
+爆裂ハリケーンタイガーカカト&\ryuko\ +\ $A$\ or\ $C$&EX無し
+\end{tabular}
+\end{itembox}
+\begin{itembox}[l]{NEOMAX超必殺技}
+\begin{tabular}{lll}
+スクリューストレート&\hado\hado\ +\ $A\ C$&最終段以外ガーキャン不可
+\end{tabular}
+\end{itembox}
 \end{document}
