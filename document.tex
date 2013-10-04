@@ -1,0 +1,501 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass[a4j,11pt]{jarticle}
+\usepackage{ascmac}
+\usepackage{listings}
+\usepackage[dvips]{graphicx}
+\usepackage{eclclass}
+\usepackage{listings,jlisting}
+\usepackage{setspace}
+\setstretch{1}
+%%ローマ数字に変換
+%###
+\def\rnum#1{\expandafter{\romannumeral #1}} 
+\def\Rnum#1{\uppercase\expandafter{\romannumeral #1}} 
+\def\hado{$\downarrow$ $\searrow$ $\rightarrow$}%%波動コマンド
+\def\tatsu{$\downarrow$ $\swarrow$ $\leftarrow$}%%竜巻コマンド
+\def\syoryu{$\rightarrow$ $\downarrow$ $\searrow$}%%昇竜コマンド
+\def\gyakusyoryu{\leftarrow$ $\downarrow$ $\swarrow$}%%逆昇竜コマンド
+\def\yoga{$\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$}%%ヨガフレ
+\def\gyakuyoga{$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$}%%逆ヨガ
+\def\tenti{$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$}%%天地
+\def\ryuko{$\downarrow$ $\searrow$ $\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$}%%龍虎
+\def\orochi{$\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$}%%大蛇薙
+\def\ue{$uparrow$}
+\def\migiue{$nearrow$}
+\def\hidariue{$nwarrow$}
+\def\sita{$downarrow$}
+\def\hidarisita{$swarrow$}
+\def\migisita{$searrow$}
+\def\migi{$rightarrow$}
+\def\hidari{$leftarrow$}
+\def\Cancel{$\Longrightarrow$}
+\def\DC{DC$\Rightarrow$}
+\def\SC{SC$\Rightarrow$}
+\def\HC{HC$\Rightarrow$}
+\def\MAXC{MAX$\Rightarrow$}
+%%###
+%%タイトルとかの設定
+\title{KOF13コンボ一覧}
+\author{}
+
+\begin{document}
+\maketitle
+\tableofcontents % 目次が出現
+\newpage
+\part{概要}
+\section{このテキストについて}
+このテキストは、KOF13CLIMAX・家庭用・Steam Editionのコンボのほか、覚えておくと得するかもしれない程度の情報が記載されています。
+コンボの難易度も5段階で表記していますし、ダメージ・ゲージ使用量も明記してあるので、KOF13を始めた方は是非。
+\section{表記について}
+ボタンと表記の対応は以下のとおりです。
+
+\begin{screen}
+
+ 弱パンチ$\rightarrow$ $A$\ \ \ 強パンチ$\rightarrow$ $C$
+ 
+ 弱キック$\rightarrow$ $B$\ \ \ 強キック$\rightarrow$ $D$
+\end{screen}
+\vspace{11pt}
+
+コンボの繋ぎについては以下のとおりに表記します。
+冗長さを回避するため、技名は表記せず、コマンドのみを表記します。
+\begin{screen}
+\begin{tabular}{ll}
+ キャンセル無し&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $\longrightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
+ キャンセルする&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $\Longrightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
+ ドライブキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ DC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
+ スーパーキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ SC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
+ ハイパードライブキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ HC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
+ MAXキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ MAX$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
+ $n$段目キャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $(n)$$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ 
+\end{tabular}
+\end{screen}
+
+コマンドは、各チームの最初に記載。
+\begin{itembox}[l]{注意}
+\begin{itemize}
+\item コマンドについては通常投げは記載しません。コマンドは右向き時のものです。
+\item 前後の技との兼ね合いから、正規のコマンドで表記されていない技も有りますが、表記の通り入力すればコンボが成立します。
+\item コマンドに$(\downarrow$ $\swarrow)$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$ のように()がある場合、その部分を省略します。
+\end{itemize}
+\end{itembox}
+
+
+\newpage
+\part{日本チーム}
+\section{コマンド}
+\subsection{表京}
+%%特殊技
+\begin{itembox}[l]{特殊技}
+\begin{tabular}{lll}
+外式・轟斧\ 陽&$\rightarrow$\ +\ $B$&中段\\
+八拾八式&$\searrow$\ +\ $D$&下段・二段技・初段キャンセル可\\
+外式・奈落落とし&(空中で)$\swarrow$\ or\ $\downarrow$\ or\ $\searrow$\ +\ $C$&バクステ中も可・中段
+\end{tabular}
+\end{itembox}
+%%必殺技
+\begin{itembox}[l]{必殺技}
+\begin{tabular}{lll}
+百式・鬼焼き&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $A$\ or\ $C$&弱上半身無敵・強全身無敵\\
+百八式・闇払い&$\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$&飛び道具判定・EX版弾貫通\\ 
+百壱式・朧車&$\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ or\ $D$&EX版全身無敵\\
+弐百拾弐式・琴月\ 陽&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$&EX版コマ投げ\\
+七拾五式・改&$\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ or\ $D$&二段技・連続ガードではない
+\end{tabular}
+\end{itembox}
+%%超必殺技
+\begin{itembox}[l]{超必殺技}
+\begin{tabular}{lll}
+裏百八式・大蛇薙&$\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$& 空中可・弾貫通・溜め可
+\end{tabular}
+\end{itembox}
+%%NEOMAX超必殺技
+\begin{itembox}[l]{NEOMAX超必殺技}
+\begin{tabular}{lll}
+裏弐百拾壱式・天叢雲&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$&弾貫通・ヒット時のみ演出
+\end{tabular}
+\end{itembox}
+\newpage
+\subsection{紅丸}
+%%特殊技
+\begin{itembox}[l]{特殊技}
+\begin{tabular}{lll}
+ジャックナイフキック&$\rightarrow$ \ +\ $B$&下段無敵\\
+フライングドリル&(空中で)$\downarrow$\ +\ $D$&バクステからは不可
+\end{tabular}
+\end{itembox}
+%%必殺技
+\begin{itembox}[l]{必殺技}
+\begin{tabular}{lll}
+居合い蹴り&$\downarrow$ $\searrow$ $\rightarrow$ \ +\ $B$\ or\ $D$&GCABから確定反撃有り\\
+反動三段蹴り&(居合い蹴り中)$\downarrow$ $\uparrow$\ +\ $B$\ or\ $D$&ディレイ可\\
+スーパー稲妻キック&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $B$\ or\ $D$&弱上半身無敵？・強完全無敵\\
+紅丸ランサー&$\downarrow$ $\swarrow$ $\leftarrow$\ +\ $A$\ or\ $C$&EX版相手をサーチ\\
+雷靭拳&$\downarrow$ $\searrow$ $\rightarrow$ \ +\ $A$\ or\ $C$&空中可\\
+紅丸コレダー&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$\ +\ $A$\ or\ $C$&1F投げ
+\end{tabular}
+\end{itembox}
+%%超必殺技
+\begin{itembox}[l]{超必殺技}
+\begin{tabular}{lll}
+雷光拳&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$&EX全身無敵\\
+紅丸ローリングサンダー&$\downarrow$ $\swarrow$ $\leftarrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $A$\ or\ $C$&EX無し・全身無敵
+\end{tabular}
+\end{itembox}
+%%NEOMAX超必殺技
+\begin{itembox}[l]{NEOMAX超必殺技}
+\begin{tabular}{lll}
+雷皇拳&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B\ D$&方向キーで多少軌道が変化
+\end{tabular}
+\end{itembox}
+\newpage
+\subsection{大門}
+%%特殊技
+\begin{itembox}[l]{特殊技}
+\begin{tabular}{lll}
+頭上払い&$\searrow$\ +\ $C$&
+\end{tabular}
+\end{itembox}
+%%必殺技
+\begin{itembox}[l]{必殺技}
+\begin{tabular}{lll}
+天地返し&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$\ +\ $A$\ or\ $C$&1F投げ\\
+雲掴み投げ&$\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$&EX版無敵有り\\
+切り株返し&$\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $C$&EX版無し・ダウン追い打ち\\
+地雷震&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $A$&地震判定・EX版初段中段\\
+地雷震(フェイント)&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $C$&EX版無し・攻撃判定無し\\
+超受け身&$\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$&移動技・強/EX打撃無敵\\
+超大外刈り&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $B$\ or\ $D$&投げ技・発生まで無敵有り
+\end{tabular}
+\end{itembox}
+%%超必殺技
+\begin{itembox}[l]{超必殺技}
+\begin{tabular}{lll}
+地獄極楽落とし&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $A$\ or\ $C$&1F投げ
+\end{tabular}
+\end{itembox}
+%%NEOMAX超必殺技
+\begin{itembox}[l]{NEOMAX超必殺技}
+\begin{tabular}{lll}
+驚天動地&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$&当身技・MAXキャンセル時打撃技
+\end{tabular}
+\end{itembox}
+\newpage
+\section{コンボ}
+\subsection{表京}
+コンボ始動は以下のように書き換えます。
+\begin{itembox}[l]{基本コンボ始動技}
+\begin{tabular}{ll}
+\ \ \lbrack\ \ 近$C$\ \ \rbrack\ \ $\rightarrow$\ \ \lbrack\ \ $\searrow$ $D$\ \ \rbrack\ \ $(1)$&\rightarrow (\rnum{1})\\
+\ \ \lbrack\ \ $\downarrow$ $B$$\ \ \rbrack\ \ $ $\rightarrow$$\ \ \lbrack\ \ $ $\downarrow$ $A$$\ \ \rbrack\ \ $ $\rightarrow$ $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \ \rbrack\ \ $ $(1)$&$\rightarrow$ (\rnum{2})\\
+\ \ \lbrack\ \ $\downarrow$ $B$\ \ \rbrack\ \ $\times$ 1～2$\rightarrow$\ \ \lbrack\ \ 立$B$\ \ \rbrack\ \ &\rightarrow (\rnum{3)}
+\end{tabular}
+\end{itembox}
+\subsubsection{発動無し中央コンボ}
+\begin{classify}{ (\rnum{1})\ or\  (\rnum{2})}
+	\class{
+		\begin{classify}{\Longrightarrow\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $D$\ \ \rbrack\ \ }
+			\class{
+				\hspace{-12pt}
+				\begin{tabular}[t]{lllll}
+					\multicolumn{5}{l}{
+						$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ 
+						%%強75式→琴月
+					}\\
+					★☆☆☆☆&0PG&0\%&Damage&Stan\\
+					\multicolumn{5}{l}{
+						とりあえず安定。
+					}\\
+					\multicolumn{5}{l}{
+						ゲージ回収力・ダメージともに高く、強制ダウンも取れる。
+					}
+				\end{tabular}
+			}
+			\class{
+				\hspace{-12pt}
+				\begin{tabular}[t]{lllll}
+					\multicolumn{5}{l}{
+						$\rightarrow$\ \ \lbrack\ \ \leftarrow$ $\downarrow$ $\swarrow$\ +\ $D$\ \ \rbrack\ \ 
+						%%強75式→強朧
+					}\\
+					★☆☆☆☆&0PG&0\%&Damage&Stan\\
+					\multicolumn{5}{l}{
+						スタン値重視・運びもそこそこで強制ダウンも取れる。
+					}
+				\end{tabular}
+			}
+			\class{
+				\begin{classify}{
+					\hspace{-12pt}
+					\begin{tabular}[t]{lllll}
+						\multicolumn{5}{l}{
+							$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ 
+							%%強75式→弱朧
+						}
+					\end{tabular}
+				}
+				\class{
+					\hspace{-12pt}
+					\begin{tabular}[t]{lllll}
+						\multicolumn{5}{l}{
+							$\rightarrow$ \ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B\ D$\ \ \rbrack\ \ 
+							%%強75式→弱朧→EX朧
+						}\\
+						★☆☆☆☆&1PG&0\%&Damage&Stan\\
+						\multicolumn{5}{l}{
+							ほぼ端から端まで運べるルート。強制ダウン。
+						}
+					\end{tabular}
+				}
+				\class{
+					\hspace{-12pt}
+					\begin{tabular}[t]{lllll}
+						\multicolumn{5}{l}{
+							$\rightarrow$ \ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ $\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$(微タメ)\ \ \rbrack\ \ 
+							%%強75式→弱朧×2→EX大蛇薙
+						}\\
+						★☆☆☆☆&2PG&0\%&Damage&Stan\\
+						\multicolumn{5}{l}{
+							ちょいタメをすると発生が高速化することを利用したルート。
+						}\\
+						\multicolumn{5}{l}{
+							相手を倒しきれる時に。
+						}
+					\end{tabular}
+				}
+				\class{
+					\hspace{-12pt}
+					\begin{tabular}[t]{lllll}
+						\multicolumn{5}{l}{
+							$\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$\ \ \rbrack\ \ 
+							%%強75式→弱朧→EX大蛇薙
+						}\\
+						★☆☆☆☆&2PG&0\%&Damage&Stan\\
+						\multicolumn{5}{l}{
+							ちょいタメが難しい人向け。
+						}
+					\end{tabular}
+				}
+				\end{classify}
+			}
+			%%一つのクラス
+			\class{
+				\hspace{-12pt}
+				\begin{tabular}[t]{lllll}
+					\multicolumn{5}{l}{
+						$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$\ \ \rbrack\ \ 
+						%%強75式→大蛇薙
+					}\\
+					★☆☆☆☆&1PG&0\%&Damage&Stan\\
+					\multicolumn{5}{l}{
+						超必殺技を絡めるルート。
+					}\\
+					\multicolumn{5}{l}{
+						逆昇竜二回が難しい人はこちら。タメはしない
+					}
+				\end{tabular}
+			}
+			%%一つのクラスここまで
+		\end{classify}
+	}
+\end{classify}
+\newpage
+\begin{classify}{(\rnum{3})}
+	\class{
+		\begin{classify}{
+				\hspace{-12pt}
+					\begin{tabular}[t]{lllll}
+						\multicolumn{5}{l}{
+							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ \ \rbrack\ \ 
+							%%弱75式
+						}
+					\end{tabular}
+		}
+			%%一つのクラス
+			\class{
+				\hspace{-12pt}
+				\begin{tabular}[t]{lllll}
+					\multicolumn{5}{l}{
+						$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C(微タメ)\ \ \rbrack\ \ 
+						%%弱75式→大蛇薙
+					}\\
+					★☆☆☆☆&1PG&0\%&Damage&Stan\\
+					\multicolumn{5}{l}{
+						猶予がないので難易度は高い。
+					}\
+				\end{tabular}
+			}
+			%%一つのクラスここまで
+			%%一つのクラス
+			\class{
+				\hspace{-12pt}
+				\begin{tabular}[t]{lllll}
+					\multicolumn{5}{l}{
+						$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ $\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$(微タメ)\ \ \rbrack\ \ 
+						%%弱75式→大蛇薙
+					}\\
+					☆☆☆☆☆&2PG&0\%&Damage&Stan\\	%%データ
+					\multicolumn{5}{l}{
+						ちょいタメする必要があるが、通常大蛇薙よりは安定する。%%説明
+					}\\
+					\multicolumn{5}{l}{
+						倒しきりたい時などに%%説明
+					}
+				\end{tabular}
+			}
+%%一つのクラスここまで
+		\end{classify}
+	}
+	\class{
+			\hspace{-12pt}
+			\begin{tabular}[t]{lllll}
+				\multicolumn{5}{l}{
+					$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ 
+					%%琴月
+				}\\
+				★☆☆☆☆&0PG&0\%&Damage&Stan\\
+				\multicolumn{5}{l}{
+					キャンセルが遅いとつながらない場合もあるが、簡単。
+				}
+			\end{tabular}
+	}
+\end{classify}
+\subsubsection{発動無し端コンボ}
+\begin{classify}{(\rnum{1})\ or\  (\rnum{2})}
+%%一つのクラス
+	\class{
+		\begin{classify}{
+			\hspace{-12pt}
+			\begin{tabular}[t]{lllll}
+				\multicolumn{5}{l}{
+					\Longrightarrow\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $D$\ \ \rbrack\ \ 
+					$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$ \ +\ $B$\ \ \rbrack\ \ 
+					%%強75式→弱朧
+				}
+			\end{tabular}
+			}
+			%%一つのクラス
+			\class{
+				\begin{classify}{
+					\hspace{-12pt}
+					\begin{tabular}[t]{lllll}
+						\multicolumn{5}{l}{
+							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ \ \rbrack\ \ 
+							$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ 
+							$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\downarrow$ $\searrow$\ +\ $A$\ \ \rbrack\ \ %%コマンド一式
+							%%強75式→弱朧→弱75→弱朧→弱鬼
+						}\\
+						☆☆☆☆☆&0PG&0\%&Damage&Stan\\	%%データ
+						\multicolumn{5}{l}{
+							端でノーゲージならこれ。ほぼ1ゲージ回収する。
+						}
+					\end{tabular}
+				}
+					%%一つのクラス
+					\class{
+						\begin{classify}{
+							\hspace{-12pt}
+							\begin{tabular}[t]{lllll}
+								\multicolumn{5}{l}{
+									\SC \ \lbrack\ \ \orochi \ +\ $A\ C$\ \ \rbrack\ \ %%コマンド一式
+									$\rightarrow$\ \ \lbrack\ \ \hado \ +\ $A$\ \ \rbrack
+									%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇
+								}\\
+								\multicolumn{5}{l}{
+									弱鬼焼きの二段目を早めにキャンセルする。ちょっと忙しい。
+								}
+							\end{tabular}
+						}
+							%%一つのクラス
+							\class{
+								\hspace{-12pt}
+								\begin{tabular}[t]{lllll}
+									\multicolumn{5}{l}{
+										$\rightarrow$\ \ \lbrack\ \ \gyakuyoga \ +\ $B$\ or\ $D$\ \ \rbrack\ \ %%コマンド一式
+										%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇→琴月
+									}\\
+									☆☆☆☆☆&2PG&50\%&Damage&Stan\\	%%データ
+									\multicolumn{5}{l}{
+										ダメージ重視。こちらのほうがより早く動き始められる%%説明
+									}
+								\end{tabular}
+							}
+							%%一つのクラスここまで
+							%%一つのクラス
+							\class{
+								\hspace{-12pt}
+								\begin{tabular}[t]{lllll}
+									\multicolumn{5}{l}{
+										$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu \ +\ $D$\ \ \rbrack\ \ %%コマンド一式
+										%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇→強朧
+									}\\
+									☆☆☆☆☆&2PG&50\%&Damage&Stan\\	%%データ
+									\multicolumn{5}{l}{
+										スタン値重視%%説明
+									}
+								\end{tabular}
+							}
+							%%一つのクラスここまで
+						\end{classify}
+					}
+					%%一つのクラスここまで
+				\end{classify}
+			}
+			%%一つのクラスここまで
+			%%一つのクラス
+			\class{
+				\begin{classify}{
+				\hspace{-12pt}
+					\begin{tabular}[t]{lllll}
+						\multicolumn{5}{l}{
+							SC$\Rightarrow$\ \ \lbrack\ \ $(\downarrow$ $\swarrow)$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$\ \ \rbrack\ \ %%コマンド一式
+							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ \ \rbrack\ \ 
+							%%強75式→弱朧DC→空中大蛇薙→弱闇払い
+						}\\
+						\multicolumn{5}{l}{
+							前の弱朧で$\downarrow$ $\swarrow$までは入力されているのでこの入力でOK。
+						}\\
+					\end{tabular}
+				}
+					%%一つのクラス
+					\class{
+						\hspace{-12pt}
+						\begin{tabular}[t]{lllll}
+							\multicolumn{5}{l}{
+								$\rightarrow$\ \ \lbrack\ \ $\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ %%コマンド一式
+								%%強75式→弱朧DC→空中大蛇薙→弱闇払い→琴月
+							}\\
+							☆☆☆☆☆&1PG&50\%&Damage&Stan\\	%%データ
+							\multicolumn{5}{l}{
+								ダメージ重視。こちらのほうがより早く動き始められる%%説明
+							}
+						\end{tabular}
+					}
+					%%一つのクラスここまで
+					%%一つのクラス
+					\class{
+						\hspace{-12pt}
+						\begin{tabular}[t]{lllll}
+							\multicolumn{5}{l}{
+								$\rightarrow$\ \ \lbrack\ \ \leftarrow$ $\downarrow$ $\swarrow$\ +\ $D$\ \ \rbrack\ \ %%コマンド一式
+								%%強75式→弱朧DC→空中大蛇薙→弱闇払い→強朧
+							}\\
+							☆☆☆☆☆&1PG&50\%&Damage&Stan\\	%%データ
+							\multicolumn{5}{l}{
+								スタン値重視。%%説明
+							}
+						\end{tabular}
+					}
+					%%一つのクラスここまで
+				\end{classify}
+			}
+			%%一つのクラスここまで
+		\end{classify}
+	}
+%%一つのクラスここまで
+\end{classify}
+\newpage
+\subsection{紅丸}
+\subsection{大門}
+\end{document}
