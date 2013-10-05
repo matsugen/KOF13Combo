@@ -8,6 +8,7 @@
 \usepackage{listings,jlisting}
 \usepackage{setspace}
 \setstretch{1}
+\pagestyle{empty}
 %%ローマ数字に変換
 %###
 \def\rnum#1{\expandafter{\romannumeral #1}} 
@@ -43,12 +44,13 @@
 
 \begin{document}
 \maketitle
+\thispagestyle{empty}
 \tableofcontents % 目次が出現
 \newpage
 \part{概要}
 \section{このテキストについて}
 このテキストは、KOF13CLIMAX・家庭用・Steam Editionのコンボのほか、覚えておくと得するかもしれない程度の情報が記載されています。
-コンボの難易度も5段階で表記していますし、ダメージ・ゲージ使用量も明記してあるので、KOF13を始めた方は是非。
+コンボの難易度も5段階で表記していますし、ダメージ・ゲージ使用量も表記してあるので、KOF13を始めた方は是非。
 \section{表記について}
 ボタンと表記の対応は以下のとおりです。
 
@@ -80,6 +82,7 @@
 \item 前後の技との兼ね合いから、正規のコマンドで表記されていない技も有りますが、表記の通り入力すればコンボが成立します。
 \item コマンドに$(\downarrow$ $\swarrow)$ $\leftarrow$ $\swarrow$ $\downarrow$
 $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略可能です。
+\item 紙面の関係上、記載してあるダメージ・スタン値は、そのルート上で最大のダメージのみ記載しています。
 \end{itemize}
 \end{itembox}
 
@@ -197,16 +200,25 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 \subsubsection{発動無し中央コンボ}
 \begin{classify}{ (\rnum{1})\ or\  (\rnum{2})}
 	\class{
-		\begin{classify}{\Longrightarrow\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $D$\ \ \rbrack\ \ }
+		\begin{classify}{
+			\hspace{-12pt}
+			\begin{tabular}[t]{l}
+				\Cancel\ \ \lbrack\ \ \hado\ +\ $D$\ \ \rbrack\ \ \\
+				二段目ヒット時のみコンボが伸びる 
+			\end{tabular}
+		}
 			\class{
 				\hspace{-12pt}
-				\begin{tabular}[t]{lllll}
+				\begin{tabular}[t]{|lll|l|l|}
 					\multicolumn{5}{l}{
 						$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ 
 						%%強75式→琴月
 					}\\
-					★☆☆☆☆&0PG&0\%&Damage&Stan\\
-					\multicolumn{5}{l}{
+					\hline
+					★☆☆☆☆&0PG&0\% &Damage&Stan\\
+					\hline
+					&&&275&18\\
+						\hline\multicolumn{5}{l}{
 						とりあえず安定。
 					}\\
 					\multicolumn{5}{l}{
@@ -216,12 +228,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			}
 			\class{
 				\hspace{-12pt}
-				\begin{tabular}[t]{lllll}
+				\begin{tabular}[t]{|lll|l|l|}
 					\multicolumn{5}{l}{
 						$\rightarrow$\ \ \lbrack\ \ \leftarrow$ $\downarrow$ $\swarrow$\ +\ $D$\ \ \rbrack\ \ 
 						%%強75式→強朧
 					}\\
-					★☆☆☆☆&0PG&0\%&Damage&Stan\\
+					\hline
+					★☆☆☆☆&0PG&0\% &Damage&Stan\\
+					\hline
+					&&&261&38\\
+					\hline
 					\multicolumn{5}{l}{
 						スタン値重視・運びもそこそこで強制ダウンも取れる。
 					}
@@ -230,7 +246,7 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			\class{
 				\begin{classify}{
 					\hspace{-12pt}
-					\begin{tabular}[t]{lllll}
+					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ 
 							%%強75式→弱朧
@@ -239,12 +255,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 				}
 				\class{
 					\hspace{-12pt}
-					\begin{tabular}[t]{lllll}
+					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							$\rightarrow$ \ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B\ D$\ \ \rbrack\ \ 
 							%%強75式→弱朧→EX朧
 						}\\
-						★☆☆☆☆&1PG&0\%&Damage&Stan\\
+						\hline
+						★☆☆☆☆&1PG&0\% &Damage&Stan\\
+						\hline
+						&&&334&33\\
+						\hline
 						\multicolumn{5}{l}{
 							ほぼ端から端まで運べるルート。強制ダウン。
 						}
@@ -252,12 +272,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 				}
 				\class{
 					\hspace{-12pt}
-					\begin{tabular}[t]{lllll}
+					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							$\rightarrow$ \ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ $\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$(微タメ)\ \ \rbrack\ \ 
 							%%強75式→弱朧×2→EX大蛇薙
 						}\\
-						★☆☆☆☆&2PG&0\%&Damage&Stan\\
+						\hline
+						★☆☆☆☆&2PG&0\% &Damage&Stan\\
+						\hline
+						&&&464&28\\
+						\hline
 						\multicolumn{5}{l}{
 							ちょいタメをすると発生が高速化することを利用したルート。
 						}\\
@@ -268,12 +292,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 				}
 				\class{
 					\hspace{-12pt}
-					\begin{tabular}[t]{lllll}
+					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							$\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$\ \ \rbrack\ \ 
 							%%強75式→弱朧→EX大蛇薙
 						}\\
-						★☆☆☆☆&2PG&0\%&Damage&Stan\\
+						\hline
+						★☆☆☆☆&2PG&0\% &Damage&Stan\\
+						\hline
+						&&&452&23\\
+						\hline
 						\multicolumn{5}{l}{
 							ちょいタメが難しい人向け。
 						}
@@ -284,12 +312,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			%%一つのクラス
 			\class{
 				\hspace{-12pt}
-				\begin{tabular}[t]{lllll}
+				\begin{tabular}[t]{|lll|l|l|}
 					\multicolumn{5}{l}{
 						$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$\ \ \rbrack\ \ 
 						%%強75式→大蛇薙
 					}\\
-					★☆☆☆☆&1PG&0\%&Damage&Stan\\
+					\hline
+					★☆☆☆☆&1PG&0\% &Damage&Stan\\
+					\hline
+					&&&318&18\\
+					\hline
 					\multicolumn{5}{l}{
 						超必殺技を絡めるルート。
 					}\\
@@ -301,13 +333,32 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			%%一つのクラスここまで
 		\end{classify}
 	}
+	%%一つのクラス
+	\class{
+		\hspace{-12pt}
+		\begin{tabular}[t]{|lll|l|l|}
+			\multicolumn{5}{l}{
+				\Cancel\ \ \lbrack\ \ \gyakuyoga\ +\ $B$\ or\ $D$\ \ \rbrack\ \ %%コマンド一式
+				%琴月
+			}\\
+			\hline
+			★☆☆☆☆&0PG&0\% &Damage&Stan\\
+			\hline
+			&&&239&10\\
+			\hline
+			\multicolumn{5}{l}{
+				強75式の二段目が当たらないと判断したらコレ。%%説明
+			}
+		\end{tabular}
+	}
+	%%一つのクラスここまで
 \end{classify}
 \newpage
 \begin{classify}{(\rnum{3})}
 	\class{
 		\begin{classify}{
 				\hspace{-12pt}
-					\begin{tabular}[t]{lllll}
+					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ \ \rbrack\ \ 
 							%%弱75式
@@ -317,12 +368,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			%%一つのクラス
 			\class{
 				\hspace{-12pt}
-				\begin{tabular}[t]{lllll}
+				\begin{tabular}[t]{|lll|l|l|}
 					\multicolumn{5}{l}{
 						$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C(微タメ)\ \ \rbrack\ \ 
 						%%弱75式→大蛇薙
 					}\\
-					★☆☆☆☆&1PG&0\%&Damage&Stan\\
+					\hline
+					★☆☆☆☆&1PG&0\% &Damage&Stan\\
+					\hline
+					&&&299&17\\
+					\hline
 					\multicolumn{5}{l}{
 						猶予がないので難易度は高い。
 					}\
@@ -332,12 +387,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			%%一つのクラス
 			\class{
 				\hspace{-12pt}
-				\begin{tabular}[t]{lllll}
+				\begin{tabular}[t]{|lll|l|l|}
 					\multicolumn{5}{l}{
 					$\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$(微タメ)\ \ \rbrack\ \ 
 						%%弱75式→大蛇薙
 					}\\
-					☆☆☆☆☆&2PG&0\%&Damage&Stan\\	%%データ
+						\hline
+						★☆☆☆☆&2PG&0\% &Damage&Stan\\
+						\hline
+						&&&412&17\\
+						\hline
 					\multicolumn{5}{l}{
 						ちょいタメする必要があるが、通常大蛇薙よりは安定する。%%説明
 					}\\
@@ -351,12 +410,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 	}
 	\class{
 			\hspace{-12pt}
-			\begin{tabular}[t]{lllll}
+			\begin{tabular}[t]{|lll|l|l|}
 				\multicolumn{5}{l}{
 					$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ 
 					%%琴月
 				}\\
-				★☆☆☆☆&0PG&0\%&Damage&Stan\\
+				\hline
+				★☆☆☆☆&0PG&0\% &Damage&Stan\\
+				\hline
+				&&&218&9\\
+				\hline
 				\multicolumn{5}{l}{
 					キャンセルが遅いとつながらない場合もあるが、簡単。
 				}
@@ -369,7 +432,7 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 	\class{
 		\begin{classify}{
 			\hspace{-12pt}
-			\begin{tabular}[t]{lllll}
+			\begin{tabular}[t]{|lll|l|l|}
 				\multicolumn{5}{l}{
 					\Longrightarrow\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $D$\ \ \rbrack\ \ 
 					$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$ \ +\ $B$\ \ \rbrack\ \ 
@@ -381,14 +444,18 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			\class{
 				\begin{classify}{
 					\hspace{-12pt}
-					\begin{tabular}[t]{lllll}
+					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ \ \rbrack\ \ 
 							$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ 
 							$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\downarrow$ $\searrow$\ +\ $A$\ \ \rbrack\ \ %%コマンド一式
 							%%強75式→弱朧→弱75→弱朧→弱鬼
 						}\\
-						☆☆☆☆☆&0PG&0\%&Damage&Stan\\	%%データ
+						\hline
+						★☆☆☆☆&0PG&0\% &Damage&Stan\\
+						\hline
+						&&&304&43\\
+						\hline
 						\multicolumn{5}{l}{
 							端でノーゲージならこれ。ほぼ1ゲージ回収する。
 						}
@@ -398,7 +465,7 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 					\class{
 						\begin{classify}{
 							\hspace{-12pt}
-							\begin{tabular}[t]{lllll}
+							\begin{tabular}[t]{|lll|l|l|}
 								\multicolumn{5}{l}{
 									\SC \ \lbrack\ \ \orochi \ +\ $A\ C$\ \ \rbrack\ \ %%コマンド一式
 									$\rightarrow$\ \ \lbrack\ \ \hado \ +\ $A$\ \ \rbrack
@@ -412,12 +479,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 							%%一つのクラス
 							\class{
 								\hspace{-12pt}
-								\begin{tabular}[t]{lllll}
+								\begin{tabular}[t]{|lll|l|l|}
 									\multicolumn{5}{l}{
 										$\rightarrow$\ \ \lbrack\ \ \gyakuyoga \ +\ $B$\ or\ $D$\ \ \rbrack\ \ %%コマンド一式
 										%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇→琴月
 									}\\
-									☆☆☆☆☆&2PG&50\%&Damage&Stan\\	%%データ
+									\hline
+									★☆☆☆☆&2PG&50\% &Damage&Stan\\
+									\hline
+									&&&517&47\\
+									\hline
 									\multicolumn{5}{l}{
 										ダメージ重視。こちらのほうがより早く動き始められる%%説明
 									}
@@ -427,12 +498,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 							%%一つのクラス
 							\class{
 								\hspace{-12pt}
-								\begin{tabular}[t]{lllll}
+								\begin{tabular}[t]{|lll|l|l|}
 									\multicolumn{5}{l}{
 										$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu \ +\ $D$\ \ \rbrack\ \ %%コマンド一式
 										%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇→強朧
 									}\\
-									☆☆☆☆☆&2PG&50\%&Damage&Stan\\	%%データ
+									\hline
+									★☆☆☆☆&2PG&50\% &Damage&Stan\\
+									\hline
+									&&&511&67\\
+									\hline
 									\multicolumn{5}{l}{
 										スタン値重視%%説明
 									}
@@ -441,6 +516,36 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 							%%一つのクラスここまで
 						\end{classify}
 					}
+					%%一つのクラス
+					\class{
+						\hspace{-12pt}
+						\begin{tabular}[t]{|lll|l|l|}
+							\multicolumn{5}{l}{
+								\DC\ \ \lbrack\ \ \hado\ +\ $D$\ \ \rbrack\ \ %%コマンド一式
+								$\rightarrow$\ \ \lbrack\ \ 微歩き\hado\ +\ $B$ \ \rbrack\ \ 
+								%%コンボルート
+							}\\
+							\multicolumn{5}{l}{
+								$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu\ +\ $B$\ \ \rbrack\ \ 
+								$\rightarrow$\ \ \lbrack\ \ \ \syoryu\ +\ $A$\ or\ $C$\rbrack\ \ 
+							}\\
+							\hline
+							★☆☆☆☆&0PG&50\% &Damage&Stan\\
+							\hline
+							&&&381&65\\
+							\hline
+							\multicolumn{5}{l}{
+								歩き\hado$B$は、\hado の
+							}\\
+							\multicolumn{5}{l}{
+								\rightarrow いれっぱから歩いたのを見てから出すと簡単 %%説明
+							}\\
+							\multicolumn{5}{l}{
+								\hado\ $B$が低い打点だった場合は\syoryu\ $A$にする
+							}
+						\end{tabular}
+					}
+					%%一つのクラスここまで
 					%%一つのクラスここまで
 				\end{classify}
 			}
@@ -449,7 +554,7 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			\class{
 				\begin{classify}{
 				\hspace{-12pt}
-					\begin{tabular}[t]{lllll}
+					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							SC$\Rightarrow$\ \ \lbrack\ \ $(\downarrow$ $\swarrow)$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$\ \ \rbrack\ \ %%コマンド一式
 							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ \ \rbrack\ \ 
@@ -463,12 +568,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 					%%一つのクラス
 					\class{
 						\hspace{-12pt}
-						\begin{tabular}[t]{lllll}
+						\begin{tabular}[t]{|lll|l|l|}
 							\multicolumn{5}{l}{
 								$\rightarrow$\ \ \lbrack\ \ $\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ %%コマンド一式
 								%%強75式→弱朧DC→空中大蛇薙→弱闇払い→琴月
 							}\\
-							☆☆☆☆☆&1PG&50\%&Damage&Stan\\	%%データ
+							\hline
+							★☆☆☆☆&1PG&50\% &Damage&Stan\\
+							\hline
+							&&&459&27\\
+							\hline
 							\multicolumn{5}{l}{
 								ダメージ重視。こちらのほうがより早く動き始められる%%説明
 							}
@@ -478,12 +587,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 					%%一つのクラス
 					\class{
 						\hspace{-12pt}
-						\begin{tabular}[t]{lllll}
+						\begin{tabular}[t]{|lll|l|l|}
 							\multicolumn{5}{l}{
 								$\rightarrow$\ \ \lbrack\ \ \leftarrow$ $\downarrow$ $\swarrow$\ +\ $D$\ \ \rbrack\ \ %%コマンド一式
 								%%強75式→弱朧DC→空中大蛇薙→弱闇払い→強朧
 							}\\
-							☆☆☆☆☆&1PG&50\%&Damage&Stan\\	%%データ
+							\hline
+							★☆☆☆☆&1PG&50\% &Damage&Stan\\
+							\hline
+							&&&447&47\\
+							\hline
 							\multicolumn{5}{l}{
 								スタン値重視。%%説明
 							}
@@ -503,7 +616,7 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 	\class{
 		\begin{classify}{
 			\hspace{-12pt}
-			\begin{tabular}[t]{lllll}
+			\begin{tabular}[t]{|lll|l|l|}
 				\multicolumn{5}{l}{
 					\Cancel\ \ \lbrack\ \ \hado\ +\ $B$ \ \rbrack\ \ %%コマンド一式
 					%%弱75式
@@ -514,12 +627,16 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			\class{
 				\begin{classify}{
 					\hspace{-12pt}
-					\begin{tabular}[t]{lllll}
+					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							$\rightarrow$\ \ \lbrack\ \ \syoryu\ +\ $C$\ \ \rbrack\ \ %%コマンド一式
 							%%弱75式→強鬼
 						}\\
-						☆☆☆☆☆&0PG&0\%&Damage&Stan\\	%%データ
+						\hline
+						★☆☆☆☆&2PG&0\% &Damage&Stan\\
+						\hline
+						&&&235&23\\
+						\hline
 						\multicolumn{5}{l}{
 							立Bからノーゲージはコレが限界。ドライブがあればここから伸ばす%%説明
 						}
@@ -528,14 +645,18 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 					%%一つのクラス
 					\class{
 						\hspace{-12pt}
-						\begin{tabular}[t]{lllll}
+						\begin{tabular}[t]{|lll|l|l|}
 							\multicolumn{5}{l}{
 								\DC \ \lbrack\ \ \hado\ +\ $B$\ \ \rbrack\ \ 
 								$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu\ +\ $B$\ \ \rbrack\ \ 
 								$\rightarrow$\ \ \lbrack\ \ \syoryu\ +\ $C$\ \ \rbrack\ \ %%コマンド一式
 								%%コンボルート
 							}\\
-							☆☆☆☆☆&0PG&50\%&Damage&Stan\\	%%データ
+							\hline
+							★☆☆☆☆&1PG&50\% &Damage&Stan\\
+							\hline
+							&&&339&42\\
+							\hline
 							\multicolumn{5}{l}{
 								小技始動の割りには減る。余ったドライブをPGへ %%説明
 							}
@@ -545,6 +666,31 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 				\end{classify}
 			}
 			%%一つのクラスここまで
+	%%一つのクラス
+	\class{
+		\hspace{-12pt}
+		\begin{tabular}[t]{|lll|l|l|}
+			\multicolumn{5}{l}{
+				$\rightarrow$\ \ \lbrack\ \ \syoryu\ +\ $A$\ \ \rbrack\ \ %%コマンド一式
+				\SC\ \ \lbrack\ \ \orochi\ +\ $A\ C$\ \ \rbrack\ \ 
+				%%コンボルート
+			}\\
+			\multicolumn{5}{l}{
+				$\rightarrow$\ \ \lbrack\ \ \hado\ +\ $A$\ \ \rbrack\ \ 
+				$\rightarrow$\ \ \lbrack\ \ \hado\ +\ $A$\ \ \rbrack\ \ 
+				$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu\ +\ $D$\ \ \rbrack\ \ 
+			}\\
+			\hline
+			★☆☆☆☆&2PG&50\% &Damage&Stan\\
+			\hline
+			&&&503&52\\
+			\hline
+			\multicolumn{5}{l}{
+				1ゲージだと少し安くなりがちなので割愛。%%説明
+			}
+		\end{tabular}
+	}
+	%%一つのクラスここまで
 		\end{classify}
 	}
 	%%一つのクラスここまで
@@ -843,4 +989,77 @@ UAB&\gyakuyoga\gyakuyoga\ +\ $A$\ or\ $C$&1F投げ
 \newpage
 \subsection{クラーク}
 \newpage
+%%チーム名
+\part{女性格闘家チーム}
+\section{コマンド}
+\subsection{舞}
+\subsection{キング}
+\subsection{ユリ}
+\section{コンボ}
+\subsection{舞}
+\subsection{キング}
+\subsection{ユリ}
+%%1チームここまで
+\section{コマンド}
+\subsection{爪庵}
+\subsection{マチュア}
+\subsection{バイス}
+\section{コンボ}
+\subsection{爪庵}
+\subsection{マチュア}
+\subsection{バイス}
+\part{龍虎チーム}%%チーム名
+\section{コマンド}
+\subsection{リョウ}
+\subsection{ロバート}
+\subsection{タクマ}
+\section{コンボ}
+\subsection{リョウ}
+\subsection{ロバート}
+\subsection{タクマ}
+\part{キムチーム}%%チーム名
+\section{コマンド}
+\subsection{キム}
+\subsection{ホア}
+\subsection{ライデン}
+\section{コンボ}
+\subsection{キム}
+\subsection{ホア}
+\subsection{ライデン}
+\part{K'チーム}%%チーム名
+\section{コマンド}
+\subsection{K'}
+\subsection{クーラ}
+\subsection{マキシマ}
+\section{コンボ}
+\subsection{K'}
+\subsection{クーラ}
+\subsection{マキシマ}
+\part{エリザベートチーム}%%チーム名
+\section{コマンド}
+\subsection{エリザベート}
+\subsection{デュオロン}
+\subsection{シェン}
+\section{コンボ}
+\subsection{エリザベート}
+\subsection{デュオロン}
+\subsection{シェン}
+\part{エディットキャラクター}%%チーム名
+\section{コマンド}
+\subsection{ビリー}
+\subsection{アッシュ}
+\subsection{サイキ}
+\section{コンボ}
+\subsection{ビリー}
+\subsection{アッシュ}
+\subsection{サイキ}
+\part{裏キャラクター}%%チーム名
+\section{コマンド}
+\subsection{炎庵}
+\subsection{ネスツ京}
+\subsection{Mr.カラテ}
+\section{コンボ}
+\subsection{炎庵}
+\subsection{ネスツ京}
+\subsection{Mr.カラテ}
 \end{document}
