@@ -39,6 +39,9 @@
 \def\SC{SC$\Rightarrow$}
 \def\HC{HC$\Rightarrow$}
 \def\MAXC{MAX$\Rightarrow$}
+\def\starone{★☆☆}
+\def\startwo{★★☆}
+\def\starthree{★★★}
 %%###
 %%タイトルとかの設定
 \title{KOF13コンボ一覧}
@@ -191,22 +194,9 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 \newpage
 \section{コンボ}
 \subsection{表京}
-コンボ始動は以下のように書き換えます。
-\begin{itembox}[l]{基本コンボ始動技}
-\begin{tabular}{ll}
-\ \ \lbrack\ \ 近$C$\ \ \rbrack\ \ \Cancel\ \ \lbrack\ \ $\searrow$ $D$\ \
-\rbrack\ \ $(1)$&\rightarrow (\rnum{1})\\
-\ \ \lbrack\ \ $\downarrow$ $B$$\ \ \rbrack\ \ $ \Cancel$\ \ \lbrack\ \ $
-$\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
-\rbrack\ \ $ $(1)$&$\rightarrow$ (\rnum{2})\\
-\ \ \lbrack\ \ $\downarrow$ $B$\ \ \rbrack\ \ $\times$ 1～2\ \Cancel\ \ \lbrack\
-\ 立$B$\ \ \rbrack\ \ &\rightarrow (\rnum{3)}
-\end{tabular}
-\end{itembox}
 \subsubsection{発動無し中央コンボ}
-\begin{classify}{ (\rnum{1})\ or\  (\rnum{2})}
-	\class{
-		\begin{classify}{
+\begin{classify}{$\lbrack\ $近\ $C\ \rbrack$\ \Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$} \class{ \begin{classify}{
 			\hspace{-12pt}
 			\begin{tabular}[t]{l}
 				\Cancel\ \ \lbrack\ \ \hado\ +\ $D$\ \ \rbrack\ \ \\
@@ -221,11 +211,11 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 						%%強75式→琴月
 					}\\
 					\hline
-					★☆☆☆☆&0PG&0\% &Damage&Stan\\
+					\starthree&0PG&0\% &Damage&Stan\\
 					\hline
 					&&&275&18\\
 						\hline\multicolumn{5}{l}{
-						とりあえず安定。
+						一番最初に覚えるべき基礎コン。迷ったらコレ
 					}\\
 					\multicolumn{5}{l}{
 						ゲージ回収力・ダメージともに高く、強制ダウンも取れる。
@@ -240,7 +230,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 						%%強75式→強朧
 					}\\
 					\hline
-					★☆☆☆☆&0PG&0\% &Damage&Stan\\
+					\starthree&0PG&0\% &Damage&Stan\\
 					\hline
 					&&&261&38\\
 					\hline
@@ -267,10 +257,13 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 							%%強75式→弱朧→EX朧
 						}\\
 						\hline
-						★☆☆☆☆&1PG&0\% &Damage&Stan\\
+						\starthree &1PG&0\% &Damage&Stan\\
 						\hline
 						&&&334&33\\
 						\hline
+						\multicolumn{5}{l}{
+							1ゲージ基礎コン
+						}\\
 						\multicolumn{5}{l}{
 							ほぼ端から端まで運べるルート。強制ダウン。
 						}
@@ -284,7 +277,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 							%%強75式→弱朧×2→EX大蛇薙
 						}\\
 						\hline
-						★☆☆☆☆&2PG&0\% &Damage&Stan\\
+						\startwo&2PG&0\% &Damage&Stan\\
 						\hline
 						&&&464&28\\
 						\hline
@@ -304,7 +297,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 							%%強75式→弱朧→EX大蛇薙
 						}\\
 						\hline
-						★☆☆☆☆&2PG&0\% &Damage&Stan\\
+						\startwo&2PG&0\% &Damage&Stan\\
 						\hline
 						&&&452&23\\
 						\hline
@@ -324,7 +317,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 						%%強75式→大蛇薙
 					}\\
 					\hline
-					★☆☆☆☆&1PG&0\% &Damage&Stan\\
+					\starone&1PG&0\% &Damage&Stan\\
 					\hline
 					&&&318&18\\
 					\hline
@@ -348,7 +341,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 				%琴月
 			}\\
 			\hline
-			★☆☆☆☆&0PG&0\% &Damage&Stan\\
+			\startwo&0PG&0\% &Damage&Stan\\
 			\hline
 			&&&239&10\\
 			\hline
@@ -360,15 +353,26 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 	%%一つのクラスここまで
 \end{classify}
 \newpage
-\begin{classify}{(\rnum{3})}
-	\class{
+\begin{classify}{$\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1\ \sim\ 2$\
+\Cancel\ $\lbrack$\ 立\ $B\ \rbrack$} \class{
 		\begin{classify}{
 				\hspace{-12pt}
 					\begin{tabular}[t]{|lll|l|l|}
 						\multicolumn{5}{l}{
 							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ \ \rbrack\ \ 
 							%%弱75式
-						}
+						}\\
+					\hline
+					\starthree&0PG&0\%&Damage&Stan\\
+					\hline
+					&&&142&17\\
+					\hline
+					\multicolumn{5}{l}{
+						安いが簡単で状況も悪く無いので絶対覚える
+					}\\
+					\multicolumn{5}{l}{
+						無敵技・1F投げを持たない相手にはほぼノーリスク
+					}
 					\end{tabular}
 		}
 			%%一つのクラス
@@ -380,7 +384,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 						%%弱75式→大蛇薙
 					}\\
 					\hline
-					★☆☆☆☆&1PG&0\% &Damage&Stan\\
+					\starone&1PG&0\% &Damage&Stan\\
 					\hline
 					&&&299&17\\
 					\hline
@@ -395,11 +399,11 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 				\hspace{-12pt}
 				\begin{tabular}[t]{|lll|l|l|}
 					\multicolumn{5}{l}{
-					$\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$(微タメ)\ \ \rbrack\ \ 
+					$\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$\ \ \rbrack\ \ 
 						%%弱75式→大蛇薙
 					}\\
 						\hline
-						★☆☆☆☆&2PG&0\% &Damage&Stan\\
+						\startwo&2PG&0\% &Damage&Stan\\
 						\hline
 						&&&412&17\\
 						\hline
@@ -422,7 +426,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 					%%琴月
 				}\\
 				\hline
-				★☆☆☆☆&0PG&0\% &Damage&Stan\\
+				\starthree&0PG&0\% &Damage&Stan\\
 				\hline
 				&&&218&9\\
 				\hline
@@ -433,7 +437,8 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 	}
 \end{classify}
 \subsubsection{発動無し端コンボ}
-\begin{classify}{(\rnum{1})\ or\  (\rnum{2})}
+\begin{classify}{$\lbrack\ $近\ $C\ \rbrack$\ \Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$}
 %%一つのクラス
 	\class{
 		\begin{classify}{
@@ -458,7 +463,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 							%%強75式→弱朧→弱75→弱朧→弱鬼
 						}\\
 						\hline
-						★☆☆☆☆&0PG&0\% &Damage&Stan\\
+						\starthree&0PG&0\% &Damage&Stan\\
 						\hline
 						&&&304&43\\
 						\hline
@@ -491,7 +496,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 										%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇→琴月
 									}\\
 									\hline
-									★☆☆☆☆&2PG&50\% &Damage&Stan\\
+									\startwo&2PG&50\% &Damage&Stan\\
 									\hline
 									&&&517&47\\
 									\hline
@@ -510,7 +515,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 										%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇→強朧
 									}\\
 									\hline
-									★☆☆☆☆&2PG&50\% &Damage&Stan\\
+									\startwo&2PG&50\% &Damage&Stan\\
 									\hline
 									&&&511&67\\
 									\hline
@@ -536,7 +541,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 								$\rightarrow$\ \ \lbrack\ \ \ \syoryu\ +\ $A$\ or\ $C$\rbrack\ \ 
 							}\\
 							\hline
-							★☆☆☆☆&0PG&50\% &Damage&Stan\\
+							\startwo&0PG&50\% &Damage&Stan\\
 							\hline
 							&&&381&65\\
 							\hline
@@ -580,7 +585,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 								%%強75式→弱朧DC→空中大蛇薙→弱闇払い→琴月
 							}\\
 							\hline
-							★☆☆☆☆&1PG&50\% &Damage&Stan\\
+							\starthree&1PG&50\% &Damage&Stan\\
 							\hline
 							&&&459&27\\
 							\hline
@@ -599,7 +604,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 								%%強75式→弱朧DC→空中大蛇薙→弱闇払い→強朧
 							}\\
 							\hline
-							★☆☆☆☆&1PG&50\% &Damage&Stan\\
+							\starthree&1PG&50\% &Damage&Stan\\
 							\hline
 							&&&447&47\\
 							\hline
@@ -617,7 +622,8 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 %%一つのクラスここまで
 \end{classify}
 \newpage
-\begin{classify}{(\rnum{3})}
+\begin{classify}{$\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1\ \sim\ 2$\
+\Cancel\ $\lbrack$\ 立\ $B\ \rbrack$}
 	%%一つのクラス
 	\class{
 		\begin{classify}{
@@ -639,12 +645,12 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 							%%弱75式→強鬼
 						}\\
 						\hline
-						★☆☆☆☆&2PG&0\% &Damage&Stan\\
+						\starthree&2PG&0\% &Damage&Stan\\
 						\hline
 						&&&235&23\\
 						\hline
 						\multicolumn{5}{l}{
-							立Bからノーゲージはコレが限界。ドライブがあればここから伸ばす%%説明
+							端で弱75式が入れば必ず追撃する。ドライブがあればここから伸ばす%%説明
 						}
 					\end{tabular}
 					}
@@ -659,7 +665,7 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 								%%コンボルート
 							}\\
 							\hline
-							★☆☆☆☆&1PG&50\% &Damage&Stan\\
+							\starthree&1PG&50\% &Damage&Stan\\
 							\hline
 							&&&339&42\\
 							\hline
@@ -687,12 +693,15 @@ $\downarrow$ $A$$\ \ \rbrack\ \ $ \Cancel $\ \ \lbrack\ \ $ $\searrow$ $D$$\ \
 				$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu\ +\ $D$\ \ \rbrack\ \ 
 			}\\
 			\hline
-			★☆☆☆☆&2PG&50\% &Damage&Stan\\
+			\startwo&2PG&50\% &Damage&Stan\\
 			\hline
 			&&&503&52\\
 			\hline
 			\multicolumn{5}{l}{
 				1ゲージだと少し安くなりがちなので割愛。%%説明
+			}\\
+			\multicolumn{5}{l}{
+				できるだけ減らしたい時用%%説明
 			}
 		\end{tabular}
 	}
@@ -893,7 +902,8 @@ $\lbrack$\ 立\ $A\ \rbrack$\ or\ $\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1
 \begin{tabular}{lll}
 龍倒打&\hado\ +\ $A$\ or\ $C$&鱗徹掌へ派生\\
 鱗徹掌&(龍倒打中)\hado\ +\ $A$\ or\ $C$&疾走斬龍脚へ派生\\
-疾走斬龍脚&\hado\ +\ $B$\ or\ $D$&EX無し・鱗徹掌からも派生可\\
+疾走斬龍脚&\hado\ +\ $B$\ or\ $D$&単発のみEX版有り\\&&
+鱗徹掌からも派生可\\
 龍撲鼓&\syoryu\ +\ $A$\ or\ $C$&連打可・最終段で疲れる\\
 龍顎砕&\gyakusyoryu\ +\ $B$\ or\ $D$&強完全無敵\\
 龍爪撃&(空中で)\tatsu\ +\ $A$\ or\ $C$&ヒット時着地キャンセル可\\
