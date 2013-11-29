@@ -26,14 +26,14 @@
 \def\tenti{$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$}%%天地
 \def\ryuko{$\downarrow$ $\searrow$ $\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$}%%龍虎
 \def\orochi{$\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$}%%大蛇薙
-\def\ue{$uparrow$}
-\def\migiue{$nearrow$}
-\def\hidariue{$nwarrow$}
-\def\sita{$downarrow$}
-\def\hidarisita{$swarrow$}
-\def\migisita{$searrow$}
-\def\migi{$rightarrow$}
-\def\hidari{$leftarrow$}
+\def\ue{$\uparrow$}
+\def\migiue{\$nearrow$}
+\def\hidariue{$\nwarrow$}
+\def\sita{$\downarrow$}
+\def\hidarisita{$\swarrow$}
+\def\migisita{$\searrow$}
+\def\migi{$\longrightarrow$}
+\def\hidari{$\leftarrow$}
 \def\Cancel{$\Longrightarrow$}
 \def\DC{DC$\Rightarrow$}
 \def\SC{SC$\Rightarrow$}
@@ -42,6 +42,9 @@
 \def\starone{★☆☆}
 \def\startwo{★★☆}
 \def\starthree{★★★}
+\def\command#1{$\lbrack$\ #1\ $\rbrack$}
+\newcommand{\bhline}[1]{\noalign{\hrule height #1}} 
+\newcommand{\bvline}[1]{\vrule width #1}  
 %%###
 %%タイトルとかの設定
 \title{KOF13コンボ一覧}
@@ -54,8 +57,9 @@
 \newpage
 \part{概要}
 \section{このテキストについて}
-このテキストは、KOF13CLIMAX・家庭用・Steam Editionのコンボのほか、覚えておくと得するかもしれない程度の情報が記載されています。
-コンボの難易度も5段階で表記していますし、ダメージ・ゲージ使用量も表記してあるので、KOF13を始めた方は是非。
+このテキストは、KOF13CLIMAX・家庭用・Steam
+Editionの発動を使わない基礎コンボのほか、覚えておくと得するかもしれない程度の情報が記載されています。
+
 \section{表記について}
 ボタンと表記の対応は以下のとおりです。
 
@@ -76,9 +80,8 @@
  キャンセルする&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $\Longrightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
  ドライブキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ DC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
  スーパーキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ SC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
- ハイパードライブキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ HC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
- MAXキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ MAX$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
- $n$段目キャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $(n)$$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ 
+ $n$段目キャンセル&\ \ \lbrack\ \ コマンド$(n)$\ \ \rbrack\ \ $\Rightarrow$\ \ \lbrack\ \
+ コマンド\ \ \rbrack\ \
 \end{tabular}
 \end{screen}
 \begin{itembox}[l]{注意}
@@ -194,7 +197,64 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 \newpage
 \section{コンボ}
 \subsection{表京}
-\subsubsection{発動無し中央コンボ}
+\subsubsection{中央コンボ}
+\begingroup
+ \renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{13cm}|}\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 0\%
+}\\\bhline{2pt}
+コンボ&
+$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$)
+\Cancel\ \command{\hado\ +\ $D$}\\
+&\migi\ \command{\gyakuyoga\ +\ $B$\ or\ $D$
+}\\\hline
+補足&最初に覚えるべき基礎コンボ。ダメージ重視\\\bhline{2pt}
+\if0
+コンボ&
+$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$)
+\Cancel\ \command{\hado\ +\ $D$}
+\migi\ \command{\gyakusyoryu\ +\ $D$}\\\hline
+補足&最初に覚えるべき基礎コンボ2。スタン値重視\\\bhline{2pt}
+\fi
+コンボ&
+\command{\downarrow $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
+\Cancel\ \command{\hado\ +\ $B$}\\\hline
+補足&最初に覚えるべき小技始動コンボ1。ガード後\ $-1F$\\\bhline{2pt}
+コンボ&
+\command{\downarrow $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
+\Cancel\ \command{\gyakuyoga\ +\ $B$\ or\ $D$}\\\hline
+補足&最初に覚えるべき小技始動コンボ2。ダメージ重視\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 0\ \%
+}\\\bhline{2pt}
+コンボ&
+$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$)
+\Cancel\ \command{\hado\ +\ $D$}\\
+&\command{\gyakusyoryu\ +\ $B$\ }\ \migi \ \command{\gyakusyoryu\ +\ $BD$}
+\\\hline
+補足&最初に覚えるべき1ゲージコンボ1。端から端まで運べる\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 2本\ \ \ ドライブゲージ\ :\ 0\%
+}\\\bhline{2pt}
+コンボ&
+$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$)
+\Cancel\ \command{\hado\ +\ $D$}\\
+&\command{\gyakusyoryu\ +\ $B$\ }\ \migi \ \command{\orochi\ +\ $AC$}
+\\\hline
+補足&倒しきれる時用。タメ不要。端ではダメージ減\\\bhline{2pt}
+コンボ&
+\command{\downarrow $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
+\Cancel\ \command{\hado\ +\ $B$}\\
+&\command{\orochi\ +\ $AC$}\\\hline
+補足&倒しきれる時用の小技始動コンボ。タメ不要。端ではダメージ減\\\bhline{2pt}
+\end{tabular*}
+\endgroup
+\if0
 \begin{classify}{$\lbrack\ $近\ $C\ \rbrack$\ \Cancel\ $\lbrack\ \searrow\ D\ (\
 1\ )\rbrack$} \class{ \begin{classify}{
 			\hspace{-12pt}
@@ -436,7 +496,62 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 			\end{tabular}
 	}
 \end{classify}
-\subsubsection{発動無し端コンボ}
+\fi
+\newpage
+\subsubsection{端コンボ}
+\begingroup
+ \renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{13cm}|}\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 0\%
+}\\\bhline{2pt}
+コンボ&
+$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$)
+\Cancel\ \command{\hado\ +\ $D$}\\
+&\command{\gyakusyoryu\ +\ $B$}\ \migi\ \command{\hado\ +\ $B$}\ \migi\
+\command{\gyakusyoryu\ +\ $B$}\ \migi\ \command{\syoryu\ +\ $A$}\\\hline
+補足&端の基礎コンボ。できなくてもいいが、ゲージ回収多め\\\bhline{2pt}
+コンボ&
+\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
+\Cancel\ \command{\hado\ +\ $B$}\ \migi\ \command{\syoryu\ +\ $C$}\\\hline
+補足&端の小技始動基礎コンボ\\\bhline{2pt}
+\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 50\%
+}\\\bhline{2pt}
+コンボ&
+\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
+\Cancel\ \command{\hado\ +\ $B$}\ \migi\ \command{\syoryu\ +\ $C$}\\
+&\DC\ \command{\hado\ +\ $B$}\ \migi\ \command{\gyakusyoryu\ $B$}\ \migi\
+\command{\syoryu\ +\ $C$} \\\hline 
+補足&端の小技始動でドライブゲージを使うコンボ\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 50\%
+}\\\bhline{2pt}
+コンボ&
+$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$)
+\Cancel\ \command{\hado\ +\ $D$}\\
+&\migi\ \command{\gyakusyoryu\ +\ B}\ \SC\ \command{\orochi\ +$A$\ or\
+$C$}\\
+&\migi\ \command{\hado\ +\ A}\ \migi\ \command{\gyakuyoga\ +$B$\ or\
+$D$}\\\hline 補足&大蛇薙は\command{\yoga\ +\ $A$\ or\ $C$}で出る\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 2本\ \ \ ドライブゲージ\ :\ 50\%
+}\\\bhline{2pt}
+コンボ&
+$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+1\ )\rbrack$)
+\Cancel\ \command{\hado\ +\ $D$}\\
+&\command{\gyakusyoryu\ +\ $B$}\ \migi\ \command{\hado\ +\ $B$}\ \migi\
+\command{\gyakusyoryu\ +\ $B$}\ \migi\ \command{\syoryu\ +\ $A$}\\
+&\SC\ \command{\orochi\ +\ $AC$}\ \migi\ \command{\hado\ +\ $A$}\\
+&\command{\gyakuyoga\ +\ $B$\ or\ $D$}\\\hline
+補足&弱鬼焼きからの大蛇薙がやや忙しい。\\\bhline{2pt}
+\end{tabular*}
+\endgroup
+\if0
 \begin{classify}{$\lbrack\ $近\ $C\ \rbrack$\ \Cancel\ $\lbrack\ \searrow\ D\ (\
 1\ )\rbrack$}
 %%一つのクラス
@@ -621,7 +736,9 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 	}
 %%一つのクラスここまで
 \end{classify}
+\fi
 \newpage
+\if0
 \begin{classify}{$\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1\ \sim\ 2$\
 \Cancel\ $\lbrack$\ 立\ $B\ \rbrack$}
 	%%一つのクラス
@@ -710,29 +827,154 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 	}
 	%%一つのクラスここまで
 \end{classify}
+\fi
 \newpage
 \subsection{紅丸}
-コンボ始動は以下のように書き換えます。
-\begin{itembox}[l]{基本コンボ始動技}
-\begin{tabular}{ll}
-\lbrack\ 近\ $D\ \rbrack\ or\ \ \lbrack\ 近\ $C$\ \rbrack$&$\rightarrow$\
-(\rnum{1})\\
-\lbrack\ $\downarrow$\ $B\ \rbrack\ \times 1\ \sim\ 2$&$\rightarrow$\
-(\rnum{2})
-\end{tabular}
-\end{itembox}
-\subsubsection{発動なし中央コンボ}
-
+\subsubsection{中央コンボ}
+\begingroup
+ \renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{13cm}|}\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 0\%
+}\\\bhline{2pt}
+コンボ&
+\command{近 $C$\ or\ $D$}\ \Cancel\ \command{\tenti\ +\
+$A$\ or\ $C$}\\\hline
+補足&最初に覚えるべき基礎コンボ。入れ込み安全。\\\bhline{2pt}
+コンボ&
+\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
+$D$}\\\hline
+補足&最初に覚えるべき小技始動基礎コンボ。居合い蹴りまで出してノーゲージの反撃は少ない。\command{近\ $C$}、\command{近\
+$D$}で始動してもいい\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 0\%
+}\\\bhline{2pt}
+コンボ&
+\command{近 $C$\ or\ $D$}\ \Cancel\ \command{\tenti\ +$AC$}\ \migi
+\command{\tatsu\ $A$\ or\ $C$}\\
+&\ \migi\ \command{\hado\ +\ $B$\ or\ $D$}\ \Cancel\ \command{\downarrow\
+\uparrow\ +\ $B$\ or\ $D$}
+\\\hline
+補足&EX紅丸コレダー後は紅丸ランサーで追撃可。居合い蹴りを遅らせるとダメージが増える\\\bhline{2pt}
+コンボ&
+\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$AC$}\ \migi\ \command{\hado\ +\
+$B$\ or\ $D$}\\
+& \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
+$D$\ }
+\\\hline
+補足&EX雷靭拳後、前転か前中Jなどを挟むと運ぶ距離が増える\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 50\%
+}\\\bhline{2pt}
+コンボ&
+\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
+$D$\ (\ 1\ )\ }\\
+&\DC\ \command{\tatsu\ $A$\ or\ $C$}\ \migi\ \command{\hado\ +\
+$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
+$D$\ }\\\hline
+補足&ドライブゲージを使うコンボの場合は居合い蹴り～反動三段蹴りを使う。紅丸ランサー後の居合い蹴りを遅らせるとダメージが増える。
+\command{近\
+$C$}、\command{近\ $D$}で始動してもいい\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 50\%
+}\\\bhline{2pt}
+コンボ&
+\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
+$D$\ (\ 1\ )\ }\\
+&\DC\ \command{\tenti\ $AC$}\ \migi\ \command{\tatsu\ +\ $A$\ or\ $C$}\\
+&\migi\ \command{\hado\ +\
+$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
+$D$\ }\\\hline
+補足&上記２つのコンボの複合系。
+\command{近\
+$C$}、\command{近\ $D$}で始動してもいい\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 2本\ \ \ ドライブゲージ\ :\ 50\%
+}\\\bhline{2pt}
+コンボ&
+\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
+$D$\ (\ 1\ )\ }\\
+&\DC\ \command{\tatsu\ $A$\ or\ $C$}\ \migi\ \command{\hado\ \hado\ +\
+$AC$}\\\hline
+補足&\command{近\
+$C$}、\command{近\ $D$}で始動してもいい\\\hline\hline
+\end{tabular*}
+\endgroup
+%%一つのクラス
+\if0
+\begin{classify}{$\lbrack\ $近\ $\ D\ \rbrack$}
+	\class{
+		\hspace{-12pt}
+		\begin{tabular}[t]{|lll|l|l|}
+			\multicolumn{5}{l}{
+			\Cancel \ \ \lbrack\ \ \tenti\ A$\ or\ $C\ \ \rbrack\ \ 
+			%%→紅コレ
+			}\\
+			\hline
+			\startwo&2PG&50\% &Damage&Stan\\
+			\hline
+			&&&503&52\\
+			\hline
+			\multicolumn{5}{l}{
+			入れ込みOK。強制ダウンも取れる%%説明
+			}
+		\end{tabular}
+	}
+	\class{
+		\begin{classify}{
+			\hspace{-12pt}
+			\begin{tabular}[t]{|lll|l|l|}
+				\multicolumn{5}{l}{
+				\Cancel \ \ \lbrack\ \ \hado\ B$\ or\ $D\ \ \rbrack\ \ 
+				%%→居合い蹴り
+				}
+			\end{tabular}
+		}
+		\end{classify}
+	}
+%%一つのクラスここまで
+%%一つのクラスここまで
+\end{classify}
+\fi
+\newpage
+\subsubsection{端コンボ}
+\begingroup
+ \renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{13cm}|}\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 0\%
+}\\\bhline{2pt}
+コンボ&
+\command{(端に向かって)通常投げ}\ \migi\ \command{\hado\ +\
+$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
+$D$\ }\\\hline
+補足&端に向かって投げた場合は追撃が可能\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 50\%
+}\\\bhline{2pt}
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 0\%
+}\\\bhline{2pt}
+コンボ&
+\command{(端に向かって)通常投げ}\ \migi\ \command{\tatsu\ \tatsu\ +\ $A$\ or\
+$C$}\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 50\%
+}\\\bhline{2pt}
+\multicolumn{2}{|p{14.6cm}|}{
+パワーゲージ\ :\ 2本\ \ \ ドライブゲージ\ :\ 0\%
+}\\\bhline{2pt}
+コンボ&
+\command{(端に向かって)通常投げ}\ \migi\ \command{\hado\ \hado\ +\ $AC$}\\\hline\hline
+\end{tabular*}
+\endgroup
 \newpage
 \subsection{大門}
-\begin{itembox}[l]{基本コンボ始動技}
-\begin{tabular}{ll}
-\lbrack\ 近\ $C$\ \rbrack\ (\ \Cancel\ \lbrack\ $\searrow$\ $C$\ \rbrack\ )
-&$\rightarrow$\ (\rnum{1})\\
-(\ \lbrack\ 立$A\ \times 1\ \sim\ 2\ \rbrack$\ \Cancel\ )\ 立$B$&$\rightarrow$\
-(\rnum{2})
-\end{tabular}
-\end{itembox}
 \newpage
 \part{餓狼チーム}
 \section{コマンド}
