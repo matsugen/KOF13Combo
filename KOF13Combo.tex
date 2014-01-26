@@ -7,8 +7,24 @@
 \usepackage{eclclass}
 \usepackage{listings,jlisting}
 \usepackage{setspace}
+\usepackage{color}
 \setstretch{1}
 \pagestyle{empty}
+\usepackage{theorem}
+%%色作成
+\definecolor{DG}{cmyk}{0.64,0,0.95,0.4}
+\definecolor{PG}{cmyk}{0,0.7,1,0}
+\definecolor{Acolor}{cmyk}{0,1,0.5,0.2}
+\definecolor{Ccolor}{cmyk}{0,1,1,0.2}
+\definecolor{Bcolor}{cmyk}{1,0.5,0,0.2}
+\definecolor{Dcolor}{cmyk}{1,1,0,0.2}
+%%ゲージやボタンのマクロ
+\def\A{\textcolor{Acolor}{A}}
+\def\C{\textcolor{Ccolor}{C}}
+\def\B{\textcolor{Bcolor}{B}}
+\def\D{\textcolor{Dcolor}{D}}
+\def\PG#1{\textcolor{PG}{パワーゲージ\ :\ #1本}}
+\def\DG#1{\textcolor{DG}{ドライブゲージ\ :\ #1\%}}
 %%ローマ数字に変換
 %###
 \def\rnum#1{\expandafter{\romannumeral #1}} 
@@ -37,8 +53,8 @@
 \def\Cancel{$\Longrightarrow$}
 \def\DC{DC$\Rightarrow$}
 \def\SC{SC$\Rightarrow$}
-\def\HC{HC$\Rightarrow$}
-\def\MAXC{MAX$\Rightarrow$}
+\def\H\C{HC$\Rightarrow$}
+\def\MAX\C{MAX$\Rightarrow$}
 \def\starone{★☆☆}
 \def\startwo{★★☆}
 \def\starthree{★★★}
@@ -51,13 +67,15 @@
 \author{}
 
 \begin{document}
+\bfseries
+\mathversion{bold}
 \maketitle
 \thispagestyle{empty}
 \tableofcontents % 目次が出現
 \newpage
 \part{概要}
 \section{このテキストについて}
-このテキストは、KOF13CLIMAX・家庭用・Steam
+このテキストは、KOF13CLIMAX/家庭用/Steam
 Editionの発動を使わない基礎コンボのほか、覚えておくと得するかもしれない程度の情報が記載されています。
 
 \section{表記について}
@@ -65,9 +83,9 @@ Editionの発動を使わない基礎コンボのほか、覚えておくと得�
 
 \begin{screen}
 
- 弱パンチ$\rightarrow$ $A$\ \ \ 強パンチ$\rightarrow$ $C$
+ 弱パンチ$\rightarrow$ $\A$\ \ \ 強パンチ$\rightarrow$ $\C$
  
- 弱キック$\rightarrow$ $B$\ \ \ 強キック$\rightarrow$ $D$
+ 弱キック$\rightarrow$ $\B$\ \ \ 強キック$\rightarrow$ $\D$
 \end{screen}
 \vspace{11pt}
 
@@ -78,7 +96,7 @@ Editionの発動を使わない基礎コンボのほか、覚えておくと得�
 \begin{tabular}{ll}
  キャンセル無し&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $\longrightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
  キャンセルする&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ $\Longrightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
- ドライブキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ DC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
+ ドライブキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \DC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
  スーパーキャンセル&\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ SC$\Rightarrow$\ \ \lbrack\ \ コマンド\ \ \rbrack\ \ \\
  $n$段目キャンセル&\ \ \lbrack\ \ コマンド$(n)$\ \ \rbrack\ \ $\Rightarrow$\ \ \lbrack\ \
  コマンド\ \ \rbrack\ \
@@ -86,11 +104,10 @@ Editionの発動を使わない基礎コンボのほか、覚えておくと得�
 \end{screen}
 \begin{itembox}[l]{注意}
 \begin{itemize}
-\item コマンドについては通常投げは記載しません。コマンドは右向き時のものです。
-\item 前後の技との兼ね合いから、正規のコマンドで表記されていない技も有りますが、表記の通り入力すればコンボが成立します。
+\item コマンドは右向き時のものです。
+\item 混乱を避けるため位置が途中で入れ替わることコンボであっても、コマンドは右向き時のものを表記しています。
 \item コマンドに$(\downarrow$ $\swarrow)$ $\leftarrow$ $\swarrow$ $\downarrow$
 $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略可能です。
-\item 紙面の関係上、記載してあるダメージ・スタン値は、そのルート上で最大のダメージのみ記載しています。
 \end{itemize}
 \end{itembox}
 
@@ -102,31 +119,31 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 %%特殊技
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-外式・轟斧\ 陽&$\rightarrow$\ +\ $B$&中段\\
-八拾八式&$\searrow$\ +\ $D$&下段・二段技・初段キャンセル可\\
-外式・奈落落とし&(空中で)$\swarrow$\ or\ $\downarrow$\ or\ $\searrow$\ +\ $C$&バクステ中も可・中段
+外式・轟斧\ 陽&$\rightarrow$\ +\ $\B$&中段\\
+八拾八式&$\searrow$\ +\ $\D$&下段/二段技/初段キャンセル可\\
+外式・奈落落とし&(空中で)$\swarrow$\ or\ $\downarrow$\ or\ $\searrow$\ +\ $\C$&バクステ中も可/中段
 \end{tabular}
 \end{itembox}
 %%必殺技
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-百式・鬼焼き&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $A$\ or\ $C$&弱上半身無敵・強全身無敵\\
-百八式・闇払い&$\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$&飛び道具判定・EX版弾貫通\\ 
-百壱式・朧車&$\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ or\ $D$&EX版全身無敵\\
-弐百拾弐式・琴月\ 陽&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$&EX版コマ投げ\\
-七拾五式・改&$\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ or\ $D$&二段技・連続ガードではない
+百式・鬼焼き&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $\A$\ or\ $\C$&弱上半身無敵/強全身無敵\\
+百八式・闇払い&$\downarrow$ $\searrow$ $\rightarrow$\ +\ $\A$\ or\ $\C$&飛び道具判定/EX版弾貫通\\ 
+百壱式・朧車&$\leftarrow$ $\downarrow$ $\swarrow$\ +\ $\B$\ or\ $\D$&EX版全身無敵\\
+弐百拾弐式・琴月\ 陽&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $\B$\ or\ $\D$&EX版コマ投げ\\
+七拾五式・改&$\downarrow$ $\searrow$ $\rightarrow$\ +\ $\B$\ or\ $\D$&二段技/連続ガードではない
 \end{tabular}
 \end{itembox}
 %%超必殺技
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-裏百八式・大蛇薙&$\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$& 空中可・弾貫通・溜め可
+裏百八式・大蛇薙&$\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $\A$\ or\ $\C$& 空中可/弾貫通/溜め可
 \end{tabular}
 \end{itembox}
 %%NEOMAX超必殺技
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-裏弐百拾壱式・天叢雲&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$&弾貫通・ヒット時のみ演出
+裏弐百拾壱式・天叢雲&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $\A\ \C$&弾貫通/ヒット時のみ演出
 \end{tabular}
 \end{itembox}
 \newpage
@@ -134,32 +151,33 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 %%特殊技
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ジャックナイフキック&$\rightarrow$ \ +\ $B$&下段無敵\\
-フライングドリル&(空中で)$\downarrow$\ +\ $D$&バクステからは不可
+ジャックナイフキック&$\rightarrow$ \ +\ $\B$&下段無敵\\
+フライングドリル&(空中で)$\downarrow$\ +\ $\D$&バクステからは不可
 \end{tabular}
 \end{itembox}
 %%必殺技
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-居合い蹴り&$\downarrow$ $\searrow$ $\rightarrow$ \ +\ $B$\ or\ $D$&GCABから確定反撃有り\\
-反動三段蹴り&(居合い蹴り中)$\downarrow$ $\uparrow$\ +\ $B$\ or\ $D$&ディレイ可\\
-スーパー稲妻キック&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $B$\ or\ $D$&弱上半身無敵？・強完全無敵\\
-紅丸ランサー&$\downarrow$ $\swarrow$ $\leftarrow$\ +\ $A$\ or\ $C$&EX版相手をサーチ\\
-雷靭拳&$\downarrow$ $\searrow$ $\rightarrow$ \ +\ $A$\ or\ $C$&空中可\\
-紅丸コレダー&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$\ +\ $A$\ or\ $C$&1F投げ
+居合い蹴り&$\downarrow$ $\searrow$ $\rightarrow$ \ +\ $\B$\ or\ $\D$&GC\A\B
+から確定反撃有り\\
+反動三段蹴り&(居合い蹴り中)$\downarrow$ $\uparrow$\ +\ $\B$\ or\ $\D$&ディレイ可\\
+スーパー稲妻キック&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $\B$\ or\ $\D$&弱上半身無敵？/強完全無敵\\
+紅丸ランサー&$\downarrow$ $\swarrow$ $\leftarrow$\ +\ $\A$\ or\ $\C$&EX版相手をサーチ\\
+雷靭拳&$\downarrow$ $\searrow$ $\rightarrow$ \ +\ $\A$\ or\ $\C$&空中可\\
+紅丸コレダー&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$\ +\ $\A$\ or\ $\C$&1F投げ
 \end{tabular}
 \end{itembox}
 %%超必殺技
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-雷光拳&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$&EX全身無敵\\
-紅丸ローリングサンダー&$\downarrow$ $\swarrow$ $\leftarrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $A$\ or\ $C$&EX無し・全身無敵
+雷光拳&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $\A$\ or\ $\C$&EX全身無敵\\
+紅丸ローリングサンダー&$\downarrow$ $\swarrow$ $\leftarrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $\A$\ or\ $\C$&EX無し/全身無敵
 \end{tabular}
 \end{itembox}
 %%NEOMAX超必殺技
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-雷皇拳&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B\ D$&方向キーで多少軌道が変化
+雷皇拳&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $\B\ \D$&方向キーで多少軌道が変化
 \end{tabular}
 \end{itembox}
 \newpage
@@ -167,31 +185,31 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 %%特殊技
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-頭上払い&$\searrow$\ +\ $C$&
+頭上払い&$\searrow$\ +\ $\C$&
 \end{tabular}
 \end{itembox}
 %%必殺技
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-天地返し&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$\ +\ $A$\ or\ $C$&1F投げ\\
-雲掴み投げ&$\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$&EX版無敵有り\\
-切り株返し&$\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $C$&EX版無し・ダウン追い打ち\\
-地雷震&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $A$&地震判定・EX版初段中段\\
-地雷震(フェイント)&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $C$&EX版無し・攻撃判定無し\\
-超受け身&$\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$&移動技・強/EX打撃無敵\\
-超大外刈り&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $B$\ or\ $D$&投げ技・発生まで無敵有り
+天地返し&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$\ +\ $\A$\ or\ $\C$&1F投げ\\
+雲掴み投げ&$\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $\A$&EX版無敵有り\\
+切り株返し&$\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $\C$&EX版無し/ダウン追い打ち\\
+地雷震&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $\A$&地震判定/EX版初段中段\\
+地雷震(フェイント)&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $\C$&EX版無し/攻撃判定無し\\
+超受け身&$\downarrow$ $\swarrow$ $\leftarrow$\ +\ $\B$\ or\ $\D$&移動技/強/EX打撃無敵\\
+超大外刈り&$\rightarrow$ $\downarrow$ $\searrow$\ +\ $\B$\ or\ $\D$&投げ技/発生まで無敵有り
 \end{tabular}
 \end{itembox}
 %%超必殺技
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-地獄極楽落とし&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $A$\ or\ $C$&1F投げ
+地獄極楽落とし&$\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$ $\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $\A$\ or\ $\C$&1F投げ
 \end{tabular}
 \end{itembox}
 %%NEOMAX超必殺技
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-驚天動地&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$&当身技・MAXキャンセル時打撃技
+驚天動地&$\downarrow$ $\searrow$ $\rightarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $\A\ \C$&当身技/MAXキャンセル時打撃技
 \end{tabular}
 \end{itembox}
 \newpage
@@ -200,809 +218,365 @@ $\searrow$ $\rightarrow$ のように()がある場合、その部分は省略�
 \subsubsection{中央コンボ}
 \begingroup
  \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{13cm}|}\hline
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{12.9cm}|}\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 0\%
+\PG{0}\ \ \ \DG{0}
 }\\\bhline{2pt}
 コンボ&
-$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+$\lbrack\ $近\ $\C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ \D\ (\
 1\ )\rbrack$)
-\Cancel\ \command{\hado\ +\ $D$}\\
-&\migi\ \command{\gyakuyoga\ +\ $B$\ or\ $D$
+\Cancel\ \command{\hado\ +\ $\D$}\\
+&\migi\ \command{\gyakuyoga\ +\ $\B$\ or\ $\D$
 }\\\hline
 補足&最初に覚えるべき基礎コンボ。ダメージ重視\\\bhline{2pt}
-\if0
 コンボ&
-$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
-1\ )\rbrack$)
-\Cancel\ \command{\hado\ +\ $D$}
-\migi\ \command{\gyakusyoryu\ +\ $D$}\\\hline
-補足&最初に覚えるべき基礎コンボ2。スタン値重視\\\bhline{2pt}
-\fi
-コンボ&
-\command{\downarrow $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
-\Cancel\ \command{\hado\ +\ $B$}\\\hline
+\command{\downarrow $\B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$\B$}
+\Cancel\ \command{\hado\ +\ $\B$}\\\hline
 補足&最初に覚えるべき小技始動コンボ1。ガード後\ $-1F$\\\bhline{2pt}
 コンボ&
-\command{\downarrow $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
-\Cancel\ \command{\gyakuyoga\ +\ $B$\ or\ $D$}\\\hline
+\command{\downarrow $\B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$\B$}
+\Cancel\ \command{\gyakuyoga\ +\ $\B$\ or\ $\D$}\\\hline
 補足&最初に覚えるべき小技始動コンボ2。ダメージ重視\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 0\ \%
+\PG{1}\ \ \ \DG{0}
 }\\\bhline{2pt}
 コンボ&
-$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+$\lbrack\ $近\ $\C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ \D\ (\
 1\ )\rbrack$)
-\Cancel\ \command{\hado\ +\ $D$}\\
-&\command{\gyakusyoryu\ +\ $B$\ }\ \migi \ \command{\gyakusyoryu\ +\ $BD$}
-\\\hline
+\Cancel\ \command{\hado\ +\ $\D$}\\
+&\migi\ \command{\gyakusyoryu\ +\ $\B$\ }\ \migi \ \command{\gyakusyoryu\ +\
+$\B\D$} \\\hline
 補足&最初に覚えるべき1ゲージコンボ1。端から端まで運べる\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 2本\ \ \ ドライブゲージ\ :\ 0\%
+\PG{2}\ \ \ \DG{0}
 }\\\bhline{2pt}
 コンボ&
-$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+$\lbrack\ $近\ $\C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ \D\ (\
 1\ )\rbrack$)
-\Cancel\ \command{\hado\ +\ $D$}\\
-&\command{\gyakusyoryu\ +\ $B$\ }\ \migi \ \command{\orochi\ +\ $AC$}
+\Cancel\ \command{\hado\ +\ $\D$}\\
+& \migi\ \command{\gyakusyoryu\ +\ $\B$\ }\ \migi \ \command{\orochi\ +\ $\A\C$}
 \\\hline
 補足&倒しきれる時用。タメ不要。端ではダメージ減\\\bhline{2pt}
 コンボ&
-\command{\downarrow $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
-\Cancel\ \command{\hado\ +\ $B$}\\
-&\command{\orochi\ +\ $AC$}\\\hline
+\command{\downarrow $\B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$\B$}
+\Cancel\ \command{\hado\ +\ $\B$}\\
+&\migi\ \command{\orochi\ +\ $\A\C$}\\\hline
 補足&倒しきれる時用の小技始動コンボ。タメ不要。端ではダメージ減\\\bhline{2pt}
 \end{tabular*}
 \endgroup
-\if0
-\begin{classify}{$\lbrack\ $近\ $C\ \rbrack$\ \Cancel\ $\lbrack\ \searrow\ D\ (\
-1\ )\rbrack$} \class{ \begin{classify}{
-			\hspace{-12pt}
-			\begin{tabular}[t]{l}
-				\Cancel\ \ \lbrack\ \ \hado\ +\ $D$\ \ \rbrack\ \ \\
-				二段目ヒット時のみコンボが伸びる 
-			\end{tabular}
-		}
-			\class{
-				\hspace{-12pt}
-				\begin{tabular}[t]{|lll|l|l|}
-					\multicolumn{5}{l}{
-						$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ 
-						%%強75式→琴月
-					}\\
-					\hline
-					\starthree&0PG&0\% &Damage&Stan\\
-					\hline
-					&&&275&18\\
-						\hline\multicolumn{5}{l}{
-						一番最初に覚えるべき基礎コン。迷ったらコレ
-					}\\
-					\multicolumn{5}{l}{
-						ゲージ回収力・ダメージともに高く、強制ダウンも取れる。
-					}
-				\end{tabular}
-			}
-			\class{
-				\hspace{-12pt}
-				\begin{tabular}[t]{|lll|l|l|}
-					\multicolumn{5}{l}{
-						$\rightarrow$\ \ \lbrack\ \ \leftarrow$ $\downarrow$ $\swarrow$\ +\ $D$\ \ \rbrack\ \ 
-						%%強75式→強朧
-					}\\
-					\hline
-					\starthree&0PG&0\% &Damage&Stan\\
-					\hline
-					&&&261&38\\
-					\hline
-					\multicolumn{5}{l}{
-						スタン値重視・運びもそこそこで強制ダウンも取れる。
-					}
-				\end{tabular}
-			}
-			\class{
-				\begin{classify}{
-					\hspace{-12pt}
-					\begin{tabular}[t]{|lll|l|l|}
-						\multicolumn{5}{l}{
-							$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ 
-							%%強75式→弱朧
-						}
-					\end{tabular}
-				}
-				\class{
-					\hspace{-12pt}
-					\begin{tabular}[t]{|lll|l|l|}
-						\multicolumn{5}{l}{
-							$\rightarrow$ \ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B\ D$\ \ \rbrack\ \ 
-							%%強75式→弱朧→EX朧
-						}\\
-						\hline
-						\starthree &1PG&0\% &Damage&Stan\\
-						\hline
-						&&&334&33\\
-						\hline
-						\multicolumn{5}{l}{
-							1ゲージ基礎コン
-						}\\
-						\multicolumn{5}{l}{
-							ほぼ端から端まで運べるルート。強制ダウン。
-						}
-					\end{tabular}
-				}
-				\class{
-					\hspace{-12pt}
-					\begin{tabular}[t]{|lll|l|l|}
-						\multicolumn{5}{l}{
-							$\rightarrow$ \ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ $\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$(微タメ)\ \ \rbrack\ \ 
-							%%強75式→弱朧×2→EX大蛇薙
-						}\\
-						\hline
-						\startwo&2PG&0\% &Damage&Stan\\
-						\hline
-						&&&464&28\\
-						\hline
-						\multicolumn{5}{l}{
-							ちょいタメをすると発生が高速化することを利用したルート。
-						}\\
-						\multicolumn{5}{l}{
-							相手を倒しきれる時に。
-						}
-					\end{tabular}
-				}
-				\class{
-					\hspace{-12pt}
-					\begin{tabular}[t]{|lll|l|l|}
-						\multicolumn{5}{l}{
-							$\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$\ \ \rbrack\ \ 
-							%%強75式→弱朧→EX大蛇薙
-						}\\
-						\hline
-						\startwo&2PG&0\% &Damage&Stan\\
-						\hline
-						&&&452&23\\
-						\hline
-						\multicolumn{5}{l}{
-							ちょいタメが難しい人向け。
-						}
-					\end{tabular}
-				}
-				\end{classify}
-			}
-			%%一つのクラス
-			\class{
-				\hspace{-12pt}
-				\begin{tabular}[t]{|lll|l|l|}
-					\multicolumn{5}{l}{
-						$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$\ \ \rbrack\ \ 
-						%%強75式→大蛇薙
-					}\\
-					\hline
-					\starone&1PG&0\% &Damage&Stan\\
-					\hline
-					&&&318&18\\
-					\hline
-					\multicolumn{5}{l}{
-						超必殺技を絡めるルート。
-					}\\
-					\multicolumn{5}{l}{
-						逆昇竜二回が難しい人はこちら。タメはしない
-					}
-				\end{tabular}
-			}
-			%%一つのクラスここまで
-		\end{classify}
-	}
-	%%一つのクラス
-	\class{
-		\hspace{-12pt}
-		\begin{tabular}[t]{|lll|l|l|}
-			\multicolumn{5}{l}{
-				\Cancel\ \ \lbrack\ \ \gyakuyoga\ +\ $B$\ or\ $D$\ \ \rbrack\ \ %%コマンド一式
-				%琴月
-			}\\
-			\hline
-			\startwo&0PG&0\% &Damage&Stan\\
-			\hline
-			&&&239&10\\
-			\hline
-			\multicolumn{5}{l}{
-				強75式の二段目が当たらないと判断したらコレ。%%説明
-			}
-		\end{tabular}
-	}
-	%%一つのクラスここまで
-\end{classify}
-\newpage
-\begin{classify}{$\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1\ \sim\ 2$\
-\Cancel\ $\lbrack$\ 立\ $B\ \rbrack$} \class{
-		\begin{classify}{
-				\hspace{-12pt}
-					\begin{tabular}[t]{|lll|l|l|}
-						\multicolumn{5}{l}{
-							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ \ \rbrack\ \ 
-							%%弱75式
-						}\\
-					\hline
-					\starthree&0PG&0\%&Damage&Stan\\
-					\hline
-					&&&142&17\\
-					\hline
-					\multicolumn{5}{l}{
-						安いが簡単で状況も悪く無いので絶対覚える
-					}\\
-					\multicolumn{5}{l}{
-						無敵技・1F投げを持たない相手にはほぼノーリスク
-					}
-					\end{tabular}
-		}
-			%%一つのクラス
-			\class{
-				\hspace{-12pt}
-				\begin{tabular}[t]{|lll|l|l|}
-					\multicolumn{5}{l}{
-						$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C(微タメ)\ \ \rbrack\ \ 
-						%%弱75式→大蛇薙
-					}\\
-					\hline
-					\starone&1PG&0\% &Damage&Stan\\
-					\hline
-					&&&299&17\\
-					\hline
-					\multicolumn{5}{l}{
-						猶予がないので難易度は高い。
-					}\
-				\end{tabular}
-			}
-			%%一つのクラスここまで
-			%%一つのクラス
-			\class{
-				\hspace{-12pt}
-				\begin{tabular}[t]{|lll|l|l|}
-					\multicolumn{5}{l}{
-					$\rightarrow$ \ \ \lbrack\ \ $\downarrow$ $\swarrow$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A\ C$\ \ \rbrack\ \ 
-						%%弱75式→大蛇薙
-					}\\
-						\hline
-						\startwo&2PG&0\% &Damage&Stan\\
-						\hline
-						&&&412&17\\
-						\hline
-					\multicolumn{5}{l}{
-						ちょいタメする必要があるが、通常大蛇薙よりは安定する。%%説明
-					}\\
-					\multicolumn{5}{l}{
-						倒しきりたい時などに%%説明
-					}
-				\end{tabular}
-			}
-%%一つのクラスここまで
-		\end{classify}
-	}
-	\class{
-			\hspace{-12pt}
-			\begin{tabular}[t]{|lll|l|l|}
-				\multicolumn{5}{l}{
-					$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ 
-					%%琴月
-				}\\
-				\hline
-				\starthree&0PG&0\% &Damage&Stan\\
-				\hline
-				&&&218&9\\
-				\hline
-				\multicolumn{5}{l}{
-					キャンセルが遅いとつながらない場合もあるが、簡単。
-				}
-			\end{tabular}
-	}
-\end{classify}
-\fi
 \newpage
 \subsubsection{端コンボ}
 \begingroup
  \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{13cm}|}\hline
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{12.9cm}|}\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 0\%
+\PG{0}\ \ \ \DG{0}
 }\\\bhline{2pt}
 コンボ&
-$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+$\lbrack\ $近\ $\C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ \D\ (\
 1\ )\rbrack$)
-\Cancel\ \command{\hado\ +\ $D$}\\
-&\command{\gyakusyoryu\ +\ $B$}\ \migi\ \command{\hado\ +\ $B$}\ \migi\
-\command{\gyakusyoryu\ +\ $B$}\ \migi\ \command{\syoryu\ +\ $A$}\\\hline
+\Cancel\ \command{\hado\ +\ $\D$}\\
+&\command{\gyakusyoryu\ +\ $\B$}\ \migi\ \command{\hado\ +\ $\B$}\ \migi\
+\command{\gyakusyoryu\ +\ $\B$}\ \migi\ \command{\syoryu\ +\ $\A$}\\\hline
 補足&端の基礎コンボ。できなくてもいいが、ゲージ回収多め\\\bhline{2pt}
 コンボ&
-\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
-\Cancel\ \command{\hado\ +\ $B$}\ \migi\ \command{\syoryu\ +\ $C$}\\\hline
-補足&端の小技始動基礎コンボ\\\bhline{2pt}
-\hline\hline
+\command{\downarrow\ $\B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$\B$}
+\Cancel\ \command{\hado\ +\ $\B$}\ \migi\ \command{\syoryu\ +\ $\C$}\\\hline
+補足&端の小技始動基礎コンボ\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 50\%
+\PG{0}\ \ \ \DG{50}
 }\\\bhline{2pt}
 コンボ&
-\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$B$}
-\Cancel\ \command{\hado\ +\ $B$}\ \migi\ \command{\syoryu\ +\ $C$}\\
-&\DC\ \command{\hado\ +\ $B$}\ \migi\ \command{\gyakusyoryu\ $B$}\ \migi\
-\command{\syoryu\ +\ $C$} \\\hline 
+\command{\downarrow\ $\B$}\ $\times\ 1\ \sim\ 2$ \Cancel \command{立$\B$}
+\Cancel\ \command{\hado\ +\ $\B$}\ \migi\ \command{\syoryu\ +\ $\C$}\\
+&\DC\ \command{\hado\ +\ $\B$}\ \migi\ \command{\gyakusyoryu\ $\B$}\ \migi\
+\command{\syoryu\ +\ $\C$} \\\hline 
 補足&端の小技始動でドライブゲージを使うコンボ\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 50\%
+\PG{1}\ \ \ \DG{50}
 }\\\bhline{2pt}
 コンボ&
-$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+$\lbrack\ $近\ $\C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ \D\ (\
 1\ )\rbrack$)
-\Cancel\ \command{\hado\ +\ $D$}\\
-&\migi\ \command{\gyakusyoryu\ +\ B}\ \SC\ \command{\orochi\ +$A$\ or\
-$C$}\\
-&\migi\ \command{\hado\ +\ A}\ \migi\ \command{\gyakuyoga\ +$B$\ or\
-$D$}\\\hline 補足&大蛇薙は\command{\yoga\ +\ $A$\ or\ $C$}で出る\\\hline\hline
+\Cancel\ \command{\hado\ +\ $\D$}\\
+&\migi\ \command{\gyakusyoryu\ +\ \B}\ \SC\ \command{\orochi\ +$\A$\ or\
+$\C$}\\
+&\migi\ \command{\hado\ +\ \A}\ \migi\ \command{\gyakuyoga\ +$\B$\ or\
+$\D$}\\\hline 
+補足&大蛇薙は\command{\yoga\ +\ $\A$\ or\ $\C$}で出る\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 2本\ \ \ ドライブゲージ\ :\ 50\%
+\PG{2}\ \ \ \DG{50}
 }\\\bhline{2pt}
 コンボ&
-$\lbrack\ $近\ $C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ D\ (\
+$\lbrack\ $近\ $\C\ \rbrack$\ (\Cancel\ $\lbrack\ \searrow\ \D\ (\
 1\ )\rbrack$)
-\Cancel\ \command{\hado\ +\ $D$}\\
-&\command{\gyakusyoryu\ +\ $B$}\ \migi\ \command{\hado\ +\ $B$}\ \migi\
-\command{\gyakusyoryu\ +\ $B$}\ \migi\ \command{\syoryu\ +\ $A$}\\
-&\SC\ \command{\orochi\ +\ $AC$}\ \migi\ \command{\hado\ +\ $A$}\\
-&\command{\gyakuyoga\ +\ $B$\ or\ $D$}\\\hline
-補足&弱鬼焼きからの大蛇薙がやや忙しい。\\\bhline{2pt}
+\Cancel\ \command{\hado\ +\ $\D$}\\
+&\migi\ \command{\gyakusyoryu\ +\ $\B$}\ \migi\ \command{\hado\ +\ $\B$}\ \migi\
+\command{\gyakusyoryu\ +\ $\B$}\\
+&\migi\ \command{\syoryu\ +\ $\A$}\ \SC\ \command{\orochi\ +\ $\A\C$}\ \migi\
+\\&\command{\hado\ +\ $\A$}\ \migi\ \command{\gyakuyoga\ +\ $\B$\ or\
+$\D$}\\\hline 補足&弱鬼焼きからの大蛇薙がやや忙しい。\\\bhline{2pt}
 \end{tabular*}
 \endgroup
-\if0
-\begin{classify}{$\lbrack\ $近\ $C\ \rbrack$\ \Cancel\ $\lbrack\ \searrow\ D\ (\
-1\ )\rbrack$}
-%%一つのクラス
-	\class{
-		\begin{classify}{
-			\hspace{-12pt}
-			\begin{tabular}[t]{|lll|l|l|}
-				\multicolumn{5}{l}{
-					\Longrightarrow\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $D$\ \ \rbrack\ \ 
-					$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$ \ +\ $B$\ \ \rbrack\ \ 
-					%%強75式→弱朧
-				}
-			\end{tabular}
-			}
-			%%一つのクラス
-			\class{
-				\begin{classify}{
-					\hspace{-12pt}
-					\begin{tabular}[t]{|lll|l|l|}
-						\multicolumn{5}{l}{
-							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $B$\ \ \rbrack\ \ 
-							$\rightarrow$\ \ \lbrack\ \ $\leftarrow$ $\downarrow$ $\swarrow$\ +\ $B$\ \ \rbrack\ \ 
-							$\rightarrow$\ \ \lbrack\ \ \rightarrow$ $\downarrow$ $\searrow$\ +\ $A$\ \ \rbrack\ \ %%コマンド一式
-							%%強75式→弱朧→弱75→弱朧→弱鬼
-						}\\
-						\hline
-						\starthree&0PG&0\% &Damage&Stan\\
-						\hline
-						&&&304&43\\
-						\hline
-						\multicolumn{5}{l}{
-							端でノーゲージならこれ。ほぼ1ゲージ回収する。
-						}
-					\end{tabular}
-				}
-					%%一つのクラス
-					\class{
-						\begin{classify}{
-							\hspace{-12pt}
-							\begin{tabular}[t]{|lll|l|l|}
-								\multicolumn{5}{l}{
-									\SC \ \lbrack\ \ \orochi \ +\ $A\ C$\ \ \rbrack\ \ %%コマンド一式
-									$\rightarrow$\ \ \lbrack\ \ \hado \ +\ $A$\ \ \rbrack
-									%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇
-								}\\
-								\multicolumn{5}{l}{
-									弱鬼焼きの二段目を早めにキャンセルする。ちょっと忙しい。
-								}
-							\end{tabular}
-						}
-							%%一つのクラス
-							\class{
-								\hspace{-12pt}
-								\begin{tabular}[t]{|lll|l|l|}
-									\multicolumn{5}{l}{
-										$\rightarrow$\ \ \lbrack\ \ \gyakuyoga \ +\ $B$\ or\ $D$\ \ \rbrack\ \ %%コマンド一式
-										%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇→琴月
-									}\\
-									\hline
-									\startwo&2PG&50\% &Damage&Stan\\
-									\hline
-									&&&517&47\\
-									\hline
-									\multicolumn{5}{l}{
-										ダメージ重視。こちらのほうがより早く動き始められる%%説明
-									}
-								\end{tabular}
-							}
-							%%一つのクラスここまで
-							%%一つのクラス
-							\class{
-								\hspace{-12pt}
-								\begin{tabular}[t]{|lll|l|l|}
-									\multicolumn{5}{l}{
-										$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu \ +\ $D$\ \ \rbrack\ \ %%コマンド一式
-										%%強75式→弱朧→弱75→弱朧→弱鬼SC空中EX大蛇薙→弱闇→強朧
-									}\\
-									\hline
-									\startwo&2PG&50\% &Damage&Stan\\
-									\hline
-									&&&511&67\\
-									\hline
-									\multicolumn{5}{l}{
-										スタン値重視%%説明
-									}
-								\end{tabular}
-							}
-							%%一つのクラスここまで
-						\end{classify}
-					}
-					%%一つのクラス
-					\class{
-						\hspace{-12pt}
-						\begin{tabular}[t]{|lll|l|l|}
-							\multicolumn{5}{l}{
-								\DC\ \ \lbrack\ \ \hado\ +\ $D$\ \ \rbrack\ \ %%コマンド一式
-								$\rightarrow$\ \ \lbrack\ \ 微歩き\hado\ +\ $B$ \ \rbrack\ \ 
-								%%コンボルート
-							}\\
-							\multicolumn{5}{l}{
-								$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu\ +\ $B$\ \ \rbrack\ \ 
-								$\rightarrow$\ \ \lbrack\ \ \ \syoryu\ +\ $A$\ or\ $C$\rbrack\ \ 
-							}\\
-							\hline
-							\startwo&0PG&50\% &Damage&Stan\\
-							\hline
-							&&&381&65\\
-							\hline
-							\multicolumn{5}{l}{
-								歩き\hado$B$は、\hado の
-							}\\
-							\multicolumn{5}{l}{
-								\rightarrow いれっぱから歩いたのを見てから出すと簡単 %%説明
-							}\\
-							\multicolumn{5}{l}{
-								\hado\ $B$が低い打点だった場合は\syoryu\ $A$にする
-							}
-						\end{tabular}
-					}
-					%%一つのクラスここまで
-					%%一つのクラスここまで
-				\end{classify}
-			}
-			%%一つのクラスここまで
-			%%一つのクラス
-			\class{
-				\begin{classify}{
-				\hspace{-12pt}
-					\begin{tabular}[t]{|lll|l|l|}
-						\multicolumn{5}{l}{
-							SC$\Rightarrow$\ \ \lbrack\ \ $(\downarrow$ $\swarrow)$ $\leftarrow$ $\swarrow$ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ or\ $C$\ \ \rbrack\ \ %%コマンド一式
-							$\rightarrow$\ \ \lbrack\ \ $\downarrow$ $\searrow$ $\rightarrow$\ +\ $A$\ \ \rbrack\ \ 
-							%%強75式→弱朧DC→空中大蛇薙→弱闇払い
-						}\\
-						\multicolumn{5}{l}{
-							前の弱朧で$\downarrow$ $\swarrow$までは入力されているのでこの入力でOK。
-						}\\
-					\end{tabular}
-				}
-					%%一つのクラス
-					\class{
-						\hspace{-12pt}
-						\begin{tabular}[t]{|lll|l|l|}
-							\multicolumn{5}{l}{
-								$\rightarrow$\ \ \lbrack\ \ $\rightarrow$ $\searrow$ $\downarrow$ $\swarrow$ $\leftarrow$\ +\ $B$\ or\ $D$\ \ \rbrack\ \ %%コマンド一式
-								%%強75式→弱朧DC→空中大蛇薙→弱闇払い→琴月
-							}\\
-							\hline
-							\starthree&1PG&50\% &Damage&Stan\\
-							\hline
-							&&&459&27\\
-							\hline
-							\multicolumn{5}{l}{
-								ダメージ重視。こちらのほうがより早く動き始められる%%説明
-							}
-						\end{tabular}
-					}
-					%%一つのクラスここまで
-					%%一つのクラス
-					\class{
-						\hspace{-12pt}
-						\begin{tabular}[t]{|lll|l|l|}
-							\multicolumn{5}{l}{
-								$\rightarrow$\ \ \lbrack\ \ \leftarrow$ $\downarrow$ $\swarrow$\ +\ $D$\ \ \rbrack\ \ %%コマンド一式
-								%%強75式→弱朧DC→空中大蛇薙→弱闇払い→強朧
-							}\\
-							\hline
-							\starthree&1PG&50\% &Damage&Stan\\
-							\hline
-							&&&447&47\\
-							\hline
-							\multicolumn{5}{l}{
-								スタン値重視。%%説明
-							}
-						\end{tabular}
-					}
-					%%一つのクラスここまで
-				\end{classify}
-			}
-			%%一つのクラスここまで
-		\end{classify}
-	}
-%%一つのクラスここまで
-\end{classify}
-\fi
 \newpage
-\if0
-\begin{classify}{$\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1\ \sim\ 2$\
-\Cancel\ $\lbrack$\ 立\ $B\ \rbrack$}
-	%%一つのクラス
-	\class{
-		\begin{classify}{
-			\hspace{-12pt}
-			\begin{tabular}[t]{|lll|l|l|}
-				\multicolumn{5}{l}{
-					\Cancel\ \ \lbrack\ \ \hado\ +\ $B$ \ \rbrack\ \ %%コマンド一式
-					%%弱75式
-				}
-			\end{tabular}
-			}
-			%%一つのクラス
-			\class{
-				\begin{classify}{
-					\hspace{-12pt}
-					\begin{tabular}[t]{|lll|l|l|}
-						\multicolumn{5}{l}{
-							$\rightarrow$\ \ \lbrack\ \ \syoryu\ +\ $C$\ \ \rbrack\ \ %%コマンド一式
-							%%弱75式→強鬼
-						}\\
-						\hline
-						\starthree&2PG&0\% &Damage&Stan\\
-						\hline
-						&&&235&23\\
-						\hline
-						\multicolumn{5}{l}{
-							端で弱75式が入れば必ず追撃する。ドライブがあればここから伸ばす%%説明
-						}
-					\end{tabular}
-					}
-					%%一つのクラス
-					\class{
-						\hspace{-12pt}
-						\begin{tabular}[t]{|lll|l|l|}
-							\multicolumn{5}{l}{
-								\DC \ \lbrack\ \ \hado\ +\ $B$\ \ \rbrack\ \ 
-								$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu\ +\ $B$\ \ \rbrack\ \ 
-								$\rightarrow$\ \ \lbrack\ \ \syoryu\ +\ $C$\ \ \rbrack\ \ %%コマンド一式
-								%%コンボルート
-							}\\
-							\hline
-							\starthree&1PG&50\% &Damage&Stan\\
-							\hline
-							&&&339&42\\
-							\hline
-							\multicolumn{5}{l}{
-								小技始動の割りには減る。余ったドライブをPGへ %%説明
-							}
-						\end{tabular}
-					}
-					%%一つのクラスここまで
-				\end{classify}
-			}
-			%%一つのクラスここまで
-	%%一つのクラス
-	\class{
-		\hspace{-12pt}
-		\begin{tabular}[t]{|lll|l|l|}
-			\multicolumn{5}{l}{
-				$\rightarrow$\ \ \lbrack\ \ \syoryu\ +\ $A$\ \ \rbrack\ \ %%コマンド一式
-				\SC\ \ \lbrack\ \ \orochi\ +\ $A\ C$\ \ \rbrack\ \ 
-				%%コンボルート
-			}\\
-			\multicolumn{5}{l}{
-				$\rightarrow$\ \ \lbrack\ \ \hado\ +\ $A$\ \ \rbrack\ \ 
-				$\rightarrow$\ \ \lbrack\ \ \hado\ +\ $A$\ \ \rbrack\ \ 
-				$\rightarrow$\ \ \lbrack\ \ \gyakusyoryu\ +\ $D$\ \ \rbrack\ \ 
-			}\\
-			\hline
-			\startwo&2PG&50\% &Damage&Stan\\
-			\hline
-			&&&503&52\\
-			\hline
-			\multicolumn{5}{l}{
-				1ゲージだと少し安くなりがちなので割愛。%%説明
-			}\\
-			\multicolumn{5}{l}{
-				できるだけ減らしたい時用%%説明
-			}
-		\end{tabular}
-	}
-	%%一つのクラスここまで
-		\end{classify}
-	}
-	%%一つのクラスここまで
-\end{classify}
-\fi
 \newpage
 \subsection{紅丸}
 \subsubsection{中央コンボ}
 \begingroup
  \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{13cm}|}\hline
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{12.9cm}|}\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 0\%
+\PG{0}\ \ \ \DG{0}
 }\\\bhline{2pt}
 コンボ&
-\command{近 $C$\ or\ $D$}\ \Cancel\ \command{\tenti\ +\
-$A$\ or\ $C$}\\\hline
+\command{近 $\C$\ or\ $\D$}\ \Cancel\ \command{\tenti\ +\
+$\A$\ or\ $\C$}\\\hline
 補足&最初に覚えるべき基礎コンボ。入れ込み安全。\\\bhline{2pt}
 コンボ&
-\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
-$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
-$D$}\\\hline
-補足&最初に覚えるべき小技始動基礎コンボ。居合い蹴りまで出してノーゲージの反撃は少ない。\command{近\ $C$}、\command{近\
-$D$}で始動してもいい\\\hline\hline
+\command{\downarrow\ $\B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$}\\\hline
+補足&最初に覚えるべき小技始動基礎コンボ。居合い蹴りまで出してノーゲージの反撃は少ない。\command{近\ $\C$}、\command{近\
+$\D$}で始動してもいい\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 0\%
+\PG{1}\ \ \ \DG{0}
 }\\\bhline{2pt}
 コンボ&
-\command{近 $C$\ or\ $D$}\ \Cancel\ \command{\tenti\ +$AC$}\ \migi
-\command{\tatsu\ $A$\ or\ $C$}\\
-&\ \migi\ \command{\hado\ +\ $B$\ or\ $D$}\ \Cancel\ \command{\downarrow\
-\uparrow\ +\ $B$\ or\ $D$}
+\command{近 $\C$\ or\ $\D$}\ \Cancel\ \command{\tenti\ +$\A\C$}\ \migi
+\command{\tatsu\ $\A$\ or\ $\C$}\\
+&\ \migi\ \command{\hado\ +\ $\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\
+\uparrow\ +\ $\B$\ or\ $\D$}
 \\\hline
 補足&EX紅丸コレダー後は紅丸ランサーで追撃可。居合い蹴りを遅らせるとダメージが増える\\\bhline{2pt}
 コンボ&
-\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
-$AC$}\ \migi\ \command{\hado\ +\
-$B$\ or\ $D$}\\
-& \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
-$D$\ }
+\command{\downarrow\ $\B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$\A\C$}\ \migi\ \command{\hado\ +\
+$\B$\ or\ $\D$}\\
+& \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ }
 \\\hline
 補足&EX雷靭拳後、前転か前中Jなどを挟むと運ぶ距離が増える\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 50\%
+\PG{0}\ \ \ \DG{50}
 }\\\bhline{2pt}
 コンボ&
-\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
-$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
-$D$\ (\ 1\ )\ }\\
-&\DC\ \command{\tatsu\ $A$\ or\ $C$}\ \migi\ \command{\hado\ +\
-$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
-$D$\ }\\\hline
+\command{\downarrow\ $\B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ (\ 1\ )\ }\\
+&\DC\ \command{\tatsu\ $\A$\ or\ $\C$}\ \migi\ \command{\hado\ +\
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ }\\\hline
 補足&ドライブゲージを使うコンボの場合は居合い蹴り～反動三段蹴りを使う。紅丸ランサー後の居合い蹴りを遅らせるとダメージが増える。
 \command{近\
-$C$}、\command{近\ $D$}で始動してもいい\\\hline\hline
+$\C$}、\command{近\ $\D$}で始動してもいい\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 50\%
+\PG{1}\ \ \ \DG{50}
 }\\\bhline{2pt}
 コンボ&
-\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
-$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
-$D$\ (\ 1\ )\ }\\
-&\DC\ \command{\tenti\ $AC$}\ \migi\ \command{\tatsu\ +\ $A$\ or\ $C$}\\
+\command{\downarrow\ $\B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ (\ 1\ )\ }\\
+&\DC\ \command{\tenti\ $\A\C$}\ \migi\ \command{\tatsu\ +\ $\A$\ or\ $\C$}\\
 &\migi\ \command{\hado\ +\
-$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
-$D$\ }\\\hline
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ }\\\hline
 補足&上記２つのコンボの複合系。
 \command{近\
-$C$}、\command{近\ $D$}で始動してもいい\\\hline\hline
+$\C$}、\command{近\ $\D$}で始動してもいい\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 2本\ \ \ ドライブゲージ\ :\ 50\%
+\PG{2}\ \ \ \DG{50}
 }\\\bhline{2pt}
 コンボ&
-\command{\downarrow\ $B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
-$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
-$D$\ (\ 1\ )\ }\\
-&\DC\ \command{\tatsu\ $A$\ or\ $C$}\ \migi\ \command{\hado\ \hado\ +\
-$AC$}\\\hline
+\command{\downarrow\ $\B$}\ $\times\ 1\ \sim\ 2$\ \Cancel\ \command{\hado\ +\
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ (\ 1\ )\ }\\
+&\DC\ \command{\tatsu\ $\A$\ or\ $\C$}\ \migi\ \command{\hado\ \hado\ +\
+$\A\C$}\\\hline
 補足&\command{近\
-$C$}、\command{近\ $D$}で始動してもいい\\\hline\hline
+$\C$}、\command{近\ $\D$}で始動してもいい\\\bhline{2pt}
 \end{tabular*}
 \endgroup
 %%一つのクラス
-\if0
-\begin{classify}{$\lbrack\ $近\ $\ D\ \rbrack$}
-	\class{
-		\hspace{-12pt}
-		\begin{tabular}[t]{|lll|l|l|}
-			\multicolumn{5}{l}{
-			\Cancel \ \ \lbrack\ \ \tenti\ A$\ or\ $C\ \ \rbrack\ \ 
-			%%→紅コレ
-			}\\
-			\hline
-			\startwo&2PG&50\% &Damage&Stan\\
-			\hline
-			&&&503&52\\
-			\hline
-			\multicolumn{5}{l}{
-			入れ込みOK。強制ダウンも取れる%%説明
-			}
-		\end{tabular}
-	}
-	\class{
-		\begin{classify}{
-			\hspace{-12pt}
-			\begin{tabular}[t]{|lll|l|l|}
-				\multicolumn{5}{l}{
-				\Cancel \ \ \lbrack\ \ \hado\ B$\ or\ $D\ \ \rbrack\ \ 
-				%%→居合い蹴り
-				}
-			\end{tabular}
-		}
-		\end{classify}
-	}
-%%一つのクラスここまで
-%%一つのクラスここまで
-\end{classify}
-\fi
 \newpage
 \subsubsection{端コンボ}
 \begingroup
  \renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{13cm}|}\hline
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{12.9cm}|}\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 0\%
+\PG{0}\ \ \ \DG{0}
 }\\\bhline{2pt}
 コンボ&
 \command{(端に向かって)通常投げ}\ \migi\ \command{\hado\ +\
-$B$\ or\ $D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $B$\ or\
-$D$\ }\\\hline
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ }\\\hline
 補足&端に向かって投げた場合は追撃が可能\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 0本\ \ \ ドライブゲージ\ :\ 50\%
-}\\\bhline{2pt}
-\multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 0\%
+\PG{0}\ \ \ \DG{50}
 }\\\bhline{2pt}
 コンボ&
-\command{(端に向かって)通常投げ}\ \migi\ \command{\tatsu\ \tatsu\ +\ $A$\ or\
-$C$}\\\hline\hline
+\command{(端に向かって)通常投げ}\ \migi\ \command{\hado\ +\
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ (\ 1\ )}\\
+&\DC\ \command{\tatsu\ +\ $\A$\ or\ $\C$}\ \migi\ \command{\hado\ +\ $\A$\ or\
+$\C$}\  \migi\ \command{\hado\ +\ $\B$\ or\
+$\D$}\ \migi\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\ $\D$\ }\\\hline
+補足&特になし
+\\\hline\hline
 \multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 1本\ \ \ ドライブゲージ\ :\ 50\%
-}\\\bhline{2pt}
-\multicolumn{2}{|p{14.6cm}|}{
-パワーゲージ\ :\ 2本\ \ \ ドライブゲージ\ :\ 0\%
+\PG{1}\ \ \ \DG{0}
 }\\\bhline{2pt}
 コンボ&
-\command{(端に向かって)通常投げ}\ \migi\ \command{\hado\ \hado\ +\ $AC$}\\\hline\hline
+\command{(端に向かって)通常投げ}\ \migi\ \command{\tatsu\ \tatsu\ +\ $\A$\ or\
+$\C$}\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{1}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&
+\command{(端に向かって)通常投げ}\ \migi\ \command{\hado\ +\
+$\B$\ or\ $\D$}\ \Cancel\ \command{\downarrow\ \uparrow\ +\ $\B$\ or\
+$\D$\ (\ 1\ )}\\
+&\DC\ \command{\hado\ +$\A\ \C$}\ \migi\ \command{\tatsu\ +\ $\A$\ }\ \migi\
+\command{\tatsu\ +\ $\A$\ }\\
+&\migi\ \command{\hado\ +\ $\C$\ }\ \migi\ \command{\syoryu\ +\ $\B$\ }\\\hline
+補足&特になし\\
+\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{2}\ \ \ \DG{0}
+}\\\bhline{2pt}
+コンボ&
+\command{(端に向かって)通常投げ}\ \migi\ \command{\hado\ \hado\ +\ $\A\C$}\\\bhline{2pt}
 \end{tabular*}
 \endgroup
 \newpage
 \subsection{大門}
+\subsubsection{中央コンボ}
+\begingroup
+ \renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{12.9cm}|}\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{0}\ \ \ \DG{0}
+}\\\bhline{2pt}
+コンボ&
+\command{近\ $\C$}\ (\ \Cancel\ \command{$\searrow$\ $\C$}\ )\ (\ \Cancel\
+\command{\tatsu\ +\ $\B$}\ )\\
+&\Cancel\ \command{\tenti\ +\ $\A$\ or\ $\C$}\\\hline
+補足&基礎コンボ。ダメージが高い。遠いと\command{$\searrow$\
+$\C$}が当たらない。弱超受け身は動作中必殺技以上でキャンセルできるので、ゲージをためられる\\\bhline{2pt} コンボ&
+\command{立\ $\A$}\ $\times\ 1\ \sim\ 2$ \Cancel\ \command{立\ $\B$}\ (\ \Cancel\
+\command{\tatsu\ +\ $\B$}\ )\\
+&\Cancel\ \command{\tenti\ +\ $\A$\ or\ $\C$}\\\hline
+補足&小技始動基本コンボ。弱超受け身は動作中必殺技以上でキャンセルできるので、ゲージをためられる\\\bhline{2pt}
+コンボ&
+\command{$J\C\D$}(カウンターヒット)\ \migi \ \command{$\searrow$\ $\C$}\ \Cancel
+\command{\yoga\ +\ $\A$}
+\\\hline
+補足&ジャンプふっ飛ばしがカウンターヒットすると壁バウンドを誘発するので落ち着いて追撃\\\hline\hline
+ \multicolumn{2}{|p{14.6cm}|}{
+\PG{1}\ \ \ \DG{0}
+}\\\bhline{2pt}
+コンボ&
+\command{近\ $\C$}\ (\ \Cancel\ \command{$\searrow$\ $\C$}\ )\
+(\ \Cancel\ \command{\tatsu\ +\ $\B$}\ )\ \\
+&\Cancel\ \command{\gyakuyoga\ $\times\ 2$\
++\ $\A$\ or\ $\C$}\\\hline
+補足&弱超受け身は動作中必殺技以上でキャンセルできるので、コマンドを分割できる。できなくてもいい\\\bhline{2pt}
+コンボ&
+\command{立\ $\A$}\ $\times\ 1\ \sim\ 2$ \Cancel\ \command{立\ $\B$}\ (\ \Cancel\ \command{\tatsu\ +\ $\B$}\ )\ \\
+&\Cancel\ \command{\gyakuyoga\ $\times\ 2$\
++\ $\A$\ or\ $\C$}\\\hline
+補足&小技始動基本コンボ。弱受け身については同上。できなくてもいい\\\bhline{2pt}
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{1}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&\command{\syoryu\ +\ $\B$\ or\ $\D$}\ \SC\ \command{\gyakuyoga\ $\times\ 2$\
++\ $\A$\ or\ $\C$}\\\hline
+補足&投げ始動。超大外刈はスーパーキャンセルで地獄極楽落としに繋げられる\\\bhline{2pt}
+コンボ&
+\command{$J\C\D$}(カウンターヒット)\ \migi \ \command{$\searrow$\ \C}\ \Cancel
+\command{\yoga\ +\ $\A$}\\
+&\SC\ \command{\gyakuyoga\ $\times\ 2$\ +\ $\A$\ or\ $\C$}
+\\\hline
+補足&雲掴み投げからも地獄極楽落としに繋げられる\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{2}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&\command{\syoryu\ +\ $\B$\ or\ $\D$}\ \SC\ \command{\gyakuyoga\ $\times\ 2$\
++\ $\A\C$}\\\hline
+補足&投げ始動。2ゲージ使う場合はEX地獄極楽落としに\\\bhline{2pt}
+コンボ&
+\command{$J\C\D$}(カウンターヒット)\ \migi \ \command{$\searrow$\ \C}\ \Cancel
+\command{\yoga\ +\ $\A$}\\
+&\SC\ \command{\gyakuyoga\ $\times\ 2$\ +\ $\A\C$}
+\\\hline
+補足&同上\\\bhline{2pt}
+\end{tabular*}
+\endgroup
+\newpage
+\subsubsection{端コンボ}
+\begingroup
+ \renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{12.9cm}|}\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{0}\ \ \ \DG{0}
+}\\\bhline{2pt}
+コンボ&
+\command{$J\C\D$}\ \migi\ \command{\yoga\ +\ $\C$}\\\hline
+補足&ジャンプふっ飛ばしが通常ヒットした場合スライドダウンを誘発する。
+切り株返しはダウン追撃判定があるのでコンボになる。ただし位置が入れ替わる\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{0}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&
+\command{$J\C\D$}\ \migi\ \command{\yoga\ +\ $\C$}\ \DC\ \command{\tatsu\
++\ \B}\\& \Cancel\ \command{\yoga\ +\ $\C$$}\\\hline
+補足&弱超受け身で移動し、動作を切り株返しでキャンセルする。最初の切り株返しで位置が入れ替わるので注意。ダメージは小さいが画面端に戻せる。
+\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{1}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&
+\command{$J\C\D$}\ \migi\ \command{\yoga\ +\ $\C$}\ \\
+&\SC\
+\command{\gyakuyoga\ $\times\ 2$\ +\ $\A$\ or\ $\C$}\\\hline
+補足&位置は入れ替わるが地獄極楽落としで追撃が可能 \\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{2}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&
+\command{$J\C\D$}\ \migi\ \command{\yoga\ +\ $\C$}\\
+&\SC\ \command{\gyakuyoga\ $\times\ 2$\ +\ $\A\C$}\\\hline
+補足&同上
+\\\bhline{2pt}
+\end{tabular*}
+\endgroup
 \newpage
 \part{餓狼チーム}
 \section{コマンド}
 \subsection{テリー}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ライジングアッパー&$\searrow$\ +\ $C$&\\
-バックナックル&$\rightarrow$\ +\ $A$&\\
-ターゲットコンボ？&$\downarrow$ $A$ \Cancel $\downarrow$ $C$
+ライジングアッパー&$\searrow$\ +\ $\C$&\\
+バックナックル&$\rightarrow$\ +\ $\A$&\\
+ターゲットコンボ？&$\downarrow$ $\A$ \Cancel $\downarrow$ $\C$
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-パワーウェイブ&\hado\ +\ $A$\ or\ $C$&弾判定・EX版弾貫通\\
-バーンナックル&\tatsu\ +\ $A$\ or\ $C$&\\
-クラックシュート&\tatsu $B$\ or\ $D$&EX版中段\\
-ライジングタックル&$\downarrow$\ タメ\ $\uparrow$\ +\ $A$\ or\ $C$&弱上半身無敵・強完全無敵
+パワーウェイブ&\hado\ +\ $\A$\ or\ $\C$&弾判定/EX版弾貫通\\
+バーンナックル&\tatsu\ +\ $\A$\ or\ $\C$&\\
+クラックシュート&\tatsu $\B$\ or\ $\D$&EX版中段\\
+ライジングタックル&$\downarrow$\ タメ\ $\uparrow$\ +\ $\A$\ or\ $\C$&弱上半身無敵/強完全無敵
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-パワーゲイザー&\tatsu $\swarrow$ $\rightarrow$\ +\ $A$\ or\ $C$&EX版カスヒット時追撃可能\\
-バスターウルフ&\hado\hado\ +\ $B$\ or\ $D$&カスヒット時追撃可能
+パワーゲイザー&\tatsu $\swarrow$ $\rightarrow$\ +\ $\A$\ or\ $\C$&EX版カスヒット時追撃可能\\
+バスターウルフ&\hado\hado\ +\ $\B$\ or\ $\D$&カスヒット時追撃可能
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-トリニティゲイザー&\hado\hado\ +$B\ D$&ヒット数不安定(2～4Hit)\\
+トリニティゲイザー&\hado\hado\ +$\B\ \D$&ヒット数不安定(2～4Hit)\\
 &&3Hit以上した場合追撃可
 \end{tabular}
 \end{itembox}
@@ -1010,29 +584,29 @@ $C$}\\\hline\hline
 \subsection{アンディ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-平手打ち&$\rightarrow$\ +\ $A$&\\
-ターゲットコンボ？&立$B$\ \Cancel\ 立$D$&必殺技キャンセル可
+平手打ち&$\rightarrow$\ +\ $\A$&\\
+ターゲットコンボ？&立$\B$\ \Cancel\ 立$\D$&必殺技キャンセル可
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-斬影拳&$\swarrow$ $\leftarrow$\ +\ $A$\ or\ $C$&相手の位置に応じて発生が変化\\
-空破弾&\yoga\ +\ $B$\ or\ $D$&EX版ガクラ値高い\\
-空破弾ブレーキング&(通常空破弾中)$B D$&\\
-飛翔拳&\tatsu\ +\ $A$\ or\ $C$&EX版弾貫通\\
-昇龍弾&\syoryu\ +\ $A$\ or\ $C$&弱上半身無敵・強完全無敵
+斬影拳&$\swarrow$ $\leftarrow$\ +\ $\A$\ or\ $\C$&相手の位置に応じて発生が変化\\
+空破弾&\yoga\ +\ $\B$\ or\ $\D$&EX版ガクラ値高い\\
+空破弾ブレーキング&(通常空破弾中)$\B \D$&\\
+飛翔拳&\tatsu\ +\ $\A$\ or\ $\C$&EX版弾貫通\\
+昇龍弾&\syoryu\ +\ $\A$\ or\ $\C$&弱上半身無敵/強完全無敵
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-超裂破弾&\orochi\ +\ $B$\ or\ $D$&高めヒット時追撃可\\
-絶・飛翔拳&\ryuko\ +\ $A$\ or\ $C$&EX版無し・最終段スライドダウン
+超裂破弾&\orochi\ +\ $\B$\ or\ $\D$&高めヒット時追撃可\\
+絶/飛翔拳&\ryuko\ +\ $\A$\ or\ $\C$&EX版無し/最終段スライドダウン
 \end{tabular}
 \end{itembox}
 
 \begin{itembox}[l]{NEOMAX必殺技}
 \begin{tabular}{lll}
-超☆神☆速☆斬影拳&\orochi\ +\ $A\ C$&発生と同時に無敵が切れる？\\
+超☆神☆速☆斬影拳&\orochi\ +\ $\A\ \C$&発生と同時に無敵が切れる？\\
 &&空中可
 \end{tabular}
 \end{itembox}
@@ -1040,56 +614,133 @@ $C$}\\\hline\hline
 \subsection{ジョー}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ステップインミドルキック&$\rightarrow$\ +\ $B$&\\
-スライディング&$\searrow$\ +\ $B$&下段・爆裂拳でのみキャンセル可
+ステップインミドルキック&$\rightarrow$\ +\ $\B$&\\
+スライディング&$\searrow$\ +\ $\B$&下段/爆裂拳でのみキャンセル可
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-ハリケーンアッパー&\yoga\ +\ $A$\ or\ $C$&EX版弾貫通 \times 3\\
-タイガーキック&\syoryu\ +\ $B$\ or\ $D$&EX版デカキャラ以外の\\
-&&しゃがみに二段目が当たらない\\
-スラッシュキック&\yoga\ +\ $B$\ or\ $D$&弱先端ガード時有利\\
-爆裂拳&$A$\ or\ $C$\ 連打&最速止めガード時有利\\
-爆裂フィニッシュ&(爆裂拳中)\tatsu\ +\ $A$\ or\ $C$&最終段スタン値10\\
-黄金のカカト&\tatsu\ +\ $B$\ or\ $D$&EX版ガードさせて有利
+ハリケーンアッパー&\yoga\ +\ $\A$\ or\ $\C$&EX版弾貫通 \times 3\\
+タイガーキック&\syoryu\ +\ $\B$\ or\ $\D$&EX版デカキャラ以外の\\
+&&しゃがみに二段目当たらず\\
+スラッシュキック&\yoga\ +\ $\B$\ or\ $\D$&弱先端ガード時有利\\
+爆裂拳&$\A$\ or\ $\C$\ 連打&最速止めガード時有利\\
+爆裂フィニッシュ&(爆裂拳中)\tatsu\ +\ $\A$\ or\ $\C$&最終段スタン値10\\
+黄金のカカト&\tatsu\ +\ $\B$\ or\ $\D$&EX版ガードさせて有利
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-スクリューアッパー&\hado\hado\ +\ $A$\ or\ $C$&弾貫通\\
-爆裂ハリケーンタイガーカカト&\ryuko\ +\ $A$\ or\ $C$&EX無し
+スクリューアッパー&\hado\hado\ +\ $\A$\ or\ $\C$&弾貫通\\
+爆裂ハリケーンタイガーカカト&\ryuko\ +\ $\A$\ or\ $\C$&EX無し
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-スクリューストレート&\hado\hado\ +\ $B\ D$&最終段以外ガーキャン不可
+スクリューストレート&\hado\hado\ +\ $\B\ \D$&最終段以外ガーキャン不可
 \end{tabular}
 \end{itembox}
 \newpage
 \section{コンボ}
 \subsection{テリー}
-\begin{itembox}[l]{基本コンボ始動技}
-\begin{tabular}{ll}
-\lbrack\ 近\ $D\ \rbrack\ or\ \ \lbrack\ 近\ $C$\ \rbrack$\
-\Cancel\ \lbrack\ $\searrow$\ $C$\ \rbrack&$\rightarrow$\ (\rnum{1})\\
-$\lbrack\ \downarrow$\ $A\ \rbrack\ $\Cancel\ $\lbrack\ 
-\downarrow\ B\ \rbrack$\ \Cancel\ $\lbrack\ \downarrow\ C\
-\rbrack$\ or\ $\lbrack\ \searrow\ C\ \rbrack$&$\rightarrow$\ (\rnum{2})\\
-$\lbrack$\ 近\ $C\ \rbrack$\ or\ $\lbrack$\ 近\ $D\ \rbrack$\ \Cancel\  \lbrack\
-$\searrow$\ $C$\ \rbrack&$\rightarrow$\ (\rnum{3})
-\end{tabular}
-\end{itembox}
+\subsubsection{中央コンボ}
+\begingroup
+ \renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{12.9cm}|}\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{0}\ \ \ \DG{0}
+}\\\bhline{2pt}
+コンボ&
+\command{近\ $\D$}\ \Cancel\ \command{$\searrow$\ +\ $\C$}\ \Cancel\
+\command{\tatsu\ +\ $\A$}\\\hline 補足&基本コンボ。始動は\command{近\ $\C$}でもOK\\\bhline{2pt}
+コンボ&
+\command{$\downarrow$\ $\B$}\ \Cancel\command{$\downarrow$\ $\A$}\ \Cancel\
+\command{$\downarrow$\ $\C$}\ \Cancel\ \command{\tatsu\ +\ $\A$}\\\hline
+補足&小技始動基本コンボ。\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{0}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&
+\command{近\ $\D$}\ \Cancel\ \command{$\searrow$\ +\ $\C$}\ \Cancel\
+\command{\tatsu\ +\ $\A$}\ \DC\ \command{\tatsu\ +\ $\B$}\ \migi\ \command{遠\ $\C$}
+\\\hline
+補足&\command{遠\ $\C$}は連打でOK\\\bhline{2pt}
+コンボ&
+\command{$\downarrow$\ $\B$}\ \Cancel\command{$\downarrow$\ $\A$}\ \Cancel\
+\command{$\downarrow$\ $\C$}\ \Cancel\ \command{\tatsu\ +\ $\A$}\\&
+ \DC\
+\command{\tatsu\ +\ $\B$}\ \migi\ \command{遠\ $\C$} \\\hline
+補足&\command{遠\ $\C$}は連打でOK\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{1}\ \ \ \DG{0}
+}\\\bhline{2pt}
+コンボ&
+\command{近\ $\D$}\ \Cancel\ \command{$\searrow$\ +\ $\C$}\ \Cancel\
+\command{\tatsu\ $\swarrow\ \rightarrow$\ +\ $\A$\ or\ $\C$}\\\hline
+補足&始動は\command{近\ $\C$}でもOK。分割がきかないのでやや忙しい\\\bhline{2pt} コンボ&
+\command{$\downarrow$\ $\B$}\ \Cancel\command{$\downarrow$\ $\A$}\ \Cancel\
+\command{$\downarrow$\ $\C$}\ \Cancel\
+\command{\tatsu\ $\swarrow\ \rightarrow$\ +\ $\A$\ or\ $\C$}\\\hline
+補足&小技始動基本コンボ。分割がきかないのでやや忙しい\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{1}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&
+\command{近\ $\D$}\ \Cancel\ \command{$\searrow$\ +\ $\C$}\ \Cancel\
+\command{\tatsu\ +\ $\A$}\\
+&\DC\ \command{\tatsu\ +\ $\B$}\ \migi\ \command{\vtame\ +$\A\C$}
+\\\hline
+補足&\command{\vtame\ +$\A\C$}は\command{\hado\ \hado\ +\ $\B$\ or\
+$\D$}で代用可能。\\\bhline{2pt} コンボ&
+\command{$\downarrow$\ $\B$}\ \Cancel\command{$\downarrow$\ $\A$}\ \Cancel\
+\command{$\downarrow$\ $\C$}\ \Cancel\ \command{\tatsu\ +\ $\A$}\\
+&\DC\ \command{\tatsu\ +\ $\B$}\ \migi\ \command{\vtame\ +$\A\C$}\\\hline
+補足&\command{\vtame\ +$\A\C$}は\command{\hado\ \hado\ +\ $\B$\ or\
+$\D$}で代用可能。\\\hline\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{2}\ \ \ \DG{0}
+}\\\bhline{2pt}
+コンボ&
+\command{近\ $\D$}\ \Cancel\ \command{$\searrow$\ +\ $\C$}\ \Cancel\
+\command{\tatsu\ $\swarrow\ \rightarrow$\ +\ $\A\C$}\\\hline
+補足&始動は\command{近\ $\C$}でもOK。分割がきかないのでやや忙しい。ダメージは高い\\\bhline{2pt} コンボ&
+\command{$\downarrow$\ $\B$}\ \Cancel\command{$\downarrow$\ $\A$}\ \Cancel\
+\command{$\downarrow$\ $\C$}\ \Cancel\
+\command{\tatsu\ $\swarrow\ \rightarrow$\ +\ $\A\C$}\\\hline
+補足&小技始動基本コンボ。分割がきかないのでやや忙しい\\\hline\hline
+\end{tabular*}
+\endgroup
+\newpage
+\subsubsection{端コンボ}
+\begingroup
+ \renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{15.1cm}{@{\extracolsep{\fill}}|p{3em}||p{12.9cm}|}\hline
+\multicolumn{2}{|p{14.6cm}|}{
+\PG{0}\ \ \ \DG{50}
+}\\\bhline{2pt}
+コンボ&
+\command{近\ $\D$}\ \Cancel\ \command{$\searrow$\ +\ $\C$}\ \Cancel\
+\command{\tatsu\ +\ $\A$}\\
+&\DC\ \command{\tatsu\ +\ $\B$}\ \migi\ \command{\vtame\ +$\C$}
+\\\hline
+補足&端であれば\command{\vtame\ +$\C$}で追撃が可能}\\\bhline{2pt} コンボ&
+\command{$\downarrow$\ $\B$}\ \Cancel\command{$\downarrow$\ $\A$}\ \Cancel\
+\command{$\downarrow$\ $\C$}\ \Cancel\ \command{\tatsu\ +\ $\A$}\\
+&\DC\ \command{\tatsu\ +\ $\B$}\ \migi\ \command{\vtame\ +$\C$}\\\hline
+補足&端であれば\command{\vtame\ +$\C$}で追撃が可能\\\hline\hline
+\end{tabular*}
+\endgroup
+
 \newpage
 \subsection{アンディ}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
 $\lbrack$\ 近\
-$C(1)\ \rbrack$\ or\ $\lbrack$\ 近\ $C\ \rbrack$\ or\ $\lbrack$\ 近\ $D\
-\rbrack$\ \Cancel\ $\lbrack\ \rightarrow\ A\ \rbrack$&$\rightarrow$\
+$\C(1)\ \rbrack$\ or\ $\lbrack$\ 近\ $\C\ \rbrack$\ or\ $\lbrack$\ 近\ $\D\
+\rbrack$\ \Cancel\ $\lbrack\ \rightarrow\ \A\ \rbrack$&$\rightarrow$\
 (\rnum{1})\\
-$\lbrack\ \downarrow\ B\ \rbrack$\ \Cancel\ $(\ \lbrack\ \downarrow\ A\
-\rbrack$\ or\ $\lbrack\ \downarrow\ B\ \rbrack\ )$\Cancel\ $\lbrack\ \rightarrow\ A\
+$\lbrack\ \downarrow\ \B\ \rbrack$\ \Cancel\ $(\ \lbrack\ \downarrow\ \A\
+\rbrack$\ or\ $\lbrack\ \downarrow\ \B\ \rbrack\ )$\Cancel\ $\lbrack\ \rightarrow\ \A\
 \rbrack$&$\rightarrow$\ (\rnum{2})\\
 \end{tabular}
 \end{itembox}
@@ -1097,10 +748,10 @@ $\lbrack\ \downarrow\ B\ \rbrack$\ \Cancel\ $(\ \lbrack\ \downarrow\ A\
 \subsection{ジョー}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack$\ 近\ $C\ \rbrack$\ or\ $\lbrack$\ 立\ $D\ \rbrack$\ \Cancel\ $\lbrack\
-\rightarrow\ B\ \rbrack$ &$\rightarrow$\ (\rnum{1})\\
-$\lbrack$\ 立\ $A\ \rbrack$\ or\ $\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1
-\sim\ 2$\ \Cancel\ $\lbrack$\ 立\ $A\ \rbrack$&$\rightarrow$\ (\rnum{2})
+$\lbrack$\ 近\ $\C\ \rbrack$\ or\ $\lbrack$\ 立\ $\D\ \rbrack$\ \Cancel\ $\lbrack\
+\rightarrow\ \B\ \rbrack$ &$\rightarrow$\ (\rnum{1})\\
+$\lbrack$\ 立\ $\A\ \rbrack$\ or\ $\lbrack\ \downarrow\ \B\ \rbrack\ \times\ 1
+\sim\ 2$\ \Cancel\ $\lbrack$\ 立\ $\A\ \rbrack$&$\rightarrow$\ (\rnum{2})
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1109,92 +760,92 @@ $\lbrack$\ 立\ $A\ \rbrack$\ or\ $\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1
 \subsection{アテナ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-フェニックスボム&$\rightarrow$\ +\ $B$&\\
-フェニックスボム(空中)&(空中で)$\rightarrow$\ +\ $B$&中段・バクステ中も可
+フェニックスボム&$\rightarrow$\ +\ $\B$&\\
+フェニックスボム(空中)&(空中で)$\rightarrow$\ +\ $\B$&中段/バクステ中も可
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-サイコボールアタック&\hado\ +\ $A$\ or\ $C$&EX版弾貫通\\
-サイコソード&\syoryu\ +\ $A$\ or\ $C$&強完全無敵\\
-サイコリフレクター&\tatsu\ +\ $B$\ or$D$&弾反射\\
-フェニックスアロー&(空中で)\tatsu\ +\ $B$\ or\ $D$&バクステ中も可\\
-サイキックテレポート&\hado\ +\ $B$\ or\ $D$&EX版途中キャンセル可\\
-スーパーサイキックスルー&\yoga\ +\ $A$\ or\ $C$&投げ技・発生まで無敵
+サイコボールアタック&\hado\ +\ $\A$\ or\ $\C$&EX版弾貫通\\
+サイコソード&\syoryu\ +\ $\A$\ or\ $\C$&強完全無敵\\
+サイコリフレクター&\tatsu\ +\ $\B$\ or$\D$&弾反射\\
+フェニックスアロー&(空中で)\tatsu\ +\ $\B$\ or\ $\D$&バクステ中も可\\
+サイキックテレポート&\hado\ +\ $\B$\ or\ $\D$&EX版途中Cancel可\\
+スーパーサイキックスルー&\yoga\ +\ $\A$\ or\ $\C$&投げ技/発生まで無敵
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-シャイニングクリスタルビット&\gyakuyoga\gyakuyoga\ +\ $A$\ or\ $C$&空中可
+シャイニングクリスタルビット&\gyakuyoga\ \times\ 2\ +\ $\A$\ or\ $\C$&空中可
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-サイコメドレー13&\tenti\ +\ $A\ C$&
+サイコメドレー13&\tenti\ +\ $\A\ \C$&
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ケンスウ}\begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-バク転&$B\ D$&前半完全無敵・途中キャンセル可\\
-ターゲットコンボ？&立$B$\ \Cancel\ $C$&
+バク転&$\B\ \D$&前半完全無敵/途中キャンセル可\\
+ターゲットコンボ？&立$\B$\ \Cancel\ $\C$&
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-龍倒打&\hado\ +\ $A$\ or\ $C$&鱗徹掌へ派生\\
-鱗徹掌&(龍倒打中)\hado\ +\ $A$\ or\ $C$&疾走斬龍脚へ派生\\
-疾走斬龍脚&\hado\ +\ $B$\ or\ $D$&単発のみEX版有り\\&&
+龍倒打&\hado\ +\ $\A$\ or\ $\C$&鱗徹掌へ派生\\
+鱗徹掌&(龍倒打中)\hado\ +\ $\A$\ or\ $\C$&疾走斬龍脚へ派生\\
+疾走斬龍脚&\hado\ +\ $\B$\ or\ $\D$&単発のみEX版有り\\&&
 鱗徹掌からも派生可\\
-龍撲鼓&\syoryu\ +\ $A$\ or\ $C$&連打可・最終段で疲れる\\
-龍顎砕&\gyakusyoryu\ +\ $B$\ or\ $D$&強完全無敵\\
-龍爪撃&(空中で)\tatsu\ +\ $A$\ or\ $C$&ヒット時着地キャンセル可\\
-超球弾&\tatsu\ +\ $A$\ or\ $C$&EX版弾貫通
+龍撲鼓&\syoryu\ +\ $\A$\ or\ $\C$&連打可/最終段で疲れる\\
+龍顎砕&\gyakusyoryu\ +\ $\B$\ or\ $\D$&強完全無敵\\
+龍爪撃&(空中で)\tatsu\ +\ $\A$\ or\ $\C$&ヒット時着地キャンセル可\\
+超球弾&\tatsu\ +\ $\A$\ or\ $\C$&EX版弾貫通
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-神龍・超球弾&\tatsu\tatsu\ +\ $A$\ or\ $C$&弾貫通\\
-神龍凄煌拳&\ryuko\ +\ $A$\ or\ $C$&1F投げ・EX版無し
+神龍/超球弾&\tatsu\tatsu\ +\ $\A$\ or\ $\C$&弾貫通\\
+神龍凄煌拳&\ryuko\ +\ $\A$\ or\ $\C$&1F投げ/EX版無し
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-醒眼・仙氣発勁&\hado\hado\ +\ $A\ C$&最終段以外ガーキャン不可
+醒眼/仙氣発勁&\hado\hado\ +\ $\A\ \C$&最終段以外ガーキャン不可
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{チン}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-座盤鉄&$\downarrow$\ $\downarrow$\ +\ $A$\ or\ $C$&構え・月牙双手へ派生可\\
-張果老&$\downarrow\ \downarrow$\ +\ $B$\ or\ $D$&構え・$B\ D$で解除可・遠DからDおしっぱでも可\\
-烏龍絞柱&$\searrow$\ +\ $D$&中段・通常技キャンセル時も中段・月牙双手へ派生可
+座盤鉄&$\downarrow$\ $\downarrow$\ +\ $\A$\ or\ $\C$&構え/月牙双手へ派生可\\
+張果老&$\downarrow\ \downarrow$\ +\ $\B$\ or\ $\D$&構え/$\B\ \D$で解除可/遠\Dから\Dおしっぱでも可\\
+烏龍絞柱&$\searrow$\ +\ $\D$&中段/通常技キャンセル時も中段/月牙双手へ派生可
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-酔歩&\tatsu\ +\ $B$\ or\ $D$&当身・弱上半身・強下半身\\
+酔歩&\tatsu\ +\ $\B$\ or\ $\D$&当身/弱上半身/強下半身\\
 &&成立時キャンセル可\\
-月牙跳激&\tatsu\ +\ $A$\ or\ $C$&強上半身無敵\\
-二起脚&$\searrow$\ +\ $B$&EX無し\\
-&&$B$追加入力で二段目へ派生\\
-月牙双手&(烏龍絞柱or座盤鉄中)$\downarrow\ \downarrow$\ +\ $A$\ or\ $C$&キャンセル可\\
-飲酒&\gyakusyoryu\ +\ $A$\ or\ $C$&EX無し・酒+1\\
+月牙跳激&\tatsu\ +\ $\A$\ or\ $\C$&強上半身無敵\\
+二起脚&$\searrow$\ +\ $\B$&EX無し\\
+&&$\B$追加入力で二段目へ派生\\
+月牙双手&(烏龍絞柱or座盤鉄中)$\downarrow\ \downarrow$\ +\ $\A$\ or\ $\C$&キャンセル可\\
+飲酒&\gyakusyoryu\ +\ $\A$\ or\ $\C$&EX無し/酒+1\\
 &&正確に入力しないと出ない\\
-回転的空突&\yoga\ +\ $B$\ or\ $D$&EX版途中無敵
+回転的空突&\yoga\ +\ $\B$\ or\ $\D$&EX版途中無敵
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-騰空飛天砲&\hado\hado\ +\ $A$\ or\ $C$\\
-鉄山靠&\orochi\ +\ $A$\ or\ $C$&EX無し\\
-&&弱スライドダウン・強壁バウンド\\
+騰空飛天砲&\hado\hado\ +\ $\A$\ or\ $\C$\\
+鉄山靠&\orochi\ +\ $\A$\ or\ $\C$&EX無し\\
+&&弱スライドダウン/強壁バウンド\\
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-酔操・轟欄炎炮&\hado\hado\ +\ $B\ D$&方向キーで向き変化
+酔操/轟欄炎炮&\hado\hado\ +\ $\B\ \D$&方向キーで向き変化
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1202,9 +853,9 @@ $\lbrack$\ 立\ $A\ \rbrack$\ or\ $\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1
 \subsection{アテナ}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack$\ 近\ $C\ \rbrack$\ or\ $\lbrack$\ 屈\ $C\ \rbrack$\ \Cancel\ $\lbrack\
-\rightarrow\ B\ \rbrack$ &$\rightarrow$\ (\rnum{1})\\
-$\lbrack$\ 立\ $A\ \rbrack$\ or\ $\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1
+$\lbrack$\ 近\ $\C\ \rbrack$\ or\ $\lbrack$\ 屈\ $\C\ \rbrack$\ \Cancel\ $\lbrack\
+\rightarrow\ \B\ \rbrack$ &$\rightarrow$\ (\rnum{1})\\
+$\lbrack$\ 立\ $\A\ \rbrack$\ or\ $\lbrack\ \downarrow\ \B\ \rbrack\ \times\ 1
 \sim\ 2$&$\rightarrow$\ (\rnum{2})
 \end{tabular}
 \end{itembox}
@@ -1212,9 +863,9 @@ $\lbrack$\ 立\ $A\ \rbrack$\ or\ $\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1
 \subsection{ケンスウ}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack$\ 近\ $C\ \rbrack$\ or\ $\lbrack$\ 近\ $D\ \rbrack$&$\rightarrow$\
+$\lbrack$\ 近\ $\C\ \rbrack$\ or\ $\lbrack$\ 近\ $\D\ \rbrack$&$\rightarrow$\
 (\rnum{1})\\
-$\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1
+$\lbrack\ \downarrow\ \B\ \rbrack\ \times\ 1
 \sim\ 3$&$\rightarrow$\ (\rnum{2})
 \end{tabular}
 \end{itembox}
@@ -1222,11 +873,11 @@ $\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1
 \subsection{チン}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack\ $近\ $C\ \rbrack$\ (\ \Cancel\ $\lbrack\ \downarrow\ \downarrow\ B\
-D\ \rbrack$\ $\longrightarrow\ \lbrack\ $遠\ $C\ \rbrack$\ )&\ $\rightarrow$\
+$\lbrack\ $近\ $\C\ \rbrack$\ (\ \Cancel\ $\lbrack\ \downarrow\ \downarrow\ \B\
+\D\ \rbrack$\ $\longrightarrow\ \lbrack\ $遠\ $\C\ \rbrack$\ )&\ $\rightarrow$\
 (\rnum{1})\\
-$\lbrack\ \downarrow\ B\ \rbrack$\ \Cancel\ $\lbrack\ $立\ or\ $\downarrow\ A\
-\rbrack$\ (\ \Cancel\ $\lbrack\ \downarrow\ B\ \rbrack$\ \Cancel\ $\lbrack\ $立\ or\ $\downarrow\ A\
+$\lbrack\ \downarrow\ \B\ \rbrack$\ \Cancel\ $\lbrack\ $立\ or\ $\downarrow\ \A\
+\rbrack$\ (\ \Cancel\ $\lbrack\ \downarrow\ \B\ \rbrack$\ \Cancel\ $\lbrack\ $立\ or\ $\downarrow\ \A\
 \rbrack$\ )&\ $\rightarrow$\ (\rnum{2})
 \end{tabular}
 \end{itembox}
@@ -1236,90 +887,90 @@ $\lbrack\ \downarrow\ B\ \rbrack$\ \Cancel\ $\lbrack\ $立\ or\ $\downarrow\ A\
 \subsection{レオナ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ストライクアーチ&$\rightarrow$\ +\ $B$&中段・空中判定\\
+ストライクアーチ&$\rightarrow$\ +\ $\B$&中段/空中判定\\
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-ボルテックランチャー&\htame\ +\ $A$\ or\ $C$&弱・強最終段のみガーキャン可\\
-ムーンスラッシャー&\vtame\ +\ $A$\ or\ $C$&弱・強上半身無敵\\
-イヤリング爆弾&\tatsu\ +\ $B$\ or\ $D$&EX版弾貫通\\
-グランドセイバー&\htame\ +\ $B$\ or\ $D$&相手の近くで攻撃発生\\
-Xキャリバー&(空中で)\tatsu\ +\ $A$\ or\ $C$&
+ボルテックランチャー&\htame\ +\ $\A$\ or\ $\C$&弱/強最終段のみGC可\\
+ムーンスラッシャー&\vtame\ +\ $\A$\ or\ $\C$&弱/強上半身無敵\\
+イヤリング爆弾&\tatsu\ +\ $\B$\ or\ $\D$&EX版弾貫通\\
+グランドセイバー&\htame\ +\ $\B$\ or\ $\D$&相手の近くで攻撃発生\\
+Xキャリバー&(空中で)\tatsu\ +\ $\A$\ or\ $\C$&
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-Vスラッシャー&(空中で)\ryuko\ +\ $A$\ or\ $C$&突進中無敵\\
-&&EX版のみ\\
+Vスラッシャー&(空中で)&突進中無敵\\
+&\ryuko\ +\ $\A$\ or\ $\C$&EX版のみ\\
 &&MAXキャンセル可\\
-スラッシュセイバー&\orochi\ +\ $B$\ or\ $D$&EX版無し
+スラッシュセイバー&\orochi\ +\ $\B$\ or\ $\D$&EX版無し
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-レオナブレード&\orochi\ +\ $A\ C$&先端ヒット時演出なし
+レオナブレード&\orochi\ +\ $\A\ \C$&先端ヒット時演出なし
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ラルフ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ジェットアッパー&\searrow\ +\ $A$&
+ジェットアッパー&\searrow\ +\ $\A$&
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-バーニングハンマー&\hado\ +\ $A$\ or\ $C$&EX版全身ガードポイント\\
-爆弾ラルフパンチ&\tatsu\ +\ $A$\ or\ $C$&低姿勢技\\
-バルカンパンチ&$A$\ or\ $C$連打&連打中前進のみ可\\
-ガトリングアタック&\htame\ +\ $A$\ or\ $C$&\\
-急降下爆弾パンチ&(空中で)^tatsu\ +\ $A$\ or\ $C$&パンチ部分中段
+バーニングハンマー&\hado\ +\ $\A$\ or\ $\C$&EX版全身ガードポイント\\
+爆弾ラルフパンチ&\tatsu\ +\ $\A$\ or\ $\C$&低姿勢技\\
+バルカンパンチ&$\A$\ or\ $\C$連打&連打中前進のみ可\\
+ガトリングアタック&\htame\ +\ $\A$\ or\ $\C$&\\
+急降下爆弾パンチ&(空中で)^tatsu\ +\ $\A$\ or\ $\C$&パンチ部分中段
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-ギャラクティカファントム&\hado\hado\ +\ $A$\ or\ $C$&最終タメガード不能\\
-馬乗りバルカンパンチ&\orochi\ +\ $B$\ or\ $D$&EX版無し
+ギャラクティカファントム&\hado\hado\ +\ $\A$\ or\ $\C$&最大タメガー不\\
+馬乗りバルカンパンチ&\orochi\ +\ $\B$\ or\ $\D$&EX版無し
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-JET・バルカンパンチ&\gyakuyoga\gyakuyoga\ +\ $A\ C$&
+JET/バルカンパンチ&\gyakuyoga\gyakuyoga\ +\ $\A\ \C$&
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{クラーク}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ジェットアッパー&$\searrow$\ +\ $A$&\\
-ステップ&$\rightarrow$\ +\ $B\ D$&移動技
+ジェットアッパー&$\searrow$\ +\ $\A$&\\
+ステップ&$\rightarrow$\ +\ $\B\ \D$&移動技
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-SAB&\yoga\ +\ $B$\ or\ $D$&投げ技・弱・EX1F投げ\\
-&&強発生まで全身ガードポイント\\
+SAB&\yoga\ +\ $\B$\ or\ $\D$&投げ技/弱/EX1F投げ\\
+&&強発生まで全身GP\\
 &&＋投げ無敵\\
-フラッシングエルボー&(SAB中)\hado\ +\ $A$\ or\ $C$&強度はSABに依存\\
-&&EX版スーパーキャンセル可\\
-バルカンパンチ&$A$\ or\ $C$連打&\\
-ガトリングアタック&\htame\ +\ $A$\ or\ $C$&EX版弾無敵＋上半身無敵\\
-デスレイクドライブ&(強・EXDD中)&\\
-&\syoryu\ +\ $A$\ or\ $C$&\\
+フラッシングエルボー&(SAB中)&強度はSABに依存\\
+&\hado\ +\ $\A$\ or\ $\C$&EX版スーパーキャンセル可\\
+バルカンパンチ&$\A$\ or\ $\C$連打&\\
+ガトリングアタック&\htame\ +\ $\A$\ or\ $\C$&EX版弾無敵＋上半身無敵\\
+デスレイクドライブ&(強/EXガトリング中)&\\
+&\syoryu\ +\ $\A$\ or\ $\C$&\\
 \end{tabular}
 \end{itembox}
 ※SAB…スーパーアルゼンチンバックブリーカー\\
 ※DD…デスレイクドライブ\\
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-UAB&\gyakuyoga\gyakuyoga\ +\ $A$\ or\ $C$&1F投げ
+UAB&\gyakuyoga\gyakuyoga\ +\ $\A$\ or\ $\C$&1F投げ
 \end{tabular}
 \end{itembox}
 ※UAB…ウルトラアルゼンチンバックブリーカー\\
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-ウルトラクラークバスター&\gyakuyoga\gyakuyoga\ +\ $B\ D$&
+ウルトラクラークバスター&\gyakuyoga\gyakuyoga\ +\ $\B\ \D$&
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1327,31 +978,31 @@ UAB&\gyakuyoga\gyakuyoga\ +\ $A$\ or\ $C$&1F投げ
 \subsection{レオナ}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack\ $近\ $C\ \rbrack$\ or\ $\lbrack\ $近\ $D\ \rbrack$\ \Cancel\
-$\lbrack\ \rightarrow\ B\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
-$\lbrack\ \downarrow\ B\ \rbrack\ \times\ 1\ \sim\ 2$\ \Cancel\ $\lbrack\ $立\
-$B\ \rbrack$\ \Cancel\
-$\lbrack\ \rightarrow\ B\ \rbrack$&\ $\rightarrow$\ (\rnum{2})
+$\lbrack\ $近\ $\C\ \rbrack$\ or\ $\lbrack\ $近\ $\D\ \rbrack$\ \Cancel\
+$\lbrack\ \rightarrow\ \B\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
+$\lbrack\ \downarrow\ \B\ \rbrack\ \times\ 1\ \sim\ 2$\ \Cancel\ $\lbrack\ $立\
+$\B\ \rbrack$\ \Cancel\
+$\lbrack\ \rightarrow\ \B\ \rbrack$&\ $\rightarrow$\ (\rnum{2})
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ラルフ}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack\ $近\ $C\ (1)\ \rbrack$\ \Cancel\
-$\lbrack\ \searrow\ A\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
-$\lbrack\ $屈\ $B\ \rbrack$\ \Cancel\
-$\lbrack\ $屈\ $A\ \rbrack$& $\rightarrow$\ (\rnum{2})\\
+$\lbrack\ $近\ $\C\ (1)\ \rbrack$\ \Cancel\
+$\lbrack\ \searrow\ \A\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
+$\lbrack\ $屈\ $\B\ \rbrack$\ \Cancel\
+$\lbrack\ $屈\ $\A\ \rbrack$& $\rightarrow$\ (\rnum{2})\\
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{クラーク}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack\ $近\ $C\ (1)\ \rbrack$\ or\ $\lbrack\ $近\ $D\ \rbrack$\Cancel\
-$\lbrack\ \searrow\ A\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
-$\lbrack\ $屈\ $B\ \rbrack$\ \Cancel\
-$\lbrack\ $屈\ $A\ \rbrack$& $\rightarrow$\ (\rnum{2})\\
+$\lbrack\ $近\ $\C\ (1)\ \rbrack$\ or\ $\lbrack\ $近\ $\D\ \rbrack$\Cancel\
+$\lbrack\ \searrow\ \A\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
+$\lbrack\ $屈\ $\B\ \rbrack$\ \Cancel\
+$\lbrack\ $屈\ $\A\ \rbrack$& $\rightarrow$\ (\rnum{2})\\
 \end{tabular}
 \end{itembox}
 %%チーム名
@@ -1361,116 +1012,118 @@ $\lbrack\ $屈\ $A\ \rbrack$& $\rightarrow$\ (\rnum{2})\\
 \subsection{舞}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-浮羽&(空中で)\downarrow \ +\ $B$&中段
+浮羽&(空中で)\downarrow \ +\ $\B$&中段
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-龍炎舞&\tatsu\ +\ $A$\ or\ $C$&EX版連続ガードじゃない\\
-花蝶扇&\hado\ +\ $A$\ or\ $C$&EX版弾貫通\\%%備考%%
-必殺忍蜂&\yoga\ +\ $B$\ or\ $D$&EX版最終弾前レンガではない\\%%備考%%
-ムササビの舞(地上)&\vtame\ +\ $A$\ or\ $C$&1F空中判定・$A$\ or\ $C$追加で突進\\
-ムササビの舞(空中)&(空中で)\tatsu\ +\ $A$\ or\ $C$&
+龍炎舞&\tatsu\ +\ $\A$\ or\ $\C$&EX版連続ガードじゃない\\
+花蝶扇&\hado\ +\ $\A$\ or\ $\C$&EX版弾貫通\\%%備考%%
+必殺忍蜂&\yoga\ +\ $\B$\ or\ $\D$&EX版最終弾前割り込み可\\%%備考%%
+ムササビの舞(地上)&\vtame\ +\ $\A$\ or\ $\C$&1F空中判定\\
+&&$\A$\ or\ $\C$追加で突進\\
+ムササビの舞(空中)&(空中で)\tatsu\ +\ $\A$\ or\ $\C$&
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-超必殺忍蜂&\orochi \ +\ $B$\ or\ $D$&空中可
+超必殺忍蜂&\orochi \ +\ $\B$\ or\ $\D$&空中可
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-不知火流・くノ一の舞&\ryuko\ +\ $A\ C$&ヒット時のみ演出
+不知火流/くノ一の舞&\ryuko\ +\ $\A\ \C$&ヒット時のみ演出
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{キング}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-スライディング&$\searrow$\ +\ $B$&下段%%備考%%
+スライディング&$\searrow$\ +\ $\B$&下段%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-ベノムストライク&\hado\ +\ $B$\ or\ $D$&空中可・EX版弾貫通\\%%備考%%
-トラップショット&\syoryu\ +\ $B$\ or\ $D$&EX版無敵\\%%備考%%
-トルネードキック'75&\gyakuyoga\ +\ $B$\ or\ $D$&EX版版無敵%%備考%%
+ベノムストライク&\hado\ +\ $\B$\ or\ $\D$&空中可/EX版弾貫通\\%%備考%%
+トラップショット&\syoryu\ +\ $\B$\ or\ $\D$&EX版無敵\\%%備考%%
+トルネードキック'75&\gyakuyoga\ +\ $\B$\ or\ $\D$&EX版版無敵%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-サプライズローズ&\hado\hado\ +\ $A$\ or\ $C$&\\%%備考%%
-ダブルストライク&\hado\hado\ +\ $B$\ or\ $D$&EX無し・弾貫通%%備考%%
+サプライズローズ&\hado\hado\ +\ $\A$\ or\ $\C$&\\%%備考%%
+ダブルストライク&\hado\hado\ +\ $\B$\ or\ $\D$&EX無し/弾貫通%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-ベノムショット&\tatsu\ +\ $B\ D$&%%備考%%
+ベノムショット&\tatsu\ +\ $\B\ \D$&%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ユリ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ユリ雷神脚&(空中で)$\searrow$\ +\ $B$&\\%%備考%%
-燕翼&$\rightarrow$\ +\ $A$&空中判定・中段
+ユリ雷神脚&(空中で)$\searrow$\ +\ $\B$&\\%%備考%%
+燕翼&$\rightarrow$\ +\ $\A$&空中判定/中段
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-砕破&\tatsu\ +\ $A$\ or\ $C$&弾判定\\%%備考%%
-虎煌拳&\hado\ +\ $A$\ or\ $C$&EX版弾貫通\\%%備考%%
-空牙(ユリちょうアッパー)&\syoryu\ +\ $A$\ or\ $C$&\\%%備考%%
-百烈ビンタ&\gyakuyoga\ +\ $B$\ or\ $D$&弱1F投げ・強移動投げ\\
+砕破&\tatsu\ +\ $\A$\ or\ $\C$&弾判定\\%%備考%%
+虎煌拳&\hado\ +\ $\A$\ or\ $\C$&EX版弾貫通\\%%備考%%
+空牙&\syoryu\ +\ $\A$\ or\ $\C$&\\%%備考%%\\
+(ユリちょうアッパー)&&\\
+百烈ビンタ&\gyakuyoga\ +\ $\B$\ or\ $\D$&弱1F投げ/強移動投げ\\
 &&EX版無敵打撃技\\%%備考%%
-雷煌拳&\hado\ +\ $B$\ or\ $D$&弾判定・空中可\\%%備考%%
-鳳翼&\syoryu\ +\ $B$\ or\ $D$&移動技・以下の技に派生\\%%備考%%
-飛燕爪破&(鳳翼中)\ $A$\ or\ $C$&\\%%備考%%
-ユリ雷神脚&(鳳翼中)\ $B$\ or\ $D$&\\%%備考%%
-空中雷煌拳&(鳳翼中)\ \hado\ +\ $B$\ or\ $D$&弾判定\\%%備考%%
-燕落とし&(鳳翼中)$A\ C$&なんでも判定%%備考%%
+雷煌拳&\hado\ +\ $\B$\ or\ $\D$&弾判定/空中可\\%%備考%%
+鳳翼&\syoryu\ +\ $\B$\ or\ $\D$&移動技/以下の技に派生\\%%備考%%
+飛燕爪破&(鳳翼中)\ $\A$\ or\ $\C$&\\%%備考%%
+ユリ雷神脚&(鳳翼中)\ $\B$\ or\ $\D$&\\%%備考%%
+空中雷煌拳&(鳳翼中)\ \hado\ +\ $\B$\ or\ $\D$&弾判定\\%%備考%%
+燕落とし&(鳳翼中)$\A\ \C$&なんでも判定%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-覇王翔吼拳&$\rightarrow$ \yoga\ +\ $A$\ or\ $C$&弾貫通・EX無し\\%%備考%%
-飛燕鳳凰脚&\ryuko\ +\ $B$\ or\ $D$&%%備考%%
+覇王翔吼拳&$\rightarrow$ \yoga\ +\ $\A$\ or\ $\C$&弾貫通/EX無し\\%%備考%%
+飛燕鳳凰脚&\ryuko\ +\ $\B$\ or\ $\D$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
 \end{tabular}
-覇王雷煌拳&\tatsu\tatsu\ +\ $A\ C$&%%備考%%
+覇王雷煌拳&\tatsu\tatsu\ +\ $\A\ \C$&%%備考%%
 \end{itembox}
 \newpage
 \section{コンボ}
 \subsection{舞}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack\ $近\ $C\ \rbrack$\ or\ $\lbrack\ $近\ $D\ \rbrack$& $\rightarrow$\
+$\lbrack\ $近\ $\C\ \rbrack$\ or\ $\lbrack\ $近\ $\D\ \rbrack$& $\rightarrow$\
 (\rnum{1})\\
-$\lbrack\ $屈\ $B\ \rbrack$\ \Cancel\
-$\lbrack\ $屈\ $A\ \rbrack$& $\rightarrow$\ (\rnum{2})
+$\lbrack\ $屈\ $\B\ \rbrack$\ \Cancel\
+$\lbrack\ $屈\ $\A\ \rbrack$& $\rightarrow$\ (\rnum{2})
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{キング}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack\ $近\ $C\ \rbrack$\ or\ $\lbrack\ $近\ $D\ \rbrack$\ \Cancel\ $\lbrack\
-\searrow\ D\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
-$\lbrack\ $屈\ $B\ \rbrack$\ \times\ 1\ \sim\ 2\ \Cancel\
-$\lbrack\ $立\ $B\ \rbrack$\ \Cancel\ $\lbrack\
-\searrow\ D\ \rbrack$\ & $\rightarrow$\ (\rnum{2})
+$\lbrack\ $近\ $\C\ \rbrack$\ or\ $\lbrack\ $近\ $\D\ \rbrack$\ \Cancel\ $\lbrack\
+\searrow\ \D\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
+$\lbrack\ $屈\ $\B\ \rbrack$\ \times\ 1\ \sim\ 2\ \Cancel\
+$\lbrack\ $立\ $\B\ \rbrack$\ \Cancel\ $\lbrack\
+\searrow\ \D\ \rbrack$\ & $\rightarrow$\ (\rnum{2})
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ユリ}
 \begin{itembox}[l]{基本コンボ始動技}
 \begin{tabular}{ll}
-$\lbrack\ $近\ $C\ \rbrack$\ or\ $\lbrack\ $近\ $D\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
-$\lbrack\ $屈\ $B\ \rbrack$\ \times\ 1\ \sim\ 2\ \Cancel\
-$\lbrack\ $立ち\ $B\ \rbrack$& $\rightarrow$\ (\rnum{2})
+$\lbrack\ $近\ $\C\ \rbrack$\ or\ $\lbrack\ $近\ $\D\ \rbrack$& $\rightarrow$\ (\rnum{1})\\
+$\lbrack\ $屈\ $\B\ \rbrack$\ \times\ 1\ \sim\ 2\ \Cancel\
+$\lbrack\ $立ち\ $\B\ \rbrack$& $\rightarrow$\ (\rnum{2})
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1480,79 +1133,81 @@ $\lbrack\ $立ち\ $B\ \rbrack$& $\rightarrow$\ (\rnum{2})
 \subsection{爪庵}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-外式・夢弾&$\rightarrow$\ +\ $A$&$A$\ 追加で二段目発生\\
-&&初段ヒットバックなし\\%%備考%%
-外式・杭&$\searrow$\ +\ $C$&中段\\%%備考%%
-外式・百合折り&(空中で)$\leftarrow$\ +\ $B$&バクステ中可%%備考%%
+外式・夢弾&$\rightarrow$\ +\ $\A$&$\A$\ 追加で二段目発生\\
+&&初段ヒットバック小\\%%備考%%
+外式・杭&$\searrow$\ +\ $\C$&中段\\%%備考%%
+外式・百合折り&(空中で)$\leftarrow$\ +\ $\B$&バクステ中可%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-百四式・鵺討ち&\syoryu\ +\ $A$\ or\ $C$&弱上半身無敵\\%%備考%%
-四百壱式・衝月&\tatsu\ +\ $A$\ or\ $C$&下段無敵\\ %%備考%%
-百弐拾九式・明烏&\tatsu\ +\ $B$\ or\ $D$&相手の近くで攻撃発生・EX版弾無敵\\ %%備考%%
-二百参式・槌椿&\yoga\ +\ $A$\ or\ $C$&投技・EX版発生まで無敵%%備考%%
+百四式・鵺討ち&\syoryu\ +\ $\A$\ or\ $\C$&弱上半身無敵\\%%備考%%
+四百壱式・衝月&\tatsu\ +\ $\A$\ or\ $\C$&下段無敵\\ %%備考%%
+百弐拾九式・明烏&\tatsu\ +\ $\B$\ or\ $\D$&相手付近で攻撃発生/EX版弾無敵\\ %%備考%%
+二百参式・槌椿&\yoga\ +\ $\A$\ or\ $\C$&投技/EX版発生まで無敵%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-禁千弐百十壱式・八稚女&\ryuko\ +\ $A$\ or\ $C$&強制ダウン\\ %%備考%%
+禁千弐百十壱式・八稚女&\ryuko\ +\ $\A$\ or\ $\C$&強制ダウン\\ %%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-禁千弐百十八式・八咫烏&\hado\hado\ +\ $B\ D$&初段ヒットか否かで演出変化%%備考%%
+禁千弐百十八式・八咫烏&\hado\hado\ +\ $\B\ \D$&初段ヒットか否かで演出変化%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{マチュア}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-デスペアー&\syoryu\ +\ $A$\ or\ $C$&$A$\ or\ $C$追加で攻撃発生\\%%備考%%
-デスロウ&\tatsu\ +\ $A$\ or\ $C$&通常3回・EX5回まで派生可\\%%備考%%
-メタルマサカー&\tatsu\ +\ $B$\ or\ $D$&相手の近くで攻撃発生\\%%備考%%
-エボニーティアーズ&\ryuko +\ $A$\ or\ $C$&EX版弾貫通%備考%%
+デスペアー&\syoryu\ +\ $\A$\ or\ $\C$&$\A$\ or\ $\C$追加で攻撃発生\\%%備考%%
+デスロウ&\tatsu\ +\ $\A$\ or\ $\C$&通常3回/EX5回派生\\%%備考%%
+メタルマサカー&\tatsu\ +\ $\B$\ or\ $\D$&相手の近くで攻撃発生\\%%備考%%
+エボニーティアーズ&\ryuko +\ $\A$\ or\ $\C$&EX版弾貫通%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-ヘブンズゲイト&\orochi\ +\ $B$\ or\ $D$&画面端まで運ぶ・EX版無し\\ %%備考%%
-ノクターナルライツ&\hado\hado\ +\ $A$\ or\ $C$&%%備考%%
+ヘブンズゲイト&\orochi\ +\ $\B$\ or\ $\D$&画面端まで運ぶ\\
+&&EX版無し\\ %%備考%%
+ノクターナルライツ&\hado\hado\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-アウェイキングブラッド&\orochi\ +\ $A\ C$&中段%%備考%%
+アウェイキングブラッド&\orochi\ +\ $\A\ \C$&中段%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{バイス}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ドッケン&$\rightarrow$\ +\ $A$&中段\\%%備考%%
-ターゲットコンボ？&近$D$\ \Cancel\ $D$&%%備考%%
+ドッケン&$\rightarrow$\ +\ $\A$&中段\\%%備考%%
+ターゲットコンボ？&近$\D$\ \Cancel\ $\D$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-ディーサイド&\yoga\ +\ $B$\ or\ $D$&強版ヒット時キャンセル可\\
+ディーサイド&\yoga\ +\ $\B$\ or\ $\D$&強版ヒット時キャンセル可\\
 &&EX版なんでも判定\\%%備考%%
-ゴアフェスト&\tenti\ +\ $A$\ or\ $C$&1F投げ\\%%備考%%
-スプラッシュ&\syoryu\ +\ $A$\ or\ $C$&対地投げ\\%%備考%%
-メイヘム&\tatsu\ +\ $A$\ or\ $C$&EX版無敵\\%%備考%%
-スプラッシュ(派生)&(メイヘム中)\hado\ +\ $A$\ or\ $C$&メイヘムから連続ヒット%%備考%%
+ゴアフェスト&\tenti\ +\ $\A$\ or\ $\C$&1F投げ\\%%備考%%
+スプラッシュ&\syoryu\ +\ $\A$\ or\ $\C$&対地投げ\\%%備考%%
+メイヘム&\tatsu\ +\ $\A$\ or\ $\C$&EX版無敵\\%%備考%%
+スプラッシュ(派生)&(メイヘム中)\hado\ +\ $\A$\ or\ $\C$&メイヘムから連続ヒット%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-ネガティブゲイン&\gyakuyoga\gyakuyoga\ +\ $B$\ or\ $D$&1F投げ\\%%備考%%
-オーバーキル&(空中で)$\swarrow\ \downarrow\ \searrow\ \rightarrow\ \nearrow\ \uparrow\
-\downarrow$\ +\ $A$\ or\ $C$&対空投げ・EX版無し%%備考%%
+ネガティブゲイン&\gyakuyoga\gyakuyoga\ +\ $\B$\ or\ $\D$&1F投げ\\%%備考%%
+オーバーキル&(空中で)&対空投げ \\%%備考%%
+&$\swarrow\ \downarrow\ \searrow\ \rightarrow\ \nearrow\ \uparrow\
+\downarrow$\ +\ $\A$\ or\ $\C$&EX版なし
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-アウェイキングブラッド&\orochi\ +\ $A\ C$&%%備考%%
+アウェイキングブラッド&\orochi\ +\ $\A\ \C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1566,85 +1221,85 @@ $\lbrack\ $立ち\ $B\ \rbrack$& $\rightarrow$\ (\rnum{2})
 \subsection{リョウ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-氷柱割り&$\rightarrow$\ +\ $A$&中段\\%%備考%%
-上段受け&$\rightarrow$\ +\ $B$&受け成立時キャンセル可\\%%備考%%
-下段受け&$\searrow$\ +\ $B$&受け成立時キャンセル可%%備考%%
+氷柱割り&$\rightarrow$\ +\ $\A$&中段\\%%備考%%
+上段受け&$\rightarrow$\ +\ $\B$&受け成立時キャンセル可\\%%備考%%
+下段受け&$\searrow$\ +\ $\B$&受け成立時キャンセル可%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-虎煌拳&\hado\ +\ $A$\ or\ $C$&強・EX版弾貫通\\%%備考%%
-虎砲&\syoryu\ +\ $A$\ or\ $C$&弱上半身無敵・強全身無敵\\%%備考%%
-飛燕疾風脚&\gyakuyoga\ +\ $B$\ or\ $D$&\\%%備考%%
-暫烈拳&$\rightarrow\ \leftarrow\ \rightarrow$\ +\ $A$\ or\ $C$&%%備考%%
+虎煌拳&\hado\ +\ $\A$\ or\ $\C$&強/EX版弾貫通\\%%備考%%
+虎砲&\syoryu\ +\ $\A$\ or\ $\C$&弱上半身無敵/強全身無敵\\%%備考%%
+飛燕疾風脚&\gyakuyoga\ +\ $\B$\ or\ $\D$&\\%%備考%%
+暫烈拳&$\rightarrow\ \leftarrow\ \rightarrow$\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-覇王翔吼拳&$\rightarrow$\yoga\ +\ $A$\ or\ $C$&弾貫通・EX版無し\\%%備考%%
-龍虎乱舞&\ryuko\ +\ $A$\ or\ $C$&%%備考%%
+覇王翔吼拳&$\rightarrow$\yoga\ +\ $\A$\ or\ $\C$&弾貫通/EX版無し\\%%備考%%
+龍虎乱舞&\ryuko\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-真・天地覇煌拳&\hado\hado\ +\ $A\ C$&強制ガードクラッシュ%%備考%%
+真/天地覇煌拳&\hado\hado\ +\ $\A\ \C$&ガードクラッシュ値100%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ロバート}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-アッパー&$\rightarrow$\ +\ $A$&キャンセル時二段技\\%%備考%%
-ローキック&$\rightarrow$\ +\ $B$&下段\\%%備考%%
-後ろ蹴り&(空中で)$B\ D$&バクステ中可%%備考%%
+アッパー&$\rightarrow$\ +\ $\A$&キャンセル時二段技\\%%備考%%
+ローキック&$\rightarrow$\ +\ $\B$&下段\\%%備考%%
+後ろ蹴り&(空中で)$\B\ \D$&バクステ中可%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-龍撃拳&\hado\ +\ $A$\ or\ $C$&EX版弾貫通\\%%備考%%
-龍牙&\syoryu\ +\ $A$\ or\ $C$&弱上半身無敵・強全身無敵\\%%備考%%
-飛燕疾風脚&\hien\ +\ $B$\ or\ $D$&\\%%備考%%
-飛燕龍神脚&(空中で)\tatsu\ +\ $B$\ or\ $D$&\\%%備考%%
-幻影脚&$\rightarrow\ \leftarrow\ \rightarrow$\ +\ $B$\ or\ $D$&\\%%備考%%
-龍連・幻影脚&\yoga\ +\ $B$\ or\ $D$&投げ技%%備考%%
+龍撃拳&\hado\ +\ $\A$\ or\ $\C$&EX版弾貫通\\%%備考%%
+龍牙&\syoryu\ +\ $\A$\ or\ $\C$&弱上半身無敵/強全身無敵\\%%備考%%
+飛燕疾風脚&\hien\ +\ $\B$\ or\ $\D$&\\%%備考%%
+飛燕龍神脚&(空中で)\tatsu\ +\ $\B$\ or\ $\D$&\\%%備考%%
+幻影脚&$\rightarrow\ \leftarrow\ \rightarrow$\ +\ $\B$\ or\ $\D$&\\%%備考%%
+龍連/幻影脚&\yoga\ +\ $\B$\ or\ $\D$&投げ技%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-覇王翔吼拳&$\rightarrow$\yoga\ +\ $A$\ or\ $C$&弾貫通・EX版無し\\%%備考%%
-龍虎乱舞&\ryuko\ +\ $A$\ or\ $C$&%%備考%%
+覇王翔吼拳&$\rightarrow$\yoga\ +\ $\A$\ or\ $\C$&弾貫通/EX版無し\\%%備考%%
+龍虎乱舞&\ryuko\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-飛燕疾風龍神脚&\ryuko\ +\ $B\ D$&%%備考%%
+飛燕疾風龍神脚&\ryuko\ +\ $\B\ \D$&%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{タクマ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-足刀蹴り&$\rightarrow$\ +\ $B$&%%備考%%
+足刀蹴り&$\rightarrow$\ +\ $\B$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-虎煌拳&\hado\ +\ $A$\ or\ $C$&EX版相手サーチ\\%%備考%%
-極限虎煌&\hado\ +\ $B$\ or\ $D$&強版ヒット時自動で移動\\%%備考%%
-飛燕疾風脚&\hien\ +\ $B$\ or\ $D$&\\%%備考%%
-暫烈拳&$\rightarrow\ \leftarrow\ \rightarrow$\ +\ $A$\ or\ $C$&EX版なんでも判定\\%%備考%%
-極限崩撃&\gyakuyoga\ +\ $A$\ or\ $C$&投げ技・EX版発生まで無敵%%備考%%
+虎煌拳&\hado\ +\ $\A$\ or\ $\C$&EX版相手サーチ\\%%備考%%
+極限虎煌&\hado\ +\ $\B$\ or\ $\D$&強版ヒット時自動で移動\\%%備考%%
+飛燕疾風脚&\hien\ +\ $\B$\ or\ $\D$&\\%%備考%%
+暫烈拳&$\rightarrow\ \leftarrow\ \rightarrow$\ +\ $\A$\ or\ $\C$&EX版なんでも判定\\%%備考%%
+極限崩撃&\gyakuyoga\ +\ $\A$\ or\ $\C$&投げ技/EX版発生まで無敵%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-覇王至高権&$\rightarrow$\yoga\ +\ $A$\ or\ $C$&弾貫通・EX版弾貫通\times 3\\%%備考%%
-龍虎乱舞&\ryuko\ +\ $A$\ or\ $C$&%%備考%%
+覇王至高権&$\rightarrow$\yoga\ +\ $\A$\ or\ $\C$&弾貫通/EX版弾貫通\times 3\\%%備考%%
+龍虎乱舞&\ryuko\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-毘瑠斗圧覇&\hado\hado\ +\ $A$\ or\ $C$&下降部分相手サーチ%%備考%%
+毘瑠斗圧覇&\hado\hado\ +\ $\A$\ or\ $\C$&下降部分相手サーチ%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1658,81 +1313,83 @@ $\lbrack\ $立ち\ $B\ \rbrack$& $\rightarrow$\ (\rnum{2})
 \subsection{キム}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ネリチャギ&$\rightarrow$\ +\ $B$&中段\\%%備考%%
-トラ・ヨプチャギ&$\rightarrow\ \rightarrow$\ +\ $A$&先行入力が効く・空中判定%%備考%%
+ネリチャギ&$\rightarrow$\ +\ $\B$&中段\\%%備考%%
+トラ/ヨプチャギ&$\rightarrow\ \rightarrow$\ +\ $\A$&先行入力が効く/空中判定%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-半月斬&\tatsu\ +\ $B$\ or\ $D$&\\%%備考%%
-空中半月斬&\tatsy\ +\ $B$\ or\ $D$&強版中段・EX版無敵\\%%備考%%
-飛翔脚&(空中で)\hado\ +\ $B$\ or\ $D$&弱・強版中$D$で追加攻撃\\%%備考%%
-飛燕斬&\vtame\ +\ $B$\ or\ $D$&弱上半身無敵・強完全無敵\\%%備考%%
-&&強版中\ $\downarrow\ D$で追加攻撃
+半月斬&\tatsu\ +\ $\B$\ or\ $\D$&\\%%備考%%
+空中半月斬&\tatsy\ +\ $\B$\ or\ $\D$&強版中段/EX版無敵\\%%備考%%
+飛翔脚&(空中で)\hado\ +\ $\B$\ or\ $\D$&弱/強版中$\D$で追加攻撃\\%%備考%%
+飛燕斬&\vtame\ +\ $\B$\ or\ $\D$&弱上半身無敵/強完全無敵\\%%備考%%
+&&強版中\ $\downarrow\ \D$で追加攻撃
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-鳳凰脚&\tatsu\ $\swarrow\ \rightarrow$\ +\ $B$\ or\ $D$&空中下\\%%備考%%
-鳳凰飛天脚&\hado\ \hado\ +\ $B$\ or\ $D$&ガード時有利・EX版無し%%備考%%
+鳳凰脚&\tatsu\ $\swarrow\ \rightarrow$\ +\ $\B$\ or\ $\D$&空中下\\%%備考%%
+鳳凰飛天脚&\hado\ \hado\ +\ $\B$\ or\ $\D$&ガード時有利/EX版無し%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-零式鳳凰脚&\tatsu\ $\swarrow\ \rightarrow$+\ $A\ C$&%%備考%%
+零式鳳凰脚&\tatsu\ $\swarrow\ \rightarrow$+\ $\A\ \C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ホア}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-スライディング&$\searrow$\ +\ $B$&下段%%備考%%
+スライディング&$\searrow$\ +\ $\B$&下段%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-ドラゴンキック&\syoryu\ +\ $B$\ or\ $D$&EX版なんでも判定\\%%備考%%
-&&EX版方向キー\ +\ $B$\ or\ $D$で追加攻撃(計3回)\\
-ドラゴンテイル&\tatsu\ +\ $B$\ or\ $D$&空中可・地上EX版弾無敵\\%%備考%%
-爆裂拳&\hado\ +\ $A$\ or\ $C$&通常版同コマンドでフィニッシュ\\%%備考%%
+ドラゴンキック&\syoryu\ +\ $\B$\ or\ $\D$&EX版なんでも判定/空中可\\%%備考%%
+&&EX版方向キー\ +\ $\B$\ or\ $\D$で追加攻撃\\
+ドラゴンテイル&\tatsu\ +\ $\B$\ or\ $\D$&空中可/地上EX版弾無敵\\%%備考%%
+爆裂拳&\hado\ +\ $\A$\ or\ $\C$&通常版同コマンドでフィニッシュ\\%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-ドリンク飲み&\tatsu\ \tatsu\ +\ $A$\ or\ $X$&EX版無し・一時強化\\
+ドリンク飲み&\tatsu\ \tatsu\ +\ $\A$\ or\ $\C$&EX版無し\\
+&&一定時間強化\\
 &&防御力低下\\%%備考%%
-ドラゴンダンス&\hado\ \hado\ +\ $B$\ or\ $D$&\\%%備考%%
-ドラゴンバックブリーカー&\ryuko\ +\ $A$\ or\ $C$&弱1F投げ・強移動投げ\\%%備考%%
+ドラゴンダンス&\hado\ \hado\ +\ $\B$\ or\ $\D$&\\%%備考%%
+ドラゴンバックブリーカー&\ryuko\ +\ $\A$\ or\ $\C$&弱1F投げ\\
+&&強移動投げ\\%%備考%%
 &&EX版無し
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-ファイナル・ドラゴンキック&\ryuko\ +\ $B\ D$&スカヒット時追撃可能%%備考%%
+ファイナル/ドラゴンキック&\ryuko\ +\ $\B\ \D$&スカヒット時追撃可%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ライデン}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-毒霧&\tatsu\ +\ $A$\ or\ $C$&弾判定\\%%備考%%
-ジャイアントボム&\hien\ +\ $A$\ or\ $C$&通常版発生までに\\
-&&$A\ B$入力でフェイント\\%%備考%%
-ヘッドクラッシュ&\yoga\ +\ $B$\ or\ $D$&1F投げ\\%%備考%%
-スーパードロップキック&$B$\ or\ $D$を4秒以上&すべての地上技から\\%%備考%
+毒霧&\tatsu\ +\ $\A$\ or\ $\C$&弾判定\\%%備考%%
+ジャイアントボム&\hien\ +\ $\A$\ or\ $\C$&通常版発生までに\\
+&&$\A\ \B$入力でフェイント\\%%備考%%
+ヘッドクラッシュ&\yoga\ +\ $\B$\ or\ $\D$&1F投げ\\%%備考%%
+スーパードロップキック&$\B$\ or\ $\D$を4秒以上&すべての地上技から\\%%備考%
 &押して離す&キャンセルできる\\
 &&押下時間に応じて性能変化
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-スーパーライデンドロップ&\gyakuyoga\ \gyakuyoga\ +\ $A$\ or\ $C$&1F投げ\\%%備考%%
-クレイジートレイン&\hado\ \hado\ +\ $A$\ or\ $C$&EX版無し%%備考%%
+スーパーライデンドロップ&\gyakuyoga\ $\times\ 2$ +\ $\A$\ or\ $\C$&1F投げ\\%%備考%%
+クレイジートレイン&\hado\ \hado\ +\ $\A$\ or\ $\C$&EX版無し%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-ライデンボンバー&\hado\ \hado\ +\ $B\ D$&%%備考%%
+ライデンボンバー&\hado\ \hado\ +\ $\B\ \D$&%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1746,95 +1403,96 @@ $\lbrack\ $立ち\ $B\ \rbrack$& $\rightarrow$\ (\rnum{2})
 \subsection{K'}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ワンインチ&$\rightarrow$\ +\ $A$&%%備考%%
+ワンインチ&$\rightarrow$\ +\ $\A$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-アイントリガー&\hado\ +\ $A$\ or\ $C$&弾判定・追加入力で派生\\%%備考%%
-セカンドシュート&(アイントリガー中)$\rightarrow$\ +\ $B$&EX版弾貫通\\%%備考%%
-セカンドシェル&(アイントリガー中)$\rightarrow$\ +\ $D$&\\%%備考%%
-ブラックアウト&(アイントリガー中)$\leftarrow$\ +\ $B$\ or\ $D$&\\%%備考%%
-ブラックアウト&\hado\ +\ $B$\ or\ $D$&EX版打撃無敵\\%%備考%%
-クロウバイツ&\syoryu\ +\ $A$\ or\ $D$&弱上半身無敵・強全身無敵\\%%備考%%
-&&強$\rightarrow$\ +\ $B$\ or\ $D$で追加攻撃\\
-ミニッツスパイク&\tatsu\ +\ $B$\ or\ $D$&空中可・空中版なんでも判定\\%%備考%%
-ナロウスパイク&(地上MS)\tatsu\ +\ $B$\ or\ $D$&下段%%備考%%
+アイントリガー&\hado\ +\ $\A$\ or\ $\C$&弾判定/追加入力で派生\\%%備考%%
+セカンドシュート&(アイントリガー中)$\rightarrow$\ +\ $\B$&EX版弾貫通\\%%備考%%
+セカンドシェル&(アイントリガー中)$\rightarrow$\ +\ $\D$&\\%%備考%%
+ブラックアウト&(アイントリガー中)$\leftarrow$\ +\ $\B$\ or\ $\D$&\\%%備考%%
+ブラックアウト&\hado\ +\ $\B$\ or\ $\D$&EX版打撃無敵\\%%備考%%
+クロウバイツ&\syoryu\ +\ $\A$\ or\ $\D$&弱上半身無敵/強全身無敵\\%%備考%%
+&&強$\rightarrow$\ +\ $\B$\ or\ $\D$で追加\\
+ミニッツスパイク&\tatsu\ +\ $\B$\ or\ $\D$&空中可\\
+&&空中版なんでも判定\\%%備考%%
+ナロウスパイク&(地上MS)\tatsu\ +\ $\B$\ or\ $\D$&下段%%備考%%
 \end{tabular}
 \end{itembox}
 ※MS…ミニッツスパイク\\
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-ヒートドライブ&\hado\ \hado\ +\ $A$\ or\ $C$&EX版無し・タメ可\\%%備考%%
-チェーンドライブ&\ryuko\ +\ $A$\ or\ $C$&サングラスヒット時のみ演出\\%%備考%%
+ヒートドライブ&\hado\ \hado\ +\ $\A$\ or\ $\C$&EX版無し/タメ可\\%%備考%%
+チェーンドライブ&\ryuko\ +\ $\A$\ or\ $\C$&サングラスHit時のみ演出\\%%備考%%
 &&EX版なんでも判定
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-ハイパーチェーンドライブ&\gyakuyoga\ \gyakuyoga\ +\ $A C$&%%備考%%
+ハイパーチェーンドライブ&\gyakuyoga\ $\times\ 2$\ +\ $\A \C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{クーラ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-ワンインチ&$\rightarrow$\ +\ $A$&\\%%備考%%
-スライダーシュート&$\searrow$\ +\ $B$&下段%%備考%%
+ワンインチ&$\rightarrow$\ +\ $\A$&\\%%備考%%
+スライダーシュート&$\searrow$\ +\ $\B$&下段%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-レイ・スピン&\tatsu\ +\ $B$\ or\ $D$&追加入力で派生\\%%備考%%
-スタンド&(レイ・スピン中)$\rightarrow$\ +\ $B$&弾判定\\%%備考%%
-シット&(レイ・スピン中)$\rightarrow$\ +\ $D$&下段\\%%備考%%
-クロウバイツ&\syoryu\ +\ $A$\ or\ $C$&弱完全無敵\\%%備考%%
-ダイアモンドブレス&\hado\ +\ $A$\ or\ $C$&弾判定\\%%備考%%
-カウンターシェル&\tatsu\ +\ $A$\ or\ $C$&弾反射＋弾貫通%%備考%%
+レイ/スピン&\tatsu\ +\ $\B$\ or\ $\D$&追加入力で派生\\%%備考%%
+スタンド&(レイ/スピン中)$\rightarrow$\ +\ $\B$&弾判定\\%%備考%%
+シット&(レイ/スピン中)$\rightarrow$\ +\ $\D$&下段\\%%備考%%
+クロウバイツ&\syoryu\ +\ $\A$\ or\ $\C$&弱完全無敵\\%%備考%%
+ダイアモンドブレス&\hado\ +\ $\A$\ or\ $\C$&弾判定\\%%備考%%
+カウンターシェル&\tatsu\ +\ $\A$\ or\ $\C$&弾反射＋弾貫通%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-ダイアモンドエッジ&\hado\ \had\ +\ $A$\ or\ $C$&\\%%備考%%
-フリーズエクスキュージョン&\gyakuyoga\ \gyakuyoga\ +\ $A$\ or\ $C$&2PG消費\\
+ダイアモンドエッジ&\hado\ \had\ +\ $\A$\ or\ $\C$&\\%%備考%%
+フリーズエクスキュージョン&\gyakuyoga\ $\times\ 2$\ +\ $\A$\ or\ $\C$&2PG消費\\
 &&弾貫通%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-ネオフリーズエクスキュージョン&\gyakuyoga\ \gyakuyoga\ +\ $B\ D$&弾貫通%%備考%%
+ネオフリーズエクスキュージョン&\gyakuyoga\ $\times\ 2$\ +\ $\B\ \D$&弾貫通%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{マキシマ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-$M$9型\ マキシマ・ミサイル(試作)&$\searrow$\ +\ $C$&%%備考%%
+$M$9型\ マキシマ/ミサイル(試作)&$\searrow$\ +\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-$M$4型 ベイパーキャノン&\tatsu\ +\ $A$\ or\ $C$&強版上半身GP\\%%備考%%
+$M$4型 ベイパーキャノン&\tatsu\ +\ $\A$\ or\ $\C$&強版上半身GP\\%%備考%%
 &&EX版壁バウンド\\
-$M$4型 ベイパーキャノン(空中)&(空中で)\tatsu\ +\ $A$\ or\ $C$&EX版全身GP\\%%備考%%
-$M$19型 ブリッツキャノン&\syoryu\ +\ $B$\ or\ $D$&EX版全身GP\\%%備考%%
-マキシマプレス&\gyakuyoga\ +\ $B$\ or\ $D$&弱1F投げ\\%%備考%%
+$M$4型 ベイパーキャノン(空中)&(空中で)\tatsu\ +\ $\A$\ or\ $\C$&EX版全身GP\\%%備考%%
+$M$19型 ブリッツキャノン&\syoryu\ +\ $\B$\ or\ $\D$&EX版全身GP\\%%備考%%
+マキシマプレス&\gyakuyoga\ +\ $\B$\ or\ $\D$&弱1F投げ\\%%備考%%
 &&強移動投げ\\
 &&EX版打撃技\\
-追加攻撃&(MP中)\tatsu\ +\ $A$\ or\ $C$&
+追加攻撃&(MP中)\tatsu\ +\ $\A$\ or\ $\C$&
 \end{tabular}
 \end{itembox}
 ※GP…ガードポイント\\
 ※MP…マキシマプレス\\
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-ダブルベイパーキャノン&\hado\ \hado\ +\ $A$\ or\ $C$&通常版全身GP\\%%備考%%
+ダブルベイパーキャノン&\hado\ \hado\ +\ $\A$\ or\ $\C$&通常版全身GP\\%%備考%%
 &&EX版全身無敵
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-マキシマレーザー&\gyakuyoga\ \gyakuyoga\ +\ $A\ C$&最終段のみガーキャン可%%備考%%
+マキシマレーザー&\gyakuyoga\ $\times\ 2$\ +\ $\A\ \C$&最終段のみガーキャン可%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1848,58 +1506,58 @@ $M$19型 ブリッツキャノン&\syoryu\ +\ $B$\ or\ $D$&EX版全身GP\\%%備�
 \subsection{エリザベート}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-アン・ク・ドゥ・ピエ&$\rightarrow$\ +\ $B$&%%備考%%
+アン・ク・ドゥ・ピエ&$\rightarrow$\ +\ $\B$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-エタンセル&\hado\ +\ $A$\ or\ $C$&弾判定\\%%備考%%
-レヴェリー・スエテ&\hado\ +\ $B$\ or\ $D$&移動技・EX版打撃無敵\\%%備考%%
+エタンセル&\hado\ +\ $\A$\ or\ $\C$&弾判定\\%%備考%%
+レヴェリー・スエテ&\hado\ +\ $\B$\ or\ $\D$&移動技/EX版打撃無敵\\%%備考%%
 &&全強度動作中キャンセル可\\
-レヴェリー・プリエ&\tatsu\ +\ $B$\ or\ $D$&移動技・EX版打撃無敵\\%%備考%%
+レヴェリー・プリエ&\tatsu\ +\ $\B$\ or\ $\D$&移動技/EX版打撃無敵\\%%備考%%
 &&全強度動作中キャンセル可\\
-ミストラル&\tenti\ +\ $A$\ or\ $C$&投げ技・EX版発生まで無敵\\%%備考%%
-クー・ド・ヴァン&\syoryu\ +\ $A$\ or\ $C$&%%備考%%
+ミストラル&\tenti\ +\ $\A$\ or\ $\C$&投げ技/EX版発生まで無敵\\%%備考%%
+クー・ド・ヴァン&\syoryu\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-ノーブル・ブラン&\hado\ \hado\ +\ $A$\ or\ $C$&弾貫通\\%%備考%%
-グラン・ラファール&\ryuko\ +\ $A$\ or\ $C$&なんでも判定・EX版無し%%備考%%
+ノーブル・ブラン&\hado\ \hado\ +\ $\A$\ or\ $\C$&弾貫通\\%%備考%%
+グラン・ラファール&\ryuko\ +\ $\A$\ or\ $\C$&なんでも判定/EX版無し%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-エトワール・フィラント&\orochi\ +\ $B\ D$&当て身技\\%%備考%%
-&&MAXキャンセル時打撃技
+エトワール・フィラント&\orochi\ +\ $\B\ \D$&当て身技\\%%備考%%
+&&MAXCancel時打撃技
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{デュオロン}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-幻夢拳&$\rightarrow$\ +\ $A$&空中可・空中EX版なんでも判定\\%%備考%%
+幻夢拳&$\rightarrow$\ +\ $\A$&空中可/空中EX版なんでも判定\\%%備考%%
 &&地上版幻夢脚以外でキャンセル可\\
-幻夢脚&$\rightarrow$\ +\ $B$&空中可・空中版中段\\%%備考%%
+幻夢脚&$\rightarrow$\ +\ $\B$&空中可/空中版中段\\%%備考%%
 &&地上版相手をサーチ\\
 &&地上版超必殺技以上でキャンセル可\\
-飛毛脚・前&\hado\ +\ $B$\ or\ $D$&EX版打撃無敵\\%%備考%%
-飛毛脚・後&\hado +\ $B$\ or\ $D$&EX版打撃無敵\\%%備考%%
+飛毛脚/前&\hado\ +\ $\B$\ or\ $\D$&EX版打撃無敵\\%%備考%%
+飛毛脚/後&\hado +\ $\B$\ or\ $\D$&EX版打撃無敵\\%%備考%%
 &&動作中幻夢脚でキャンセル可\\
-捨己従竜&\hado\ +\ $A$\ or\ $C$&3回まで連続入力可\\%%備考%%
-&&3段目飛毛脚・前でキャンセル可\\
-&&EX版の二段目まで呪怨死魂でキャンセル可\\
-呪怨死魂&\tatsu\ +\ $A$\ or\ $C$&EX版弾貫通%%備考%%
+捨己従竜&\hado\ +\ $\A$\ or\ $\C$&3回まで連続入力可\\%%備考%%
+&&3段目飛毛脚/前でキャンセル可\\
+&&EX版一部必殺技でキャンセル可\\
+呪怨死魂&\tatsu\ +\ $\A$\ or\ $\C$&EX版弾貫通%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-秘伝・幻夢爆吐死魂&\orochi\ +\ $A$\ or\ $C$&%%備考%%
+秘伝/幻夢爆吐死魂&\orochi\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-秘伝・幻夢呪怨死魂葬&\gyakuyoga\ \gyakuyoga\ +\ $A\ C$&1F投げ\\%%備考%%
+秘伝/幻夢呪怨死魂葬&\gyakuyoga\ $\times\ 2$\ +\ $\A\ \C$&1F投げ\\%%備考%%
 &&MAXキャンセル時\\
 &&打撃技に変化
 \end{tabular}
@@ -1908,31 +1566,31 @@ $M$19型 ブリッツキャノン&\syoryu\ +\ $B$\ or\ $D$&EX版全身GP\\%%備�
 \subsection{シェン}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-斧旋脚&$\rightarrow$\ +\ $B$&%%備考%%
+斧旋脚&$\rightarrow$\ +\ $\B$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-激拳&\hado\ +\ $A$\ or\ $C$&強タメ可\\
-&&タメ中$B$\ or\ $D$でキャンセル可\\%%備考%%
+激拳&\hado\ +\ $\A$\ or\ $\C$&強タメ可\\
+&&タメ中$\B$\ or\ $\D$でキャンセル可\\%%備考%%
 &&EX版無敵\\
-伏虎撃&\tatsu\ +\ $A$&$A\ C$同時押し時EX版が出る・中段\\%%備考%%
-降龍撃&(伏虎撃中)\hado\ +\ $A$&\\%%備考%%
-転連拳&\hado\ +\ $B$\ or\ $D$&\\%%備考%%
-弾拳&\tenti\ +\ $A$\ or\ $C$&投げ技・EX版発生まで無敵\\%%備考%%
-弾拳(弾き)&\tatsu\ +\ $C$&EX版無し・弾消し判定(攻撃判定無し)\\%%備考%%
+伏虎撃&\tatsu\ +\ $\A$&$\A\ \C$同時押し時EX版が出る/中段\\%%備考%%
+降龍撃&(伏虎撃中)\hado\ +\ $\A$&\\%%備考%%
+転連拳&\hado\ +\ $\B$\ or\ $\D$&\\%%備考%%
+弾拳&\tenti\ +\ $\A$\ or\ $\C$&投げ技/EX版発生まで無敵\\%%備考%%
+弾拳(弾き)&\tatsu\ +\ $\C$&EX版無し/弾消し判定のみ\\%%備考%%
 &&弾消し時キャンセル可
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-絶・激拳&\hado\ \hado\ +\ $A$\ or\ $C$&スライドダウン\\%%備考%%
-爆真&$C\ \cdot\ A\ \cdot B\ \cdot\ C$&全身無敵・一時強化%%備考%%
+絶/激拳&\hado\ \hado\ +\ $\A$\ or\ $\C$&スライドダウン\\%%備考%%
+爆真&$\C\ \cdot\ \A\ \cdot \B\ \cdot\ \C$&全身無敵/一時強化%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-天将爆真激&\ryuko\ +\ $A\ C$&ヒット時のみ演出%%備考%%
+天将爆真激&\ryuko\ +\ $\A\ \C$&ヒット時のみ演出%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
@@ -1946,62 +1604,62 @@ $M$19型 ブリッツキャノン&\syoryu\ +\ $B$\ or\ $D$&EX版全身GP\\%%備�
 \subsection{ビリー}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-大回転蹴り&$\rightarrow$\ +\ $A$&\\%%備考%%
-竿打ち&$\leftarrow$\ +\ $A$&\\%%備考%%
-棒高跳び蹴り&$\rightarrow$\ +\ $B$&しゃがみに当たらない%%備考%%
+大回転蹴り&$\rightarrow$\ +\ $\A$&\\%%備考%%
+竿打ち&$\leftarrow$\ +\ $\A$&\\%%備考%%
+棒高跳び蹴り&$\rightarrow$\ +\ $\B$&しゃがみに当たらない%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-三節棍中段打ち&\yoga\ +\ $A$\ or\ $C$&\\%%備考%%
-火炎三節棍中段打ち&(強・EX三節棍中段打ち中)&\\
-&\hado\ +\ $A$\ or\ $C$&\\
-旋風棍&$A$\ or\ $C$\ 連打&出掛かりをキャンセル可能\\%%備考%%
-雀落とし&\tatsu\ +\ $A$\ or\ $C$&強ヒット時キャンセル可\\%%備考%%
-強襲飛翔棍&\syoryu\ +\ $B$\ or\ $D$&EX版無敵\\&&EX版下降部分相手サーチ%%備考%
+三節棍中段打ち&\yoga\ +\ $\A$\ or\ $\C$&\\%%備考%%
+火炎三節棍中段打ち&(強/EX三節棍中段打ち中)&\\
+&\hado\ +\ $\A$\ or\ $\C$&\\
+旋風棍&$\A$\ or\ $\C$\ 連打&出掛かりをキャンセル可能\\%%備考%%
+雀落とし&\tatsu\ +\ $\A$\ or\ $\C$&強ヒット時キャンセル可\\%%備考%%
+強襲飛翔棍&\syoryu\ +\ $\B$\ or\ $\D$&EX版無敵\\&&EX版下降部分相手サーチ%%備考%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-超火炎旋風棍&\ryuko\ +\ $A$\ or\ $C$&弾貫通%%備考%%
+超火炎旋風棍&\ryuko\ +\ $\A$\ or\ $\C$&弾貫通%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-大紅蓮螺旋棍&\hado\ \hado\ +\ $A\ C$&弾貫通%%備考%%
+大紅蓮螺旋棍&\hado\ \hado\ +\ $\A\ \C$&弾貫通%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{アッシュ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-フロレアール&$\leftarrow$\ +\ $B$&下段無敵\\%%備考%%
-フロレアール(後方)&$\leftarrow$\ +\ $D$&下段無敵%%備考%%
+フロレアール&$\leftarrow$\ +\ $\B$&下段無敵\\%%備考%%
+フロレアール(後方)&$\leftarrow$\ +\ $\D$&下段無敵%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-ヴァントーズ&\htame\ +\ $A$\ or\ $C$&EX版弾貫通\\%%備考%%
-ジェルミナール カプリス&\htame\ +\ $B$\ or\ $D$&\\%%備考%%
-ニヴォース&\vtame\ +\ $B$\ or\ $D$&強全身無敵\\%%備考%%
-ジェニー&\tatsu\ +\ $A$\ or\ $B$\ or\ $C$\ or\ $D$&設置技\\%%備考%%
-&&相手が近づくと爆発\\
-&&EX $AC$版目の前に設置\\
-&&EX $BD$版相手をサーチ
+ヴァントーズ&\htame\ +\ $\A$\ or\ $\C$&EX版弾貫通\\%%備考%%
+ジェルミナール カプリス&\htame\ +\ $\B$\ or\ $\D$&\\%%備考%%
+ニヴォース&\vtame\ +\ $\B$\ or\ $\D$&強全身無敵\\%%備考%%
+ジェニー&\tatsu\ +\ $\A$\ or\ $\B$\ &設置技\\%%備考%%
+&\ \ \ \ \ \ \ \ \ \ or\ $\C$\ or\ $\D$&相手が近づくと爆発\\
+&&EX $\A\C$版目の前に設置\\
+&&EX $\B\D$版相手をサーチ
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-テルミドール&\hado\ \hado\ +\ $A$\ or\ $C$&EX版無し・弾貫通\\%%備考%%
-ブリュヴィオーズ&\hado\ \hado\ +\ $B$\ or\ $D$&\\%%備考%%
-サン・キュロット&$A\ \cdot\ B\ \cdot\ C\ \cdot\ D$&全身無敵・一時強化\\%%備考%%
-ジェルミナール&(強化中)\orochi\ +\ $A\ C$&消費ゲージ無し\\
+テルミドール&\hado\ \hado\ +\ $\A$\ or\ $\C$&EX版無し/弾貫通\\%%備考%%
+ブリュヴィオーズ&\hado\ \hado\ +\ $\B$\ or\ $\D$&\\%%備考%%
+サン・キュロット&$\A\ \cdot\ \B\ \cdot\ \C\ \cdot\ \D$&全身無敵/一時強化\\%%備考%%
+ジェルミナール&(強化中)\orochi\ +\ $\A\ \C$&消費ゲージ無し\\
 &&必殺技以上一時封印%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-フリュティドール&\gyakuyoga\ \gyakuyoga\ +\ $B\ D$&1F投げ\\
+フリュティドール&\gyakuyoga\ $\times\ 2$\ +\ $\B\ \D$&1F投げ\\
 &&MAXキャンセル時打撃技%%備考%%
 \end{tabular}
 \end{itembox}
@@ -2009,33 +1667,33 @@ $M$19型 ブリッツキャノン&\syoryu\ +\ $B$\ or\ $D$&EX版全身GP\\%%備�
 \subsection{サイキ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-陰&(空中で)$\rightarrow$\ +\ $B$&空中ヒット後追撃不可\\%%備考%%
-發&(空中で)$\leftarrow$\ +\ $B$&
+陰&(空中で)$\rightarrow$\ +\ $\B$&空中ヒット後追撃不可\\%%備考%%
+發&(空中で)$\leftarrow$\ +\ $\B$&
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-鬼抑ノ月&\hado\ +\ $A$\ or\ $C$&\\%%備考%%
-刎釣瓶ノ鉈&\syoryu\ +\ $B$\ or\ $D$&弱上半身無敵・強全身無敵\\%%備考%%
-笠研ノ槌&(強・EX刎釣瓶ノ鉈ヒット時)&\\
-&$A$\ or\ $B$\ or\ $C$\ or\ $D$押しっぱなし&\\%%備考%%
-臂折ノ楔&\tatsu\ +\ $B$\ or\ $D$&\\%%備考%%
-裏七里&(強・EX臂折ノ楔ヒット時)&移動技\\%%備考%%
-&$A$\ or\ $B$\ or\ $C$\ or\ $D$押しっぱなし&\\%%備考%%
-七里駆&$\downarrow\ \downarrow$\ +$A$\ or\ $B$\ or\ $C$\ or\ $D$&%移動技%備考%%
+鬼抑ノ月&\hado\ +\ $\A$\ or\ $\C$&\\%%備考%%
+刎釣瓶ノ鉈&\syoryu\ +\ $\B$\ or\ $\D$&弱上半身無敵/強全身無敵\\%%備考%%
+笠研ノ槌&(強/EX刎釣瓶ノ鉈ヒット時)&\\
+&$\A$\ or\ $\B$\ or\ $\C$\ or\ $\D$押しっぱなし&\\%%備考%%
+臂折ノ楔&\tatsu\ +\ $\B$\ or\ $\D$&\\%%備考%%
+裏七里&(強/EX臂折ノ楔ヒット時)&移動技\\%%備考%%
+&$\A$\ or\ $\B$\ or\ $\C$\ or\ $\D$押しっぱなし&\\%%備考%%
+七里駆&$\downarrow\ \downarrow$\ +$\A$\ or\ $\B$\ or\ $\C$\ or\ $\D$&%移動技%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-鷲羽落&\hado\ \hado\ +\ $B$\ or\ $D$&EX版無し・ヒット時演出\\%%備考%%
-闇落&(空中で)\hado \hado\ +\ $B$\ or\ $D$&EX版無し・中段・ヒット時演出\\%%備考%%
-常闇ノ船&\hado\ \hado\ +\ $A$\ or\ $C$&EX版無し・弾貫通・補正無視\\%%備考%%
-去龍ノ澱&\gyakuyoga\ \gyakuyoga\ +\ $A$\ or\ $C$&1F投げ・体力回復\\%%備考%%
+鷲羽落&\hado\ \hado\ +\ $\B$\ or\ $\D$&EX版無し/ヒット時演出\\%%備考%%
+闇落&(空中で)\hado \hado\ +\ $\B$\ or\ $\D$&EX版無し/中段/ヒット時演出\\%%備考%%
+常闇ノ船&\hado\ \hado\ +\ $\A$\ or\ $\C$&EX版無し/弾貫通/補正無視\\%%備考%%
+去龍ノ澱&\gyakuyoga\ $\times\ 2$\ +\ $\A$\ or\ $\C$&1F投げ/体力回復\\%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-神集&\orochi\ +\ $A\ C$&全画面%%備考%%
+神集&\orochi\ +\ $\A\ \C$&全画面%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
@@ -2049,110 +1707,110 @@ $M$19型 ブリッツキャノン&\syoryu\ +\ $B$\ or\ $D$&EX版全身GP\\%%備�
 \subsection{炎庵}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-外式・夢弾&$\rightarrow$\ +\ $A$&$A$\ 追加で二段目発生\\
-外式・轟斧 陰"死神"&$\rightarrow$\ +\ $B$&中段\\%%備考%%
-外式・百合折り&(空中で)$\leftarrow$\ +\ $B$&バクステ中可%%備考%%
+外式・夢弾&$\rightarrow$\ +\ $\A$&$\A$\ 追加で二段目発生\\
+外式・轟斧 陰"死神"&$\rightarrow$\ +\ $\B$&中段\\%%備考%%
+外式・百合折り&(空中で)$\leftarrow$\ +\ $\B$&バクステ中可%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-百式・鬼焼き&\syoryu\ +\ $A$\ or\ $C$&弱上半身無敵・強全身無敵\\%%備考%%
-百八式・闇払い&\hado\ +\ $A$\ or\ $C$&EX版弾貫通・ヒット時拘束\\%%備考%%
-百弐拾七式・葵花&\tatsu\ +\ $A$\ or\ $C$&3回まで追加入力可\\%%備考%%
-弐百拾弐式・琴月 陰&\gyakuyoga\ +\ $B$\ or\ $D$&EX版ダウン追い打ち\\%%備考%%
-屑風&\tenti\ +\ $A$\ or\ $C$&投げ技・EX版発生まで無敵%%備考%%
+百式・鬼焼き&\syoryu\ +\ $\A$\ or\ $\C$&弱上半身無敵/強全身無敵\\%%備考%%
+百八式・闇払い&\hado\ +\ $\A$\ or\ $\C$&EX版弾貫通/Hit時拘束\\%%備考%%
+百弐拾七式・葵花&\tatsu\ +\ $\A$\ or\ $\C$&3回まで追加入力可\\%%備考%%
+弐百拾弐式・琴月 陰&\gyakuyoga\ +\ $\B$\ or\ $\D$&EX版ダウン追い打ち\\%%備考%%
+屑風&\tenti\ +\ $\A$\ or\ $\C$&投げ技/EX版無敵%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-禁千弐百十壱式・八稚女&\ryuko\ +\ $A$\ or\ $C$&EX版スライドダウン\\%%備考%%
-裏参百壱拾六式・豺華&(八稚女)(\ \hado\ )\times 4\ +\ $A\ C$&補正無視\\
-裏千弐百七式・闇削ぎ&\hado\ \hado\ +\ $A$\ or\ $C$&EX版無し\\
+禁千弐百十壱式・八稚女&\ryuko\ +\ $\A$\ or\ $\C$&EX版スライドダウン\\%%備考%%
+裏参百壱拾六式・豺華&(八稚女)(\ \hado\ )\times 4\ +\ $\A\ \C$&補正無視\\
+裏千弐百七式・闇削ぎ&\hado\ \hado\ +\ $\A$\ or\ $\C$&EX版無し\\
 &&初段ヒット時ロック%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-裏千弐拾九式・焔甌&\orochi +\ $A\ C$&投げ技%%備考%%
+裏千弐拾九式・焔甌&\orochi +\ $\A\ \C$&投げ技%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{ネスツ京}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-外式・轟斧 陽&$\rightarrow$\ +\ $B$&中段\\%%備考%%
-八拾八式&$\searrow$\ +\ $D$&下段・二段技\\%%備考%%
+外式・轟斧 陽&$\rightarrow$\ +\ $\B$&中段\\%%備考%%
+八拾八式&$\searrow$\ +\ $\D$&下段/二段技\\%%備考%%
 外式・奈落落とし&(空中で)$\swarrow$\ or\ $\downarrow$\ or\ $\searrow$\ +\
-$C$&中段・バクステ中可%%備考%%
+$\C$&中段/バクステ中可%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-百式・鬼焼き&\syoryu\ +\ $A$\ or\ $C$&弱上半身無敵・強全身無敵\\%%備考%%
-&&全強度上半身ガードポイント\\
-R.E.D.Kick&\gyakusyoryu\ +\ $B$\ or\ $D$&EX版相手サーチ\\%%備考%%
-弐百拾弐式・琴月 陽&\gyakuyoga\ +\ $A$\ or\ $C$&下段無敵\\%%備考%%
+百式・鬼焼き&\syoryu\ +\ $\A$\ or\ $\C$&弱上半身無敵/強全身無敵\\%%備考%%
+&&全強度上半身GP\\
+R.E.\D.Kick&\gyakusyoryu\ +\ $\B$\ or\ $\D$&EX版相手サーチ\\%%備考%%
+弐百拾弐式・琴月 陽&\gyakuyoga\ +\ $\A$\ or\ $\C$&下段無敵\\%%備考%%
 &&EX版下段無敵\\
-&&EX版上半身ガードポイント\\
-七拾五式・改&\hado\ +\ $B$\ or\ $D$&$B$\ or\ $D$追加で二段目発生\\%%備考%%
-百拾四式・荒咬み&\hado\ +\ $A$&上半身ガードポイント\\%%備考%%
-&(EX毒咬み中)\hado\ +\ $A$&\\
-百弐拾八式・九傷&(荒咬み中)\hado\ +\ $A$&\\%%備考%%
-百弐拾五式・七瀬&(九傷中)$B$\ or\ $D$&\\%%備考%%
-百弐拾七式・八錆&(九傷中)$A$\ or\ $C$&中段\\%%備考%%
+&&EX版上半身GP\\
+七拾五式・改&\hado\ +\ $\B$\ or\ $\D$&$\B$\ or\ $\D$追加で二段目発生\\%%備考%%
+百拾四式・荒咬み&\hado\ +\ $\A$&上半身GP\\%%備考%%
+&(EX毒咬み中)\hado\ +\ $\A$&\\
+百弐拾八式・九傷&(荒咬み中)\hado\ +\ $\A$&\\%%備考%%
+百弐拾五式・七瀬&(九傷中)$\B$\ or\ $\D$&\\%%備考%%
+百弐拾七式・八錆&(九傷中)$\A$\ or\ $\C$&中段\\%%備考%%
 百弐拾七式・八錆&(荒咬み中)\gyakuyoga&中段\\
-&\ +\ $A$\ or\ $C$&\\%%備考%%
-百弐拾五式・七瀬&(八錆中)$B$\ or\ $D$&\\%%備考%%
-外式・砌穿ち&(八錆中)$\downarrow$\ +\ $A$\ or\ $C$&ダウン追い打ち\\%%備考%%
-百拾五式・毒咬み&\hado\ +\ $C$&上半身ガードポイント\\%%備考%%
-&&$A\ C$でEX毒咬み\\
+&\ +\ $\A$\ or\ $\C$&\\%%備考%%
+百弐拾五式・七瀬&(八錆中)$\B$\ or\ $\D$&\\%%備考%%
+外式・砌穿ち&(八錆中)$\downarrow$\ +\ $\A$\ or\ $\C$&ダウン追い打ち\\%%備考%%
+百拾五式・毒咬み&\hado\ +\ $\C$&上半身GP\\%%備考%%
+&&$\A\ \C$でEX毒咬み\\
 四百壱式・罪詠み&(毒咬み中)&\\
-&&\gyakuyoga\ +\ $A$\ or\ $C$&%%備考%%
-四百弐式・罰詠み&(罪詠み中)$\rightarrow$\ +\ $A$\ or\ $C$&\\%%備考%%
-百式・鬼焼き&(罰詠み中)\syoryu\ +\ $A$\ or\ $C$&%%備考%%
+&\gyakuyoga\ +\ $\A$\ or\ $\C$&\\%%備考%%
+四百弐式・罰詠み&(罪詠み中)$\rightarrow$\ +\ $\A$\ or\ $\C$&\\%%備考%%
+百式・鬼焼き&(罰詠み中)\syoryu\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-裏百八式・大蛇薙&\orochi\ +\ $A$\ or\ $C$&弾貫通・上半身無敵\\%%備考%%
-最終決戦奥義・無式&\hado\ \hado\ +\ $A$\ or\ $C$&EX版無し%%備考%%
+裏百八式・大蛇薙&\orochi\ +\ $\A$\ or\ $\C$&弾貫通/上半身無敵\\%%備考%%
+最終決戦奥義/無式&\hado\ \hado\ +\ $\A$\ or\ $\C$&EX版無し%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-最終決戦秘奥義・十拳&\hado\ \hado\ +\ $B\ D$&%%備考%%
+最終決戦秘奥義/十拳&\hado\ \hado\ +\ $\B\ \D$&%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
 \subsection{Mr.カラテ}
 \begin{itembox}[l]{特殊技}
 \begin{tabular}{lll}
-正拳三段突き&$\rightarrow$\ +\ $A$&二段目までヒットバックなし\\%%備考%%
-足刀蹴り&$\rightarrow$\ +\ $B$&%%備考%%
+正拳三段突き&$\rightarrow$\ +\ $\A$&二段目までヒットバックなし\\%%備考%%
+足刀蹴り&$\rightarrow$\ +\ $\B$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{必殺技}
 \begin{tabular}{lll}
-虎煌拳&\hado\ +\ $A$\ or\ $C$&EX版強制ガードクラッシュ\\%%備考%%
+虎煌拳&\hado\ +\ $\A$\ or\ $\C$&EX版強制ガードクラッシュ\\%%備考%%
 虎脚&(強虎煌拳中)$\rightarrow\ \rightarrow$&移動技\\%%備考%%
-虎砲&\syoryu\ +\ $A$\ or\ $C$&弱全身無敵\\%%備考%%
-ブレーキング&(強虎砲中)$A\ B$&\\%%備考%%
-飛燕疾風脚&(空中で)\yoga\ +\ $B$\ or\ $D$&バクステ中可\\%%備考%%
-暫烈拳&\zanretu +\ $A$\ or\ $C$&\\%%備考%%
-翔乱脚&\gyakuyoga\ +\ $B$\ or\ $D$&移動投げ\\%%備考%%
-覇極陣&\tatsu\ +\ $A$\ or\ $C$&当て身技%%備考%%
+虎砲&\syoryu\ +\ $\A$\ or\ $\C$&弱全身無敵\\%%備考%%
+ブレーキング&(強虎砲中)$\A\ \B$&\\%%備考%%
+飛燕疾風脚&(空中で)\yoga\ +\ $\B$\ or\ $\D$&バクステ中可\\%%備考%%
+暫烈拳&\zanretu +\ $\A$\ or\ $\C$&\\%%備考%%
+翔乱脚&\gyakuyoga\ +\ $\B$\ or\ $\D$&移動投げ\\%%備考%%
+覇極陣&\tatsu\ +\ $\A$\ or\ $\C$&当て身技%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{超必殺技}
 \begin{tabular}{lll}
-覇王至高権&$\rightarrow$\ \yoga\ +\ $A$\ or\ $C$&弾貫通・EX版なし\\%%備考%%
-極限虎砲&\hado\ \hado\ +\ $B$\ or\ $D$&EX版なし\\%%備考%%
-龍虎乱舞&\ryuko\ +\ $A$\ or\ $C$&%%備考%%
+覇王至高権&$\rightarrow$\ \yoga\ +\ $\A$\ or\ $\C$&弾貫通/EX版なし\\%%備考%%
+極限虎砲&\hado\ \hado\ +\ $\B$\ or\ $\D$&EX版なし\\%%備考%%
+龍虎乱舞&\ryuko\ +\ $\A$\ or\ $\C$&%%備考%%
 \end{tabular}
 \end{itembox}
 \begin{itembox}[l]{NEOMAX超必殺技}
 \begin{tabular}{lll}
-鬼神山峨撃&\orochi\ +\ $A\ C$&ヒット時演出%%備考%%
+鬼神山峨撃&\orochi\ +\ $\A\ \C$&ヒット時演出%%備考%%
 \end{tabular}
 \end{itembox}
 \newpage
@@ -2164,7 +1822,7 @@ R.E.D.Kick&\gyakusyoryu\ +\ $B$\ or\ $D$&EX版相手サーチ\\%%備考%%
 \part{知っておくと得するかも知れないおまけ}
 \section{ダメージ}
 \begin{itemize}
-  \item ヒット・ガード問わず相手に与えるダメージの最小値は4
+  \item ヒット/ガード問わず相手に与えるダメージの最小値は4
   \item 必殺技以上をガードした時に受けるダメージ(削りダメージ)はヒット時のダメージの6分の1。ただし、一部削りダメージなしの例外あり。
   \item 一部のゲージ消費技の一部に固定ダメージと呼ばれる、補正の影響を受けないダメージが存在する(例:炎庵の豺華が固定90)
 \end{itemize}
